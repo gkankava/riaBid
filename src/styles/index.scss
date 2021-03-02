@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+* {
+  &:active,
+  :focus {
+    outline: none;
+  }
+}
+
+html,
+body {
+  overflow-x: hidden;
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background-color: white;
+}
+
+#root {
+  // position: relative;
+  height: 100%;
+}
+
+//imports
+
+@import "./config.scss";
+@import "./navbar.scss";
+@import "./modal.scss";
+//main
+@import "./main.scss";
+@import "./hero.scss";
+@import "./banners.scss";
+
+//shared slider
+
+@import "./sharedSlider.scss";
+@import "./card.scss";
+
+//shared subscribe
+
+@import "./subscribe.scss";
+
+//shop
+
+@import "./shop.scss";
+@import "./filter.scss";
+@import "./footer.scss";
+@import "./404.scss";
+@import "./produt-det.scss";
