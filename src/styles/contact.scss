@@ -1,0 +1,28 @@
+.contact-container {
+  margin: 55px 0;
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border: 1px solid #e6e6e6;
+    margin: 33px 0;
+    @media screen and(max-width: 768px) {
+      margin: 23px 0;
+    }
+    input,
+    textarea {
+      margin: 7px 0;
+      padding: 15px 22px;
+      font-size: 18px;
+      border: 1px solid #e6e6e6;
+      @media screen and(max-width: 768px) {
+        font-size: 14px;
+      }
+    }
+    input[type="submit"] {
+      color: #fff;
+      background: #000;
+      border-radius: 6px;
+    }
+  }
+}

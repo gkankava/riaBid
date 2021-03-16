@@ -16,8 +16,9 @@ function footer() {
         <div className="col col1">
           <img src={logo} alt="" />
           <p>
-            High quality Azerbaijani furniture made from eco-friendly materials.
-            Designed for modern, minimalist apartments
+            The Ria Keburia Foundation, founded in 2018 by the Georgian patron
+            of the arts Ria Keburia, aims to support development of contemporary
+            art scene in Georgia and South Caucasus.
           </p>
           <div className="social-list">
             <FaFacebookF />
@@ -29,50 +30,30 @@ function footer() {
         </div>
         <div className="col-wrapper">
           <div className="col col2">
-            <h4>Shopping</h4>
+            <h4>Abou RiaBid</h4>
             <ul>
               <li>
-                <Link to="/text">Shopping</Link>
+                <Link to="/text">About Us</Link>
               </li>
               <li>
-                <Link to="/text">Delivery</Link>
+                <Link to="/text">Our Artists</Link>
               </li>
               <li>
-                <Link to="/text">Contact Us</Link>
+                <Link to="/contact">Contacts</Link>
               </li>
             </ul>
           </div>
           <div className="col col3">
-            <h4>Information</h4>
+            <h4>Partnerships</h4>
             <ul>
               <li>
-                <Link to="/text">Gift Cards</Link>
+                <Link to="/text">Galleries</Link>
               </li>
               <li>
-                <Link to="/text">Find a store</Link>
+                <Link to="/text">Auctions</Link>
               </li>
               <li>
-                <Link to="/text">Newsletter</Link>
-              </li>
-              <li>
-                <Link to="/text">Become a member</Link>
-              </li>
-              <li>
-                <Link to="/text">Site Feedback</Link>
-              </li>
-            </ul>
-          </div>
-          <div className="col col3">
-            <h4>Contact</h4>
-            <ul>
-              <li>
-                <Link to="/text">Shopping</Link>
-              </li>
-              <li>
-                <Link to="/text">Delivery</Link>
-              </li>
-              <li>
-                <Link to="/text">Contact Us</Link>
+                <Link to="/text">Artworks</Link>
               </li>
             </ul>
           </div>
