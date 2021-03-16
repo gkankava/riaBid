@@ -7,6 +7,7 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function footer() {
   return (
@@ -30,27 +31,49 @@ function footer() {
           <div className="col col2">
             <h4>Shopping</h4>
             <ul>
-              <li>Shopping</li>
-              <li>Delivery</li>
-              <li>Contact Us</li>
+              <li>
+                <Link to="/text">Shopping</Link>
+              </li>
+              <li>
+                <Link to="/text">Delivery</Link>
+              </li>
+              <li>
+                <Link to="/text">Contact Us</Link>
+              </li>
             </ul>
           </div>
           <div className="col col3">
             <h4>Information</h4>
             <ul>
-              <li>Gift Cards</li>
-              <li>Find a store</li>
-              <li>Newsletter</li>
-              <li>Become a member</li>
-              <li>site feedback</li>
+              <li>
+                <Link to="/text">Gift Cards</Link>
+              </li>
+              <li>
+                <Link to="/text">Find a store</Link>
+              </li>
+              <li>
+                <Link to="/text">Newsletter</Link>
+              </li>
+              <li>
+                <Link to="/text">Become a member</Link>
+              </li>
+              <li>
+                <Link to="/text">Site Feedback</Link>
+              </li>
             </ul>
           </div>
           <div className="col col3">
             <h4>Contact</h4>
             <ul>
-              <li>Shopping</li>
-              <li>Delivery</li>
-              <li>Contact Us</li>
+              <li>
+                <Link to="/text">Shopping</Link>
+              </li>
+              <li>
+                <Link to="/text">Delivery</Link>
+              </li>
+              <li>
+                <Link to="/text">Contact Us</Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -59,7 +82,7 @@ function footer() {
         <div className="hr-comp" />
       </div>
       <div className="bottom">
-        <p>DESIGN BY NEMANLI - © 2020. ALL RIGHTS RESERVED.</p>
+        <p>DESIGN BY MAGSMAN - © 2020. ALL RIGHTS RESERVED.</p>
       </div>
     </footer>
   );

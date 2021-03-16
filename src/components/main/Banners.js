@@ -8,14 +8,14 @@ function Banners() {
       <div className="banner-item-wrapper orange">
         <img src={img1} alt="" />
         <div className="banner-item-content-wrapper">
-          <p>New collection available now</p>
+          <p>Trending artworks</p>
           <button className="btn-placebid">VIEW ALL</button>
         </div>
       </div>
       <div className="banner-item-wrapper blue">
         <img src={img2} alt="" />
         <div className="banner-item-content-wrapper">
-          <p>New collection available now</p>
+          <p>Auctions</p>
           <button className="btn-placebid">VIEW ALL</button>
         </div>
       </div>

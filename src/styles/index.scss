@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 * {
   &:active,
@@ -52,3 +53,7 @@ body {
 @import "./footer.scss";
 @import "./404.scss";
 @import "./produt-det.scss";
+
+//textpages
+
+@import "./text.scss";

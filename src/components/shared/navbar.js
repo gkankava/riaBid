@@ -86,7 +86,7 @@ function Navbar() {
                         : "white",
                   }}
                 >
-                  Women
+                  Artists
                 </NavLink>
               </li>
               <li>
@@ -102,7 +102,7 @@ function Navbar() {
                         : "white",
                   }}
                 >
-                  Men
+                  Artworks
                 </NavLink>
               </li>
               <li>
@@ -118,7 +118,7 @@ function Navbar() {
                         : "white",
                   }}
                 >
-                  Fragrances
+                  Auctions
                 </NavLink>
               </li>
               <li>
@@ -134,39 +134,7 @@ function Navbar() {
                         : "white",
                   }}
                 >
-                  Beauty
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to={`/store`}
-                  activeClassName="active-item"
-                  style={{
-                    color:
-                      pathName !== "/"
-                        ? "black"
-                        : vW <= 768 && pathName === "/"
-                        ? "black"
-                        : "white",
-                  }}
-                >
-                  Books
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to={`/store`}
-                  activeClassName="active-item"
-                  style={{
-                    color:
-                      pathName !== "/"
-                        ? "black"
-                        : vW <= 768 && pathName === "/"
-                        ? "black"
-                        : "white",
-                  }}
-                >
-                  Sale
+                  Galleries
                 </NavLink>
               </li>
             </ul>

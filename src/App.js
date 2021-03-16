@@ -5,6 +5,7 @@ import Footer from "./components/shared/footer";
 import Subscribe from "./components/shared/Subscribe";
 import Main from "./containers/main";
 import Shop from "./containers/shop";
+import Text from "./containers/text";
 import Product from "./containers/productDet";
 import NotFound404 from "./components/shared/404";
 import "./styles/index.scss";
@@ -15,6 +16,7 @@ function App() {
       <Switch>
         <Route exact path="/" render={(props) => <Main {...props} />} />
         <Route exact path="/store" render={(props) => <Shop {...props} />} />
+        <Route exact path="/text" render={(props) => <Text {...props} />} />
         <Route
           exact
           path="/store/:index"
