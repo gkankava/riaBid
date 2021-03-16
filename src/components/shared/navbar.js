@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import ll from "../../assets/logo-light.svg";
 import ld from "../../assets/logo-def.svg";
+import ln from "../../assets/logo-new.svg";
+import ria from "../../assets/riabid.svg";
+import arrow from "../../assets/icons/arrow-down.svg";
+import arrowbl from "../../assets/icons/arrow-black.svg";
+
 import search from "../../assets/icons/search.svg";
 import searchDark from "../../assets/icons/search-dark.svg";
 import user from "../../assets/icons/user.svg";
@@ -42,14 +47,12 @@ function Navbar() {
   return (
     <header>
       <div className="container">
-        <a href="/">
-          <img className="logo" src={pathName === "/" ? ll : ld} alt="logo" />
+        <a className="logo-container" href="/">
+          <img className="logo" src={ln} alt="logo" />
+          <img className="logo-text" src={ria} alt="logo-text" />
         </a>
         <nav className={navActive ? "nav-active" : null}>
-          <div
-            className={navActive ? "overlay" : null}
-            onClick={() => setNavActive(false)}
-          />
+          <div className="overlay" onClick={() => setNavActive(false)} />
           <div className="list-container">
             <div className="nav-login-container">
               <button
@@ -75,7 +78,7 @@ function Navbar() {
             <ul>
               <li>
                 <NavLink
-                  to={`/store`}
+                  to={`/artists`}
                   activeClassName="active-item"
                   style={{
                     color:
@@ -87,6 +90,11 @@ function Navbar() {
                   }}
                 >
                   Artists
+                  <img
+                    className="arrow"
+                    src={pathName == "/" ? arrow : arrowbl}
+                    alt="logo-text"
+                  />
                 </NavLink>
               </li>
               <li>
@@ -103,11 +111,16 @@ function Navbar() {
                   }}
                 >
                   Artworks
+                  <img
+                    className="arrow"
+                    src={pathName == "/" ? arrow : arrowbl}
+                    alt="logo-text"
+                  />
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                  to={`/store`}
+                  to={`/auctions`}
                   activeClassName="active-item"
                   style={{
                     color:
@@ -119,11 +132,16 @@ function Navbar() {
                   }}
                 >
                   Auctions
+                  <img
+                    className="arrow"
+                    src={pathName == "/" ? arrow : arrowbl}
+                    alt="logo-text"
+                  />
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                  to={`/store`}
+                  to={`/galleries`}
                   activeClassName="active-item"
                   style={{
                     color:
@@ -135,6 +153,11 @@ function Navbar() {
                   }}
                 >
                   Galleries
+                  <img
+                    className="arrow"
+                    src={pathName == "/" ? arrow : arrowbl}
+                    alt="logo-text"
+                  />
                 </NavLink>
               </li>
             </ul>
