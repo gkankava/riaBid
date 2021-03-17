@@ -40,7 +40,7 @@ header {
       position: fixed;
       top: 0;
       right: 0;
-      height: 100vh;
+      height: 100%;
       width: 100%;
       transform: translateX(100%);
       transition: transform 0.3s ease;
@@ -97,14 +97,16 @@ header {
       transform: translateX(0);
       .overlay {
         opacity: 100%;
+        width: 20%;
       }
     }
     .overlay {
-      width: 20%;
+      width: 0;
+
       height: 100vh;
       opacity: 0;
       background-color: rgba($color: #000000, $alpha: 0.3);
-      transition: 3s;
+      transition: opacity 3s;
     }
     .btn-container {
       display: flex;
@@ -133,7 +135,7 @@ header {
         position: unset;
         top: unset;
         right: unset;
-        height: unset;
+
         width: 65%;
         transform: unset;
         transition: unset;

@@ -16,6 +16,7 @@ body {
   overflow-x: hidden;
   position: relative;
   height: 100%;
+  font-size: 12px;
 }
 
 body {
@@ -25,6 +26,17 @@ body {
 #root {
   // position: relative;
   height: 100%;
+}
+
+.flex {
+  display: flex;
+}
+.space-between {
+  justify-content: space-between;
+}
+
+.column {
+  flex-direction: column;
 }
 
 //imports
@@ -61,3 +73,6 @@ body {
 //contact
 
 @import "./contact.scss";
+
+//auctions
+@import "./auctions.scss";
