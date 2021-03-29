@@ -39,6 +39,19 @@ body {
   flex-direction: column;
 }
 
+.main-button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 300ms;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
 //imports
 
 @import "./config.scss";
@@ -76,3 +89,6 @@ body {
 
 //auctions
 @import "./auctions.scss";
+
+//auctions
+@import "./galleries.scss";

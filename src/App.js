@@ -5,6 +5,8 @@ import Footer from "./components/shared/footer";
 import Subscribe from "./components/shared/Subscribe";
 import Main from "./containers/main";
 import Shop from "./containers/shop";
+import Galleries from "./containers/galleries";
+
 import Contact from "./containers/contact";
 import Auctions from "./containers/auctions";
 import Text from "./containers/text";
@@ -18,6 +20,11 @@ function App() {
       <Switch>
         <Route exact path="/" render={(props) => <Main {...props} />} />
         <Route exact path="/store" render={(props) => <Shop {...props} />} />
+        <Route
+          exact
+          path="/galleries"
+          render={(props) => <Galleries {...props} />}
+        />
         <Route
           exact
           path="/auctions"

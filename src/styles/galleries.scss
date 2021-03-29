@@ -1,0 +1,58 @@
+.galleries {
+  ul.breadcrumb {
+    padding: 10px 16px 10px 0;
+    list-style: none;
+
+    li {
+      display: inline;
+      font-size: 18px;
+
+      a {
+        color: #b2b2b2;
+        text-decoration: none;
+        &:hover {
+          color: #01447e;
+        }
+      }
+    }
+    li + li {
+      &:before {
+        padding: 8px;
+        color: #b2b2b2;
+        content: "/\00a0";
+      }
+    }
+  }
+
+  .grid-container-galleries {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5%;
+    margin: 3em 0;
+    @media screen and (max-width: 768px) {
+      grid-template-columns: 1fr;
+      grid-gap: 1%;
+    }
+    .product {
+      .img {
+        overflow: hidden;
+        height: 100%;
+        img {
+          transition: all 150ms;
+          width: 100%;
+        }
+      }
+      .title {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #000;
+      }
+      .location,
+      .time {
+        font-size: 1.5rem;
+        font-weight: 300;
+        align-self: flex-end;
+      }
+    }
+  }
+}
