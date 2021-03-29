@@ -36,7 +36,7 @@ function Modal({ type, setAuthModalActive }) {
                 <div className="forget">Forgot password?</div>
               </div>
             </div>
-            <div className="modal-btn-container">
+            {/*<div className="modal-btn-container">
               <button
                 className="btn btn-fb"
                 onClick={() => {
@@ -61,7 +61,7 @@ function Modal({ type, setAuthModalActive }) {
               >
                 G mail
               </button>
-            </div>
+              </div>*/}
             <button
               className="btn-signup"
               onClick={() => {
@@ -89,14 +89,42 @@ function Modal({ type, setAuthModalActive }) {
           <>
             <h3>Create an account</h3>
             <div className="input-container">
+              <div className="wrapper">
+                <input type="radio" name="type" id="option-1" defaultChecked />
+                <input type="radio" name="type" id="option-2" />
+                <input type="radio" name="type" id="option-3" />
+                <input type="radio" name="type" id="option-4" />
+                <label htmlFor="option-1" className="option option-1">
+                  <span>Buyer</span>
+                </label>
+                <label htmlFor="option-2" className="option option-2">
+                  <span>Artist</span>
+                </label>
+                <label htmlFor="option-3" className="option option-3">
+                  <span>Seller</span>
+                </label>
+                <label htmlFor="option-4" className="option option-4">
+                  <span>Lander</span>
+                </label>
+              </div>
               <input type="text" name="" id="" placeholder="First Name" />
               <input type="text" name="" id="" placeholder="Last Name" />
               <input type="text" name="" id="" placeholder="E-mail" />
               <input type="password" name="" id="" placeholder="Password" />
+              <div className="wrapper">
+                <input type="radio" name="legal" id="option-5" defaultChecked />
+                <input type="radio" name="legal" id="option-6" />
+                <label htmlFor="option-5" className="option option-5">
+                  <span>Physical</span>
+                </label>
+                <label htmlFor="option-6" className="option option-6">
+                  <span>Legal</span>
+                </label>
+              </div>
               <div className="keep-wrapper-signup">
                 <input type="checkbox" name="" id="" />
                 <span className="terms-span">
-                  I agree to the Google Terms of Service and Privacy Policy
+                  I agree to the Terms of Service and Privacy Policy
                 </span>
               </div>
             </div>

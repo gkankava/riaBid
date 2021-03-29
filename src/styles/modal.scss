@@ -11,7 +11,7 @@
   justify-content: center;
   .modal-container {
     position: relative;
-    height: 70%;
+    height: 80%;
     width: 90%;
     max-width: 470px;
     background-color: white;
@@ -94,6 +94,7 @@
       justify-content: space-between;
       width: 100%;
       margin-bottom: 10px;
+
       .btn {
         //   width: 140px;
         width: 48%;
@@ -105,6 +106,7 @@
       }
     }
     .btn-signup {
+      margin-top: 10px;
       width: 100%;
       height: 47px;
       font-size: 12px;

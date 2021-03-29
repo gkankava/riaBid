@@ -52,6 +52,142 @@ body {
   }
 }
 
+//Custom radio
+
+.wrapper {
+  width: 90%;
+  display: flex;
+  align-items: center;
+
+  background: #fff;
+  height: 100px;
+
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 20px;
+  padding: 20px 0;
+
+  .option {
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 0 5px;
+    border: 2px solid lightgrey;
+    transition: all 0.3s ease;
+    span {
+      font-size: 15px;
+      color: #808080;
+    }
+  }
+}
+input[type="radio"] {
+  display: none;
+}
+#option-1 {
+  &:checked {
+    &:checked {
+      ~ {
+        .option-1 {
+          border-color: #fbb03b;
+          background: #fbb03b;
+
+          span {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+#option-2 {
+  &:checked {
+    &:checked {
+      ~ {
+        .option-2 {
+          border-color: #fbb03b;
+          background: #fbb03b;
+
+          span {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+#option-3 {
+  &:checked {
+    &:checked {
+      ~ {
+        .option-3 {
+          border-color: #fbb03b;
+          background: #fbb03b;
+
+          span {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+#option-4 {
+  &:checked {
+    &:checked {
+      ~ {
+        .option-4 {
+          border-color: #fbb03b;
+          background: #fbb03b;
+
+          span {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+#option-5 {
+  &:checked {
+    &:checked {
+      ~ {
+        .option-5 {
+          border-color: #fbb03b;
+          background: #fbb03b;
+
+          span {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+#option-6 {
+  &:checked {
+    &:checked {
+      ~ {
+        .option-6 {
+          border-color: #fbb03b;
+          background: #fbb03b;
+
+          span {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
 //imports
 
 @import "./config.scss";
