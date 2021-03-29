@@ -1,0 +1,47 @@
+.artworks-container {
+  padding: 30px 38px;
+  border: 1px solid #e6e6e6;
+  .add {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    img {
+      margin-right: 10px;
+    }
+  }
+  .artworks-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    @media screen and (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+    .artwork-item {
+      padding: 12px;
+      border: 1px solid #e6e6e6;
+      align-items:center;
+      display: flex;
+      justify-content: space-between;
+      .name {
+        font-size: 15px;
+      }
+      .country {
+        font-size: 17px;
+        color: #7f7f7f;
+      }
+      img {
+        width: 3.5vw;
+        object-fit: contain;
+        margin-right: 14px;
+        @media screen and (max-width: 768px) {
+          width: 10vw;
+        }
+      }
+      button {
+        align-self: center;
+      }
+    }
+  }
+}
