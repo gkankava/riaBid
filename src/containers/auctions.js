@@ -4,9 +4,17 @@ import CardGrid from "../components/shop/CardGrid";
 import { GoSettings } from "react-icons/go";
 import cardImg from "../assets/dummy/cardImage.jpg";
 import { Link } from "react-router-dom";
+import { QueryClient, useQuery } from "react-query";
+import { getAuctions } from "../services/auctionsService";
+const queryClient = new QueryClient();
 
 function Auctions(props) {
   const [filter, setFilter] = React.useState(false);
+  const { isLoading, error, data } = useQuery("auctions", getAuctions);
+
+  if (isLoading) return "Loading...";
+
+  if (error) return "An error has occurred: " + error.message;
 
   return (
     <section id="shop" className="container auctions">
@@ -19,103 +27,24 @@ function Auctions(props) {
         </li>
       </ul>
       <div className="grid-container-auctions">
-        <div className="product flex column">
-          <Link to="/store/0">
-            <div className="img">
-              <img src={cardImg}></img>
-            </div>
+        {data.data.map((item) => (
+          <div className="product flex column">
+            <Link to={"/store/" + item.id}>
+              <div className="img">
+                <img src={cardImg}></img>
+              </div>
 
-            <p className="title">T-Shirt Summer Vibes</p>
-          </Link>
-          <div className="flex space-between">
-            <div className="flex">
-              <p class="price">$89.99</p>
-              <p class="price gray">$119.99</p>
+              <p className="title">T-Shirt Summer Vibes</p>
+            </Link>
+            <div className="flex space-between">
+              <div className="flex">
+                <p class="price">$89.99</p>
+                <p class="price gray">$119.99</p>
+              </div>
+              <p class="time gray">6d 9h</p>
             </div>
-            <p class="time gray">6d 9h</p>
           </div>
-        </div>
-
-        <div className="product flex column">
-          <Link to="/store/0">
-            <div className="img">
-              <img src={cardImg}></img>
-            </div>
-
-            <p className="title">T-Shirt Summer Vibes</p>
-          </Link>
-          <div className="flex space-between">
-            <div className="flex">
-              <p class="price">$89.99</p>
-              <p class="price gray">$119.99</p>
-            </div>
-            <p class="time gray">6d 9h</p>
-          </div>
-        </div>
-        <div className="product flex column">
-          <Link to="/store/0">
-            <div className="img">
-              <img src={cardImg}></img>
-            </div>
-
-            <p className="title">T-Shirt Summer Vibes</p>
-          </Link>
-          <div className="flex space-between">
-            <div className="flex">
-              <p class="price">$89.99</p>
-              <p class="price gray">$119.99</p>
-            </div>
-            <p class="time gray">6d 9h</p>
-          </div>
-        </div>
-        <div className="product flex column">
-          <Link to="/store/0">
-            <div className="img">
-              <img src={cardImg}></img>
-            </div>
-
-            <p className="title">T-Shirt Summer Vibes</p>
-          </Link>
-          <div className="flex space-between">
-            <div className="flex">
-              <p class="price">$89.99</p>
-              <p class="price gray">$119.99</p>
-            </div>
-            <p class="time gray">6d 9h</p>
-          </div>
-        </div>
-        <div className="product flex column">
-          <Link to="/store/0">
-            <div className="img">
-              <img src={cardImg}></img>
-            </div>
-
-            <p className="title">T-Shirt Summer Vibes</p>
-          </Link>
-          <div className="flex space-between">
-            <div className="flex">
-              <p class="price">$89.99</p>
-              <p class="price gray">$119.99</p>
-            </div>
-            <p class="time gray">6d 9h</p>
-          </div>
-        </div>
-        <div className="product flex column">
-          <Link to="/store/0">
-            <div className="img">
-              <img src={cardImg}></img>
-            </div>
-
-            <p className="title">T-Shirt Summer Vibes</p>
-          </Link>
-          <div className="flex space-between">
-            <div className="flex">
-              <p class="price">$89.99</p>
-              <p class="price gray">$119.99</p>
-            </div>
-            <p class="time gray">6d 9h</p>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

@@ -9,7 +9,7 @@ function Card({ type, img, name, price, secondParam, timeRemaining, index }) {
         <h4 className="name">{name}</h4>
         <div className="content-wrapper">
           <div className="first-wrapper">
-            <span className="price">{price}</span>
+            <span className="price">{price}$</span>
             {type !== "auction" && secondParam ? (
               <span className="sale">{secondParam}</span>
             ) : type === "auction" ? (

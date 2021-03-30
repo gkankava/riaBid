@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Filter from "../components/shop/Filter";
 import CardGrid from "../components/shop/CardGrid";
 import { GoSettings } from "react-icons/go";
+import { getArtworks } from "../services/artworksService";
+import { useQuery } from "react-query";
 
 function Shop(props) {
-  const [filter, setFilter] = React.useState(false);
+  const [filter, setFilter] = useState(false);
 
   return (
     <section id="shop" className="container">
@@ -24,9 +26,6 @@ function Shop(props) {
             className="statusbar"
             style={{ gridArea: "top", height: "30px", marginBottom: "30px" }}
           >
-            <h4 style={{ fontSize: 28, fontWeight: 300 }}>
-              Best Pictures <span style={{ color: "#D8D8D8" }}>(133)</span>
-            </h4>
             <div className="wrapper" style={{ display: "flex" }}>
               <div className="inner-wrap">
                 <h4>Show Product:</h4>

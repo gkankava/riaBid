@@ -3,8 +3,11 @@ import small from "../assets/product/small-img.png";
 import main from "../assets/product/main.png";
 import clock from "../assets/product/clock.png";
 import SharedSlider from "../components/shared/SharedSlider";
+import { getAuction } from "../services/auctionsService";
+import { QueryClient, useQuery } from "react-query";
+const queryClient = new QueryClient();
 
-function productDet() {
+export default function productDet() {
   return (
     <section className="product-details">
       <div className="container product-page">
@@ -51,5 +54,3 @@ function productDet() {
     </section>
   );
 }
-
-export default productDet;

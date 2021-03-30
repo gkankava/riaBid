@@ -1,6 +1,8 @@
 import React from "react";
 import Card from "../shared/Card";
 import cardImg from "../../assets/dummy/cardImage.jpg";
+import { useQuery } from "react-query";
+import { getArtworks } from "../../services/artworksService";
 function CardGrid({ auction }) {
   const dummy = [
     {
@@ -88,16 +90,20 @@ function CardGrid({ auction }) {
       secondParam: auction ? "0 Bids" : "$999.99",
     },
   ];
+  const { isLoading, error, data } = useQuery("artworks", getArtworks);
 
-  let items = dummy.map((i, k) => {
+  if (isLoading) return "Loading...";
+
+  if (error) return "An error has occurred: " + error.message;
+  let items = data.data.map((i, k) => {
     return (
       <Card
         key={k}
-        index={k}
-        type={i.type}
-        name={i.name}
-        img={i.img}
-        price={i.price}
+        index={i.id}
+        type={i.on_auction}
+        name={i.title}
+        img={"https://www.riabid.ge/static/media/cardImage.f1ffd350.jpg"}
+        price={i.buy_it_now}
         secondParam={i.secondParam || undefined}
       />
     );
