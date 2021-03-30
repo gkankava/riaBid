@@ -36,7 +36,10 @@ function footer() {
                 <Link to="/text">About Us</Link>
               </li>
               <li>
-                <Link to="/text">Our Artists</Link>
+                <Link to="/buy">Buying on Ria Bid</Link>
+              </li>
+              <li>
+                <Link to="/sell">Selling on Ria Bid</Link>
               </li>
               <li>
                 <Link to="/contact">Contacts</Link>

@@ -20,75 +20,84 @@ import Text from "./containers/text";
 import Product from "./containers/productDet";
 import NotFound404 from "./components/shared/404";
 import "./styles/index.scss";
+import { QueryClient, QueryClientProvider, useQuery } from "react-query";
+import Buy from "./containers/buy";
+import Sell from "./containers/sell";
+
+const queryClient = new QueryClient();
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Switch>
-        <Route exact path="/" render={(props) => <Main {...props} />} />
-        <Route exact path="/store" render={(props) => <Shop {...props} />} />
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" render={(props) => <Main {...props} />} />
+          <Route exact path="/store" render={(props) => <Shop {...props} />} />
 
-        <Route
-          exact
-          path="/dashboard"
-          render={(props) => <Dashboard {...props} />}
-        />
-        <Route
-          exact
-          path="/artists"
-          render={(props) => <Artists {...props} />}
-        />
-        <Route
-          exact
-          path="/dashboard/artists"
-          render={(props) => <ArtistsDashboard {...props} />}
-        />
-        <Route
-          exact
-          path="/dashboard/artworks"
-          render={(props) => <ArtworksDashboard {...props} />}
-        />
-        <Route
-          exact
-          path="/dashboard/account"
-          render={(props) => <AccountDashboard {...props} />}
-        />
-        <Route
-          exact
-          path="/dashboard/favorites"
-          render={(props) => <FavoritesDashboard {...props} />}
-        />
-        <Route
-          exact
-          path="/dashboard/history"
-          render={(props) => <HistoryDashboard {...props} />}
-        />
-        <Route
-          exact
-          path="/galleries"
-          render={(props) => <Galleries {...props} />}
-        />
-        <Route
-          exact
-          path="/auctions"
-          render={(props) => <Auctions {...props} />}
-        />
-        <Route
-          exact
-          path="/contact"
-          render={(props) => <Contact {...props} />}
-        />
-        <Route exact path="/text" render={(props) => <Text {...props} />} />
-        <Route
-          exact
-          path="/store/:index"
-          render={(props) => <Product {...props} />}
-        />
-        <Route render={(props) => <NotFound404 />} />
-      </Switch>
-      <Subscribe />
-      <Footer />
-    </BrowserRouter>
+          <Route
+            exact
+            path="/dashboard"
+            render={(props) => <Dashboard {...props} />}
+          />
+          <Route
+            exact
+            path="/artists"
+            render={(props) => <Artists {...props} />}
+          />
+          <Route exact path="/buy" render={(props) => <Buy {...props} />} />
+          <Route exact path="/sell" render={(props) => <Sell {...props} />} />
+          <Route
+            exact
+            path="/dashboard/artists"
+            render={(props) => <ArtistsDashboard {...props} />}
+          />
+          <Route
+            exact
+            path="/dashboard/artworks"
+            render={(props) => <ArtworksDashboard {...props} />}
+          />
+          <Route
+            exact
+            path="/dashboard/account"
+            render={(props) => <AccountDashboard {...props} />}
+          />
+          <Route
+            exact
+            path="/dashboard/favorites"
+            render={(props) => <FavoritesDashboard {...props} />}
+          />
+          <Route
+            exact
+            path="/dashboard/history"
+            render={(props) => <HistoryDashboard {...props} />}
+          />
+          <Route
+            exact
+            path="/galleries"
+            render={(props) => <Galleries {...props} />}
+          />
+          <Route
+            exact
+            path="/auctions"
+            render={(props) => <Auctions {...props} />}
+          />
+          <Route
+            exact
+            path="/contact"
+            render={(props) => <Contact {...props} />}
+          />
+          <Route exact path="/text" render={(props) => <Text {...props} />} />
+          <Route
+            exact
+            path="/store/:index"
+            render={(props) => <Product {...props} />}
+          />
+          <Route render={(props) => <NotFound404 />} />
+        </Switch>
+        <Subscribe />
+        <Footer />
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 }
 

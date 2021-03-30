@@ -14,52 +14,17 @@ function Text(props) {
       <h1>About Us</h1>
       <div className="grid-container-text">
         <div class="first">
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, It is a long established fact that a reader will be
-          distracted by the readable content of a page when looking at its
-          layout. The point of using Lorem Ipsum is that it has a more-or-less
-          normal distribution of letters, It is a long established fact that a
-          reader will be distracted by the readable content of a page when
-          looking at its layout. The point of using Lorem Ipsum is that it has a
-          more-or-less normal distribution of letters,
-        </div>
-        <div class="second">
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, It is a long established fact that a reader will be
-          distracted by the readable content of a page when looking at its
-          layout. The point of using Lorem Ipsum is that it has a more-or-less
-          normal distribution of letters, It is a long established fact that a
-          reader will be distracted by the readable content of a page when
-          looking at its layout. The point of using Lorem Ipsum is that it has a
-          more-or-less normal distribution of letters,
-        </div>
-        <div class="third">
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, It is a long established fact that a reader will be
-          distracted by the readable content of a page when looking at its
-          layout. The point of using Lorem Ipsum is that it has a more-or-less
-          normal distribution of letters, It is a long established fact that a
-          reader will be distracted by the readable content of a page when
-          looking at its layout. The point of using Lorem Ipsum is that it has a
-          more-or-less normal distribution of letters,
-        </div>
-        <div class="forth">
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, It is a long established fact that a reader will be
-          distracted by the readable content of a page when looking at its
-          layout. The point of using Lorem Ipsum is that it has a more-or-less
-          normal distribution of letters, It is a long established fact that a
-          reader will be distracted by the readable content of a page when
-          looking at its layout. The point of using Lorem Ipsum is that it has a
-          more-or-less normal distribution of letters,
+          Ria Bid is a fundraising online auction oriented towards buying and
+          selling Georgian art . Ria Bid features Georgia’s famous art salons,
+          private collections, artist , sellers - all in one place. Served as a
+          protection racket of NCLA RIA KEBURIA FOUNDATION , online platform
+          collects funds for the following reasons : establishing newer wider
+          residency programs; covering production costs of future artworks;
+          development of the academic programs , workshops , exchange programs ;
+          setting up COVID 19 grant for artist support in the time of ongoing
+          pandemic. Our platform is suitable for art lovers, patrons,
+          collectors, students, and educators to discover, learn about, and
+          collect art inside and outside Georgia.
         </div>
       </div>
     </section>
