@@ -44,3 +44,39 @@
     }
   }
 }
+
+.letters {
+  display: flex;
+  justify-content: center;
+  button {
+    background: none;
+    border: none;
+  }
+  .letter {
+    cursor: pointer;
+    padding: 7px 19px;
+    box-sizing: border-box;
+    font-size: 24px;
+    font-weight: 400;
+    &.active {
+      border: 1px solid #000;
+      border-radius: 2px;
+    }
+  }
+}
+
+.artist-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+  .letter {
+    font-size: 28px;
+    font-weight: 800;
+  }
+  .artist {
+    font-size: 24px;
+    font-weight: 300;
+  }
+}
