@@ -66,7 +66,7 @@ function Artists(props) {
             <div>
               <p className="letter">{key}</p>
               {formatted_data[key].children.map((item) => (
-                <p className="artist">{item.given_name}</p>
+                <p className="artist">{item.display_name}</p>
               ))}
             </div>
           ))}
