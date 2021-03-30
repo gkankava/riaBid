@@ -51,8 +51,9 @@ export async function changeEmail({ email }) {
 }
 
 export async function register(dt) {
-  const { data } = await http.post(apiUrl + "/user/register", dt);
-  return data;
+  const { data: jwt } = await http.post(apiUrl + "/user/register", dt);
+  localStorage.setItem(tokenKey, jwt);
+  return jwt;
 }
 
 export async function checkPassword({ email, password }) {

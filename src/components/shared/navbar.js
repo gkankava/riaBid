@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import ll from "../../assets/logo-light.svg";
 import ld from "../../assets/logo-def.svg";
 import ln from "../../assets/logo-new.svg";
@@ -16,6 +16,7 @@ import hamburgerDark from "../../assets/icons/hamburger-dark.svg";
 import { userProvider } from "../../store/store";
 
 import Modal from "./modal";
+import { logout } from "../../services/authService";
 
 function Navbar() {
   const { currentUser } = userProvider();
@@ -54,27 +55,45 @@ function Navbar() {
         <nav className={navActive ? "nav-active" : null}>
           <div className="overlay" onClick={() => setNavActive(false)} />
           <div className="list-container">
-            <div className="nav-login-container">
-              <button
-                className="btn-signin"
-                onClick={() => {
-                  setAuthModalActive({ login: true, register: false });
-                  setNavActive(false);
-                }}
-              >
-                SIGN IN
-              </button>
-              <p style={{ fontSize: "16px" }}>or</p>
-              <button
-                className="btn-create"
-                onClick={() => {
-                  setAuthModalActive({ login: false, register: true });
-                  setNavActive(false);
-                }}
-              >
-                CREATE
-              </button>
-            </div>
+            {currentUser.isAuthenticated ? (
+              <div className="nav-login-container">
+                <Link onClick={() => setNavActive(false)} to="/dashboard">
+                  User
+                </Link>
+                <button
+                  className="btn-create"
+                  onClick={() => {
+                    setAuthModalActive({ login: false, register: true });
+                    setNavActive(false);
+                  }}
+                >
+                  CREATE
+                </button>
+              </div>
+            ) : (
+              <div className="nav-login-container">
+                <button
+                  className="btn-signin"
+                  onClick={() => {
+                    setAuthModalActive({ login: true, register: false });
+                    setNavActive(false);
+                  }}
+                >
+                  SIGN IN
+                </button>
+                <p style={{ fontSize: "16px" }}>or</p>
+                <button
+                  className="btn-create"
+                  onClick={() => {
+                    setAuthModalActive({ login: false, register: true });
+                    setNavActive(false);
+                  }}
+                >
+                  CREATE
+                </button>
+              </div>
+            )}
+
             <ul>
               <li>
                 <NavLink
@@ -169,44 +188,78 @@ function Navbar() {
             src={pathName === "/" ? search : searchDark}
             alt="search-btn"
           />
-          <div className="account-wrapper">
-            <img
-              className="user-btn"
-              src={pathName === "/" ? user : userDark}
-              alt="user-btn"
-              onClick={() => setAuthActive(!authActive)}
-            />
-            <div
-              className={authActive ? "triangle triangle-active" : "triangle"}
-            />
-            <div
-              className={
-                authActive
-                  ? "account-in-container account-in-container-active"
-                  : "account-in-container"
-              }
-            >
-              <button
-                className="btn-signin"
-                onClick={() => {
-                  setAuthModalActive({ login: true, register: false });
-                  setAuthActive(false);
-                }}
+          {currentUser.isAuthenticated ? (
+            <div className="account-wrapper">
+              <img
+                className="user-btn"
+                src={pathName === "/" ? user : userDark}
+                alt="user-btn"
+                onClick={() => setAuthActive(!authActive)}
+              />
+              <div
+                className={authActive ? "triangle triangle-active" : "triangle"}
+              />
+              <div
+                className={
+                  authActive
+                    ? "account-in-container account-in-container-active"
+                    : "account-in-container"
+                }
               >
-                SIGN IN
-              </button>
-              <p style={{ fontSize: "16px" }}>or</p>
-              <button
-                className="btn-create"
-                onClick={() => {
-                  setAuthModalActive({ login: false, register: true });
-                  setAuthActive(false);
-                }}
-              >
-                CREATE
-              </button>
+                <Link onClick={() => setAuthActive(false)} to="/dashboard">
+                  Giorgi Gordiashvili
+                </Link>
+                <button
+                  className="btn-create"
+                  onClick={() => {
+                    logout();
+                  }}
+                >
+                  LOG OUT
+                </button>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="account-wrapper">
+              <img
+                className="user-btn"
+                src={pathName === "/" ? user : userDark}
+                alt="user-btn"
+                onClick={() => setAuthActive(!authActive)}
+              />
+              <div
+                className={authActive ? "triangle triangle-active" : "triangle"}
+              />
+              <div
+                className={
+                  authActive
+                    ? "account-in-container account-in-container-active"
+                    : "account-in-container"
+                }
+              >
+                <button
+                  className="btn-signin"
+                  onClick={() => {
+                    setAuthModalActive({ login: true, register: false });
+                    setAuthActive(false);
+                  }}
+                >
+                  SIGN IN
+                </button>
+                <p style={{ fontSize: "16px" }}>or</p>
+                <button
+                  className="btn-create"
+                  onClick={() => {
+                    setAuthModalActive({ login: false, register: true });
+                    setAuthActive(false);
+                  }}
+                >
+                  CREATE
+                </button>
+              </div>
+            </div>
+          )}
+
           <img
             className="hamburger"
             src={pathName === "/" ? hamburger : hamburgerDark}

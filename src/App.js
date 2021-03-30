@@ -25,6 +25,7 @@ import Buy from "./containers/buy";
 import Sell from "./containers/sell";
 
 const queryClient = new QueryClient();
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>

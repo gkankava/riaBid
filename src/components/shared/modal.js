@@ -33,12 +33,10 @@ function Modal({ type, setAuthModalActive }) {
       console.log(`rolling back optimistic update with id ${context.id}`);
     },
     onSuccess: (data, variables, context) => {
-      /*setCurrentUser({
+      setCurrentUser({
         isAuthenticated: true,
-        token: "1",
-      });*/
-      console.log(data);
-      // Boom baby!
+        token: data,
+      });
     },
     onSettled: (data, error, variables, context) => {
       // Error or success... doesn't matter!
@@ -57,11 +55,11 @@ function Modal({ type, setAuthModalActive }) {
       console.log(`rolling back optimistic update with id ${context.id}`);
     },
     onSuccess: (data, variables, context) => {
-      /*setCurrentUser({
+      setCurrentUser({
         isAuthenticated: true,
-        token: "1",
-      });*/
-      console.log(data);
+        token: data,
+      });
+
       // Boom baby!
     },
     onSettled: (data, error, variables, context) => {

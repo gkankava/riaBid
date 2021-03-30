@@ -11,7 +11,7 @@ export default function Sell(props) {
       <div className="bread" style={{ gridArea: "beard" }}>
         {/* home / shop */}
       </div>
-      <h1>Buying on Ria Bid</h1>
+      <h1>Selling on Ria Bid</h1>
       <div className="grid-container-text">
         <div class="first">
           <li>
