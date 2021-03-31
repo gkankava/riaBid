@@ -169,6 +169,29 @@ header {
         .search-btn {
           height: 22px;
           width: 22px;
+          cursor: pointer;
+        }
+        .input-search {
+          margin-right: 20px;
+          width: 0;
+          border: none;
+          border-bottom: 2px solid white;
+          padding: 2px 0;
+          background-color: transparent;
+          color: white;
+          transition: width 0.3s ease;
+          &::placeholder {
+            color: rgb(201, 201, 201);
+            font-weight: lighter;
+          }
+        }
+        .input-search-active {
+          width: 226px;
+        }
+        .cart-btn {
+          height: 22px;
+          width: 22px;
+          cursor: pointer;
         }
         .account-wrapper {
           position: relative;

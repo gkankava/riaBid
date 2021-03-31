@@ -10,7 +10,7 @@ function Galleries(props) {
 
   return (
     <section id="shop" className="container galleries">
-      <ul class="breadcrumb">
+      <ul className="breadcrumb">
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -29,7 +29,7 @@ function Galleries(props) {
           </Link>
           <div className="flex space-between">
             <div className="flex">
-              <p class="location">New York & 10 other location</p>
+              <p className="location">New York & 10 other location</p>
             </div>
             <button className="main-button">View Gallery</button>
           </div>
@@ -45,7 +45,7 @@ function Galleries(props) {
           </Link>
           <div className="flex space-between">
             <div className="flex">
-              <p class="location">New York & 10 other location</p>
+              <p className="location">New York & 10 other location</p>
             </div>
             <button className="main-button">View Gallery</button>
           </div>
@@ -60,7 +60,7 @@ function Galleries(props) {
           </Link>
           <div className="flex space-between">
             <div className="flex">
-              <p class="location">New York & 10 other location</p>
+              <p className="location">New York & 10 other location</p>
             </div>
             <button className="main-button">View Gallery</button>
           </div>
@@ -75,7 +75,7 @@ function Galleries(props) {
           </Link>
           <div className="flex space-between">
             <div className="flex">
-              <p class="location">New York & 10 other location</p>
+              <p className="location">New York & 10 other location</p>
             </div>
             <button className="main-button">View Gallery</button>
           </div>

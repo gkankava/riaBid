@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import ll from "../../assets/logo-light.svg";
 import ld from "../../assets/logo-def.svg";
+
 import ln from "../../assets/logo-new.svg";
 import ria from "../../assets/riabid.svg";
 import arrow from "../../assets/icons/arrow-down.svg";
 import arrowbl from "../../assets/icons/arrow-black.svg";
-
 import search from "../../assets/icons/search.svg";
 import searchDark from "../../assets/icons/search-dark.svg";
+import cart from "../../assets/cart-light.svg";
+import cartDark from "../../assets/cart-dark.svg";
 import user from "../../assets/icons/user.svg";
 import userDark from "../../assets/icons/user-dark.svg";
 import hamburger from "../../assets/icons/hamburger.svg";
@@ -22,6 +24,8 @@ function Navbar() {
   const { currentUser } = userProvider();
   const [navActive, setNavActive] = useState(false);
   const [authActive, setAuthActive] = useState(false);
+  const [searchActive, setSearchActive] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
   const [vW, setVW] = useState(0);
   const [authModalActive, setAuthModalActive] = useState({
     login: false,
@@ -44,6 +48,8 @@ function Navbar() {
       });
     };
   }, []);
+
+  const searchRef = useRef(null);
 
   return (
     <header>
@@ -183,9 +189,31 @@ function Navbar() {
           </div>
         </nav>
         <div className="btn-container">
+          <input
+            ref={searchRef}
+            className={
+              searchActive ? "input-search input-search-active" : "input-search"
+            }
+            type="text"
+            onBlur={() => {
+              setSearchActive(false);
+            }}
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+            placeholder="type and hit enter"
+          />
           <img
+            onClick={() => {
+              setSearchActive(!searchActive);
+              !searchActive && searchRef.current.focus();
+            }}
             className="search-btn"
             src={pathName === "/" ? search : searchDark}
+            alt="search-btn"
+          />
+          <img
+            className="cart-btn"
+            src={pathName === "/" ? cart : cartDark}
             alt="search-btn"
           />
           {currentUser.isAuthenticated ? (
