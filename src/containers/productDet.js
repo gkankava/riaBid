@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import small from "../assets/product/small-img.png";
 import main from "../assets/product/main.png";
 import clock from "../assets/product/clock.png";
 import SharedSlider from "../components/shared/SharedSlider";
 import { getAuction } from "../services/auctionsService";
-import { QueryClient, useMutation, useQuery } from "react-query";
+
 import { getArtwork } from "../services/artworksService";
 import Loading from "./loading";
 import { addBag } from "../services/bagService";
 import { toast } from "react-toastify";
-const queryClient = new QueryClient();
+import { bidArtwork } from "../services/bidService";
+import { QueryClient, useMutation, useQuery } from "react-query";
 
 export default function ProductDet(props) {
+  const queryClient = new QueryClient();
+  const [bidAmount, setBidAmount] = useState();
+
   const addMutation = useMutation(addBag, {
     onMutate: (variables) => {
       return { id: 1 };
@@ -28,17 +32,30 @@ export default function ProductDet(props) {
     },
   });
 
-  const { isLoading, error, data } = useQuery(
-    "product",
-    () => getArtwork(props.match.params.index),
-    {}
-  );
+  const bidMutation = useMutation(bidArtwork, {
+    onMutate: (variables) => {
+      return { id: 1 };
+    },
+    onError: (error, variables, context) => {
+      console.log(error);
+      toast.error(error.context);
+    },
+    onSuccess: (data, variables, context) => {
+      toast("Successfully bid");
+      window.location.reload();
+    },
+    onSettled: (data, error, variables, context) => {},
+  });
 
+  const { isFetching, isLoading, error, data } = useQuery("product", () =>
+    getArtwork(props.match.params.index)
+  );
   if (isLoading) return <Loading></Loading>;
 
   if (error) return "An error has occurred: " + error.message;
 
   const { just_for_you, artwork } = data.data;
+
   return (
     <section className="product-details">
       <div className="container product-page">
@@ -60,8 +77,18 @@ export default function ProductDet(props) {
                   <p className="bids">{artwork.bidders_count} Bids</p>
                 </div>
                 <div className="bid flex">
-                  <input type="text" />
-                  <button>PLACE BID</button>
+                  <input
+                    value={bidAmount}
+                    onChange={(e) => setBidAmount(e.target.value)}
+                    type="text"
+                  />
+                  <button
+                    onClick={() =>
+                      bidMutation.mutate({ id: artwork.id, bidAmount })
+                    }
+                  >
+                    PLACE BID
+                  </button>
                 </div>
               </div>
             ) : null}

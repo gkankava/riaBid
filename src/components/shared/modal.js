@@ -59,7 +59,7 @@ function Modal({ type, setAuthModalActive }) {
         isAuthenticated: true,
         token: data,
       });
-
+      window.location.href = "/";
       // Boom baby!
     },
     onSettled: (data, error, variables, context) => {

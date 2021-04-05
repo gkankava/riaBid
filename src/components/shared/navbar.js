@@ -242,6 +242,7 @@ function Navbar() {
                   className="btn-create"
                   onClick={() => {
                     logout();
+                    window.location.href = "/";
                   }}
                 >
                   LOG OUT

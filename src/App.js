@@ -28,10 +28,14 @@ import GalleriesFull from "./containers/galleriesFull";
 import Cart from "./containers/cart";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { userProvider } from "./store/store";
 const queryClient = new QueryClient();
 
 function App() {
-  return (
+  const { currentUser, setCurrentUser } = userProvider();
+  console.log();
+
+  return currentUser.isAuthenticated ? (
     <QueryClientProvider client={queryClient}>
       <ToastContainer />
       <BrowserRouter>
@@ -83,6 +87,66 @@ function App() {
             path="/dashboard/history"
             render={(props) => <HistoryDashboard {...props} />}
           />
+          <Route
+            exact
+            path="/galleries"
+            render={(props) => <Galleries {...props} />}
+          />
+          <Route
+            exact
+            path="/galleries/:index"
+            render={(props) => <GalleriesFull {...props} />}
+          />
+          <Route
+            exact
+            path="/auctions"
+            render={(props) => <Auctions {...props} />}
+          />
+          <Route
+            exact
+            path="/contact"
+            render={(props) => <Contact {...props} />}
+          />
+          <Route exact path="/text" render={(props) => <Text {...props} />} />
+          <Route
+            exact
+            path="/store/:index"
+            render={(props) => <ProductDet {...props} />}
+          />
+          <Route render={(props) => <NotFound404 />} />
+        </Switch>
+        <Subscribe />
+        <Footer />
+      </BrowserRouter>
+    </QueryClientProvider>
+  ) : (
+    <QueryClientProvider client={queryClient}>
+      <ToastContainer />
+      <BrowserRouter>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" render={(props) => <Main {...props} />} />
+          <Route exact path="/store" render={(props) => <Shop {...props} />} />
+
+          <Route
+            exact
+            path="/dashboard"
+            render={(props) => <Dashboard {...props} />}
+          />
+          <Route
+            exact
+            path="/artists"
+            render={(props) => <Artists {...props} />}
+          />
+
+          <Route
+            exact
+            path="/artists/:index"
+            render={(props) => <ArtistsFull {...props} />}
+          />
+          <Route exact path="/buy" render={(props) => <Buy {...props} />} />
+          <Route exact path="/sell" render={(props) => <Sell {...props} />} />
+
           <Route
             exact
             path="/galleries"

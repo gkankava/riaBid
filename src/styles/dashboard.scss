@@ -10,18 +10,15 @@
     padding: 30px 38px;
     border: 1px solid #e6e6e6;
     a {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 9fr;
       align-items: center;
       background: none;
       color: #000;
       border: none;
       text-align: left;
       padding: 15px 0;
-      img {
-        width: 24px;
-        object-fit: contain;
-        margin-right: 30px;
-      }
+
       &.active {
         color: #fbb03b;
       }
