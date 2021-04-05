@@ -4,7 +4,7 @@ import Card from "./Card";
 import cardImg from "../../assets/dummy/cardImage.jpg";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 
-function SharedSlider({ auction, title }) {
+function SharedSlider({ auction, title, data }) {
   const dummy = [
     {
       img: cardImg,
@@ -102,6 +102,7 @@ function SharedSlider({ auction, title }) {
     slidesToShow: 4,
     slidesToScroll: 4,
     initialSlide: 0,
+
     beforeChange: (current, next) => setActiveItem(next),
     responsive: [
       {
@@ -129,16 +130,17 @@ function SharedSlider({ auction, title }) {
     ],
   };
 
-  const items = dummy.map((i, key) => {
+  const items = data.map((item) => {
     return (
       <Card
-        key={key}
-        index={key}
-        type={i.type}
-        name={i.name}
-        img={i.img}
-        price={i.price}
-        secondParam={i.secondParam || undefined}
+        key={item.id}
+        index={item.id}
+        type={item.on_auction}
+        name={item.title}
+        img={item.image}
+        price={item.buy_it_now}
+        secondParam={item.on_auction ? item.current_bid : undefined}
+        end_time={item.end_time}
       />
     );
   });

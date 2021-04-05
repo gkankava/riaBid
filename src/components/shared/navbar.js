@@ -237,7 +237,7 @@ function Navbar() {
                 }
               >
                 <Link onClick={() => setAuthActive(false)} to="/dashboard">
-                  Giorgi Gordiashvili
+                  Go To Dashboard
                 </Link>
                 <button
                   className="btn-create"

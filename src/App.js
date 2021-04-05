@@ -17,7 +17,7 @@ import Galleries from "./containers/galleries";
 import Contact from "./containers/contact";
 import Auctions from "./containers/auctions";
 import Text from "./containers/text";
-import Product from "./containers/productDet";
+import ProductDet from "./containers/productDet";
 import NotFound404 from "./components/shared/404";
 import "./styles/index.scss";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
@@ -105,7 +105,7 @@ function App() {
           <Route
             exact
             path="/store/:index"
-            render={(props) => <Product {...props} />}
+            render={(props) => <ProductDet {...props} />}
           />
           <Route render={(props) => <NotFound404 />} />
         </Switch>

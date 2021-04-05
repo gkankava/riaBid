@@ -88,6 +88,37 @@ ul.breadcrumb {
   }
 }
 
+.product {
+  width: 90%;
+  margin: auto;
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
+  }
+  .img {
+    overflow: hidden;
+    height: 100%;
+    img {
+      transition: all 150ms;
+      width: 100%;
+    }
+  }
+  .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000;
+  }
+  .price,
+  .time {
+    font-size: 2rem;
+    &.gray {
+      margin-left: 0.5em;
+      color: #cecece;
+    }
+  }
+}
+
 //imports
 
 @import "./config.scss";

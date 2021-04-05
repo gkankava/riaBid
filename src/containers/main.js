@@ -16,12 +16,16 @@ function Main() {
 
   if (error) return "An error has occurred: " + error.message;
 
+  const { selected_just_for_you, auctions } = data.data;
   return (
     <section id="main">
       <Hero />
       <Banners />
-      <SharedSlider title="SELECTED JUST FOR YOU" />
-      <SharedSlider title="AUCTION" auction />
+      <SharedSlider
+        data={selected_just_for_you}
+        title="SELECTED JUST FOR YOU"
+      />
+      <SharedSlider data={auctions} title="AUCTION" auction />
       {/* <Subscribe /> */}
       {/* <div style={{ height: "500px" }}></div> */}
     </section>

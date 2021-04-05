@@ -6,3 +6,7 @@ const apiEndpoint = apiUrl + "/artworks";
 export function getArtworks() {
   return http.get(apiEndpoint);
 }
+
+export function getArtwork(id) {
+  return http.get(apiEndpoint + "/" + id);
+}
