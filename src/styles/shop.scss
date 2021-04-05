@@ -3,202 +3,26 @@
   margin-bottom: 100px;
 }
 
-.filter-closed {
-  display: none;
-}
-.filter-wrapper {
-  grid-area: "filter";
-  z-index: 1;
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  bottom: 0;
-  left: 0;
-  .overlay {
-    height: 20vh;
-    background-color: rgba($color: #000000, $alpha: 0.7);
-    width: 100%;
-    .handle {
-      width: 54px;
-      position: absolute;
-      height: 8px;
-      border-radius: 10px;
-      background-color: #d5d5d5;
-      top: 17.5vh;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-  .main-wrapper {
-    padding-top: 30px;
-    background-color: white;
-    overflow-y: scroll;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 80vh;
-    .filter-box {
-      width: 80%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 37px;
-      border: 1px solid rgba($color: #e6e6e6, $alpha: 1);
-      margin-bottom: 16px;
-      .top-wrapper {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
-      }
-      .no-margin {
-        margin-bottom: 0;
-      }
-      .bot-wrapper {
-        input {
-          margin-right: 10px;
-        }
-        .wrapper {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          margin-bottom: 10px;
-          p {
-            font-size: 17px;
-            span {
-              color: #c4c4c4;
-            }
-          }
-        }
-        :last-child {
-          margin-bottom: 0;
-        }
-      }
-      .hidden {
-        display: none;
-      }
-    }
+.shop-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
   }
 }
 
-.filter-btn {
-  width: 100%;
-  display: flex;
-  padding: 30px;
-  padding-top: 17px;
-  padding-bottom: 17px;
-  border: 1px solid #e6e6e6;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  justify-content: flex-start;
-  align-items: center;
-  span {
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    margin-left: 10px;
+.filter-container {
+  margin-right: 2.08vw;
+  @media screen and (max-width: 768px) {
+    display: none;
   }
-}
 
-.statusbar {
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  .inner-wrap {
-    display: flex;
-    align-items: center;
-    margin-right: 30px;
-  }
-  h4 {
-    font-size: 14px;
-    font-weight: 400;
-    margin-right: 10px;
-  }
-  .btn-placebid {
-    background-color: white;
-    border: 1px solid black;
-    color: black;
-    height: 50px;
-    width: 120px;
-    font-size: 12px;
-    font-weight: 300;
-  }
-}
-
-@media screen and(min-width: 768px) {
-  #shop {
-    .filter-btn {
-      display: none;
-    }
-    .filter-closed {
-      display: block;
-    }
-    .overlay {
-      display: none;
-    }
-    .filter-wrapper {
-      z-index: 10;
-      overflow: unset;
-      position: unset;
-      min-width: 350px;
-      height: unset;
-      bottom: unset;
-      left: unset;
-      .main-wrapper {
-        overflow-y: unset;
-        padding-top: 0;
-        background-color: white;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        height: unset;
-      }
-    }
-  }
-}
-@media screen and(min-width: 1224px) {
-  .statusbar {
-    display: flex;
-  }
-}
-
-.grid-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  .card {
-    width: 100%;
-
-    img {
-      align-self: flex-start;
-      width: 100%;
-    }
-  }
-}
-@media screen and(min-width: 520px) {
-  .grid-container {
-    .card {
-      width: 210px;
-      a {
-        img {
-          width: 80%;
-        }
-      }
-    }
-  }
-}
-@media screen and(min-width: 1120px) {
-  .grid-container {
-    .card {
-      width: 310px;
-      a {
-        img {
-          width: 80%;
-        }
-      }
+  div {
+    border: 1px solid #e6e6e6;
+    margin-bottom: 0.83vw;
+    padding: 1vw 1.5vw;
+    h3 {
+      font-weight: 500;
     }
   }
 }

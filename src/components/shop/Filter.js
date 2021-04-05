@@ -72,46 +72,7 @@ function Filter({ status, setStatus }) {
             className={dd.price ? "bot-wrapper no-margin" : "bot-wrapper"}
           ></div>
         </div>
-        <div className="filter-box format">
-          <div className={dd.format ? "top-wrapper no-margin" : "top-wrapper"}>
-            <h4>BUYING FORMAT</h4>
-            {dd.format ? (
-              <RiArrowDownSLine
-                onClick={() => setDd({ ...dd, format: !dd.format })}
-              />
-            ) : (
-              <RiArrowUpSLine
-                onClick={() => setDd({ ...dd, format: !dd.format })}
-              />
-            )}
-          </div>
-          <div className={dd.format ? "bot-wrapper hidden" : "bot-wrapper"}>
-            <div className="wrapper">
-              <input type="checkbox" name="" id=" " />
-              <p>
-                Painting <span>(411)</span>
-              </p>
-            </div>
-            <div className="wrapper">
-              <input type="checkbox" name="" id=" " />
-              <p>
-                Painting <span>(411)</span>
-              </p>
-            </div>
-            <div className="wrapper">
-              <input type="checkbox" name="" id=" " />
-              <p>
-                Painting <span>(411)</span>
-              </p>
-            </div>
-            <div className="wrapper">
-              <input type="checkbox" name="" id=" " />
-              <p>
-                Painting <span>(411)</span>
-              </p>
-            </div>
-          </div>
-        </div>
+
         <div className="filter-box years">
           <div className={dd.years ? "top-wrapper no-margin" : "top-wrapper"}>
             <h4>YEARS</h4>

@@ -211,11 +211,13 @@ function Navbar() {
             src={pathName === "/" ? search : searchDark}
             alt="search-btn"
           />
-          <img
-            className="cart-btn"
-            src={pathName === "/" ? cart : cartDark}
-            alt="search-btn"
-          />
+          <Link to="/cart">
+            <img
+              className="cart-btn"
+              src={pathName === "/" ? cart : cartDark}
+              alt="search-btn"
+            />
+          </Link>
           {currentUser.isAuthenticated ? (
             <div className="account-wrapper">
               <img

@@ -23,6 +23,9 @@ import "./styles/index.scss";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import Buy from "./containers/buy";
 import Sell from "./containers/sell";
+import ArtistsFull from "./containers/artistsFull";
+import GalleriesFull from "./containers/galleriesFull";
+import Cart from "./containers/cart";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +47,12 @@ function App() {
             exact
             path="/artists"
             render={(props) => <Artists {...props} />}
+          />
+          <Route exact path="/cart" render={(props) => <Cart {...props} />} />
+          <Route
+            exact
+            path="/artists/:index"
+            render={(props) => <ArtistsFull {...props} />}
           />
           <Route exact path="/buy" render={(props) => <Buy {...props} />} />
           <Route exact path="/sell" render={(props) => <Sell {...props} />} />
@@ -76,6 +85,11 @@ function App() {
             exact
             path="/galleries"
             render={(props) => <Galleries {...props} />}
+          />
+          <Route
+            exact
+            path="/galleries/:index"
+            render={(props) => <GalleriesFull {...props} />}
           />
           <Route
             exact

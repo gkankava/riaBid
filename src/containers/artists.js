@@ -4,13 +4,15 @@ import CardGrid from "../components/shop/CardGrid";
 import { GoSettings } from "react-icons/go";
 import { useQuery } from "react-query";
 import { getArtists } from "../services/artistsService";
+import { Link } from "react-router-dom";
+import Loading from "./loading";
 
 function Artists(props) {
   const [filter, setFilter] = useState(false);
   const [letter, setLetter] = useState("");
   const { isLoading, error, data } = useQuery("artists", getArtists);
 
-  if (isLoading) return "Loading...";
+  if (isLoading) return <Loading></Loading>;
 
   if (error) return "An error has occurred: " + error.message;
 
@@ -64,9 +66,17 @@ function Artists(props) {
         <div className="artist-container">
           {Object.keys(filtered).map((key) => (
             <div>
-              <p className="letter">{key}</p>
+              <p key={key} className="letter">
+                {key}
+              </p>
               {formatted_data[key].children.map((item) => (
-                <p className="artist">{item.display_name}</p>
+                <Link
+                  key={item.id}
+                  to={"/artists/" + item.id}
+                  className="artist"
+                >
+                  {item.display_name}
+                </Link>
               ))}
             </div>
           ))}

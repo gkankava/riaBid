@@ -1,45 +1,60 @@
 import React, { useState } from "react";
 import Filter from "../components/shop/Filter";
 import CardGrid from "../components/shop/CardGrid";
-import { GoSettings } from "react-icons/go";
 import { getArtworks } from "../services/artworksService";
-import { useQuery } from "react-query";
+import cardImg from "../assets/dummy/cardImage.jpg";
+import { Link } from "react-router-dom";
+import { QueryClient, useQuery } from "react-query";
+import Loading from "./loading";
 
 function Shop(props) {
   const [filter, setFilter] = useState(false);
+  const { isLoading, error, data } = useQuery("artworks", getArtworks);
 
+  if (isLoading) return <Loading></Loading>;
+
+  if (error) return "An error has occurred: " + error.message;
   return (
-    <section id="shop" className="container">
-      <div className="bread" style={{ gridArea: "beard" }}>
-        {/* home / shop */}
-      </div>
-      <div className="filter-btn" onClick={() => setFilter(!filter)}>
-        <GoSettings /> <span>filter</span>
-      </div>
-      <div
-        className="filter-grid-wrap"
-        style={{ display: "flex", marginTop: "30px" }}
-      >
-        <Filter status={filter} setStatus={setFilter} />
-        <div className="top-grid-wrap">
-          <div
-            className="statusbar"
-            style={{ gridArea: "top", height: "30px", marginBottom: "30px" }}
-          >
-            <div className="wrapper" style={{ display: "flex" }}>
-              <div className="inner-wrap">
-                <h4>Show Product:</h4>
-                <button className="btn-placebid" style={{}}>
-                  30
-                </button>
-              </div>
-              <div className="inner-wrap">
-                <h4>Sort:</h4>
-                <button className="btn-placebid">popular</button>
+    <section id="shop" className="container auctions shop">
+      <ul class="breadcrumb">
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/auctions">Artworks</Link>
+        </li>
+      </ul>
+      <div className="shop-grid">
+        <div className="filter-container">
+          <div>
+            <h3>Product Type</h3>
+          </div>
+          <div>
+            <h3>Price</h3>
+          </div>
+          <div>
+            <h3>Years</h3>
+          </div>
+        </div>
+        <div className="grid-container-auctions">
+          {data.data.map((item) => (
+            <div className="product flex column">
+              <Link to={"/store/" + item.id}>
+                <div className="img">
+                  <img src={cardImg}></img>
+                </div>
+
+                <p className="title">T-Shirt Summer Vibes</p>
+              </Link>
+              <div className="flex space-between">
+                <div className="flex">
+                  <p class="price">$89.99</p>
+                  <p class="price gray">$119.99</p>
+                </div>
+                <p class="time gray"></p>
               </div>
             </div>
-          </div>
-          <CardGrid />
+          ))}
         </div>
       </div>
     </section>

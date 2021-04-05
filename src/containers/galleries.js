@@ -20,7 +20,7 @@ function Galleries(props) {
       </ul>
       <div className="grid-container-galleries">
         <div className="product flex column">
-          <Link to="/store/0">
+          <Link to="/galleries/1">
             <div className="img">
               <img src={cardImg}></img>
             </div>
@@ -31,12 +31,14 @@ function Galleries(props) {
             <div className="flex">
               <p className="location">New York & 10 other location</p>
             </div>
-            <button className="main-button">View Gallery</button>
+            <Link to="/galleries/1">
+              <button className="main-button">View Gallery</button>
+            </Link>
           </div>
         </div>
 
         <div className="product flex column">
-          <Link to="/store/0">
+          <Link to="/galleries/1">
             <div className="img">
               <img src={cardImg}></img>
             </div>
@@ -47,11 +49,13 @@ function Galleries(props) {
             <div className="flex">
               <p className="location">New York & 10 other location</p>
             </div>
-            <button className="main-button">View Gallery</button>
+            <Link to="/galleries/1">
+              <button className="main-button">View Gallery</button>
+            </Link>
           </div>
         </div>
         <div className="product flex column">
-          <Link to="/store/0">
+          <Link to="/galleries/1">
             <div className="img">
               <img src={cardImg}></img>
             </div>
@@ -62,11 +66,13 @@ function Galleries(props) {
             <div className="flex">
               <p className="location">New York & 10 other location</p>
             </div>
-            <button className="main-button">View Gallery</button>
+            <Link to="/galleries/1">
+              <button className="main-button">View Gallery</button>
+            </Link>
           </div>
         </div>
         <div className="product flex column">
-          <Link to="/store/0">
+          <Link to="/galleries/1">
             <div className="img">
               <img src={cardImg}></img>
             </div>
@@ -77,7 +83,9 @@ function Galleries(props) {
             <div className="flex">
               <p className="location">New York & 10 other location</p>
             </div>
-            <button className="main-button">View Gallery</button>
+            <Link to="/galleries/1">
+              <button className="main-button">View Gallery</button>
+            </Link>
           </div>
         </div>
       </div>

@@ -56,3 +56,28 @@
     }
   }
 }
+
+.full-gallery {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  .text {
+    h1 {
+      font-size: 2.29vw;
+    }
+    p {
+      font-size: 1vw;
+    }
+  }
+  .pictures {
+    position: relative;
+    .top {
+      position: absolute;
+      top: 0;
+      left: 50%;
+    }
+    .bot {
+      position: relative;
+      top: 2vw;
+    }
+  }
+}

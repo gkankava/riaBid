@@ -6,14 +6,13 @@ import cardImg from "../assets/dummy/cardImage.jpg";
 import { Link } from "react-router-dom";
 import { QueryClient, useQuery } from "react-query";
 import { getAuctions } from "../services/auctionsService";
-import Loading from "./loading";
 const queryClient = new QueryClient();
 
-function Auctions(props) {
+function ArtistsFull(props) {
   const [filter, setFilter] = React.useState(false);
   const { isLoading, error, data } = useQuery("auctions", getAuctions);
 
-  if (isLoading) return <Loading></Loading>;
+  if (isLoading) return "Loading...";
 
   if (error) return "An error has occurred: " + error.message;
 
@@ -24,7 +23,7 @@ function Auctions(props) {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/auctions">Auctions</Link>
+          <Link to="/auctions">Artist</Link>
         </li>
       </ul>
       <div className="grid-container-auctions">
@@ -51,4 +50,4 @@ function Auctions(props) {
   );
 }
 
-export default Auctions;
+export default ArtistsFull;

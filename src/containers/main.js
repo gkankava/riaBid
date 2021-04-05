@@ -5,13 +5,14 @@ import SharedSlider from "../components/shared/SharedSlider";
 import Subscribe from "../components/shared/Subscribe";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import { getDashboard } from "../services/dashboardService";
+import Loading from "./loading";
 
 const queryClient = new QueryClient();
 
 function Main() {
   const { isLoading, error, data } = useQuery("dashboard", getDashboard);
 
-  if (isLoading) return "Loading...";
+  if (isLoading) return <Loading></Loading>;
 
   if (error) return "An error has occurred: " + error.message;
 
