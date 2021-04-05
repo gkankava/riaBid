@@ -50,13 +50,13 @@ function footer() {
             <h4>Partnerships</h4>
             <ul>
               <li>
-                <Link to="/text">Galleries</Link>
+                <Link to="/galleries">Galleries</Link>
               </li>
               <li>
-                <Link to="/text">Auctions</Link>
+                <Link to="/auctions">Auctions</Link>
               </li>
               <li>
-                <Link to="/text">Artworks</Link>
+                <Link to="/store">Artworks</Link>
               </li>
             </ul>
           </div>

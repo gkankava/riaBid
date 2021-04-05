@@ -22,8 +22,8 @@ export default function Cart() {
         </li>
       </ul>
       <div className="grid-container-cart">
-        {data.data.map((item) => (
-          <div className="item flex space-between">
+        {data.data.bag.map((item) => (
+          <div key={item.id} className="item flex space-between">
             <div className="flex">
               <img src={item.image}></img>
               <div className="flex column">
@@ -38,8 +38,8 @@ export default function Cart() {
         ))}
 
         <div className="full flex column">
-          <h3>Full Amount: 229.99$</h3>
-          <Link to="/paynow">Pay Now</Link>
+          <h3>Full Amount: {data.data.total}$</h3>
+          <a href="https://api.riabid.ge/payorder/2">Pay Now</a>
         </div>
       </div>
     </section>

@@ -13,7 +13,7 @@ function Text(props) {
       </div>
       <h1>About Us</h1>
       <div className="grid-container-text">
-        <div class="first">
+        <div className="first">
           Ria Bid is a fundraising online auction oriented towards buying and
           selling Georgian art . Ria Bid features Georgia’s famous art salons,
           private collections, artist , sellers - all in one place. Served as a

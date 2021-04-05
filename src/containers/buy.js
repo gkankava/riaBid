@@ -13,7 +13,7 @@ export default function Buy(props) {
       </div>
       <h1>Buying on Ria Bid</h1>
       <div className="grid-container-text">
-        <div class="first">
+        <div className="first">
           <li>
             Ria Bid features 24/7 online auctions and immediate purchases of
             paintings, prints, photographs, different mediums

@@ -39,7 +39,7 @@ function Shop(props) {
         </div>
         <div className="grid-container-auctions">
           {data.data.map((item) => (
-            <div className="product flex column">
+            <div key={item.id} className="product flex column">
               <Link to={"/store/" + item.id}>
                 <div className="img">
                   <img src={cardImg}></img>

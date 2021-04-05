@@ -13,7 +13,7 @@ export default function Sell(props) {
       </div>
       <h1>Selling on Ria Bid</h1>
       <div className="grid-container-text">
-        <div class="first">
+        <div className="first">
           <li>
             Ria Bid Auctions helps you sell Georgian art locally and
             internationally (paintings, prints, photographs, different media)

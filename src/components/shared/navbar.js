@@ -32,10 +32,6 @@ function Navbar() {
     register: false,
   });
 
-  React.useEffect(() => {
-    console.log(currentUser);
-  }, [currentUser]);
-
   const pathName = useLocation().pathname || null;
   React.useEffect(() => {
     setVW(window.innerWidth);
@@ -211,13 +207,16 @@ function Navbar() {
             src={pathName === "/" ? search : searchDark}
             alt="search-btn"
           />
-          <Link to="/cart">
-            <img
-              className="cart-btn"
-              src={pathName === "/" ? cart : cartDark}
-              alt="search-btn"
-            />
-          </Link>
+          {currentUser.isAuthenticated ? (
+            <Link to="/cart">
+              <img
+                className="cart-btn"
+                src={pathName === "/" ? cart : cartDark}
+                alt="search-btn"
+              />
+            </Link>
+          ) : null}
+
           {currentUser.isAuthenticated ? (
             <div className="account-wrapper">
               <img
