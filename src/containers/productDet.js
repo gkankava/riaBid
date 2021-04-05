@@ -4,12 +4,30 @@ import main from "../assets/product/main.png";
 import clock from "../assets/product/clock.png";
 import SharedSlider from "../components/shared/SharedSlider";
 import { getAuction } from "../services/auctionsService";
-import { QueryClient, useQuery } from "react-query";
+import { QueryClient, useMutation, useQuery } from "react-query";
 import { getArtwork } from "../services/artworksService";
-import Loading from "react-loading";
+import Loading from "./loading";
+import { addBag } from "../services/bagService";
+import { toast } from "react-toastify";
 const queryClient = new QueryClient();
 
 export default function ProductDet(props) {
+  const addMutation = useMutation(addBag, {
+    onMutate: (variables) => {
+      return { id: 1 };
+    },
+    onError: (error, variables, context) => {
+      console.log(error);
+      toast.error(error.context);
+    },
+    onSuccess: (data, variables, context) => {
+      toast("Artwork added to bag");
+    },
+    onSettled: (data, error, variables, context) => {
+      // Error or success... doesn't matter!
+    },
+  });
+
   const { isLoading, error, data } = useQuery(
     "product",
     () => getArtwork(props.match.params.index),
@@ -19,6 +37,7 @@ export default function ProductDet(props) {
   if (isLoading) return <Loading></Loading>;
 
   if (error) return "An error has occurred: " + error.message;
+
   const { just_for_you, artwork } = data.data;
   return (
     <section className="product-details">
@@ -33,28 +52,36 @@ export default function ProductDet(props) {
           <div className="flex column text">
             <h1>{artwork.title}</h1>
             <p className="id">Product ID: {artwork.id}</p>
-            <p className="current">Current bid</p>
-            <div className="price-cont flex">
-              <p>{artwork.current_bid}$</p>
-              <p className="bids">{artwork.bidders_count} Bids</p>
-            </div>
-            <div className="bid flex">
-              <input type="text" />
-              <button>PLACE BID</button>
-            </div>
+            {artwork.on_auction ? (
+              <div>
+                <p className="current">Current bid</p>
+                <div className="price-cont flex">
+                  <p>{artwork.current_bid}$</p>
+                  <p className="bids">{artwork.bidders_count} Bids</p>
+                </div>
+                <div className="bid flex">
+                  <input type="text" />
+                  <button>PLACE BID</button>
+                </div>
+              </div>
+            ) : null}
             <div className="buyitnow flex">
               <p className="price flex">${artwork.buy_it_now}</p>
-              <button>BUY IT NOW</button>
+              <button onClick={() => addMutation.mutate(artwork.id)}>
+                Add to cart
+              </button>
             </div>
             <h2>Details and product description</h2>
             <p className="desc">{artwork.description}</p>
-            <div className="flex clock space-between align-center">
-              <div className="flex align-center">
-                <img src={clock} alt="Clock" />
-                <p className="yellow">Time Left</p>
+            {artwork.on_auction ? (
+              <div className="flex clock space-between align-center">
+                <div className="flex align-center">
+                  <img src={clock} alt="Clock" />
+                  <p className="yellow">Time Left</p>
+                </div>
+                <p className="red">{artwork.end_time}</p>
               </div>
-              <p className="red">{artwork.end_time}</p>
-            </div>
+            ) : null}
           </div>
         </div>
       </div>

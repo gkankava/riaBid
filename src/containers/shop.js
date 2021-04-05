@@ -14,14 +14,15 @@ function Shop(props) {
   if (isLoading) return <Loading></Loading>;
 
   if (error) return "An error has occurred: " + error.message;
+  console.log(data.data);
   return (
     <section id="shop" className="container auctions shop">
-      <ul class="breadcrumb">
+      <ul className="breadcrumb">
         <li>
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/auctions">Artworks</Link>
+          <Link to="/store">Artworks</Link>
         </li>
       </ul>
       <div className="shop-grid">
@@ -48,10 +49,10 @@ function Shop(props) {
               </Link>
               <div className="flex space-between">
                 <div className="flex">
-                  <p class="price">$89.99</p>
-                  <p class="price gray">$119.99</p>
+                  <p className="price">$89.99</p>
+                  <p className="price gray">$119.99</p>
                 </div>
-                <p class="time gray"></p>
+                <p className="time gray"></p>
               </div>
             </div>
           ))}

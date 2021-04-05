@@ -19,7 +19,7 @@ function Auctions(props) {
 
   return (
     <section id="shop" className="container auctions">
-      <ul class="breadcrumb">
+      <ul className="breadcrumb">
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -29,7 +29,7 @@ function Auctions(props) {
       </ul>
       <div className="grid-container-auctions">
         {data.data.map((item) => (
-          <div className="product flex column">
+          <div key={item.id} className="product flex column">
             <Link to={"/store/" + item.id}>
               <div className="img">
                 <img src={cardImg}></img>
@@ -39,10 +39,10 @@ function Auctions(props) {
             </Link>
             <div className="flex space-between">
               <div className="flex">
-                <p class="price">$89.99</p>
-                <p class="price gray">$119.99</p>
+                <p className="price">$89.99</p>
+                <p className="price gray">$119.99</p>
               </div>
-              <p class="time gray">6d 9h</p>
+              <p className="time gray">6d 9h</p>
             </div>
           </div>
         ))}

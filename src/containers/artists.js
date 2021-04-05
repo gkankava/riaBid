@@ -39,7 +39,7 @@ function Artists(props) {
         <div className="bread" style={{ gridArea: "beard" }}>
           {/* home / shop */}
         </div>
-        <div class="letters flex">
+        <div className="letters flex">
           {letter == "" ? (
             <button className="letter active">ALL</button>
           ) : (
@@ -48,7 +48,7 @@ function Artists(props) {
             </button>
           )}
           {Object.keys(formatted_data).map((key) => (
-            <div>
+            <div key={key}>
               {letter == key ? (
                 <button className="letter active">{key}</button>
               ) : (
@@ -65,7 +65,7 @@ function Artists(props) {
         </div>
         <div className="artist-container">
           {Object.keys(filtered).map((key) => (
-            <div>
+            <div key={key}>
               <p key={key} className="letter">
                 {key}
               </p>

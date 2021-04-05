@@ -24,7 +24,7 @@ function ArtistsFull(props) {
 
   return (
     <section id="shop" className="container auctions">
-      <ul class="breadcrumb">
+      <ul className="breadcrumb">
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -41,15 +41,23 @@ function ArtistsFull(props) {
                   <img src={cardImg}></img>
                 </div>
 
-                <p className="title">T-Shirt Summer Vibes</p>
+                <p className="title">{item.title}</p>
               </Link>
-              <div className="flex space-between">
-                <div className="flex">
-                  <p class="price">$89.99</p>
-                  <p class="price gray">$119.99</p>
+              {item.on_auction ? (
+                <div className="flex space-between">
+                  <div className="flex">
+                    <p className="price">${item.current_bid}</p>
+                    <p className="price gray">${item.buy_it_now}</p>
+                  </div>
+                  <p className="time gray">6d 9h</p>
                 </div>
-                <p class="time gray">6d 9h</p>
-              </div>
+              ) : (
+                <div className="flex space-between">
+                  <div className="flex">
+                    <p className="price">${item.buy_it_now}</p>
+                  </div>
+                </div>
+              )}
             </div>
           ))
         ) : (

@@ -26,12 +26,14 @@ import Sell from "./containers/sell";
 import ArtistsFull from "./containers/artistsFull";
 import GalleriesFull from "./containers/galleriesFull";
 import Cart from "./containers/cart";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
+      <ToastContainer />
       <BrowserRouter>
         <Navbar />
         <Switch>

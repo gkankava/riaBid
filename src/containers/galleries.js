@@ -4,9 +4,17 @@ import CardGrid from "../components/shop/CardGrid";
 import { GoSettings } from "react-icons/go";
 import cardImg from "../assets/dummy/gallery.png";
 import { Link } from "react-router-dom";
+import { getGalleries } from "../services/galleriesService";
+import { useQuery } from "react-query";
+import Loading from "./loading";
 
 function Galleries(props) {
   const [filter, setFilter] = React.useState(false);
+  const { isLoading, error, data } = useQuery("galleries", getGalleries);
+
+  if (isLoading) return <Loading></Loading>;
+
+  if (error) return "An error has occurred: " + error.message;
 
   return (
     <section id="shop" className="container galleries">
@@ -19,75 +27,25 @@ function Galleries(props) {
         </li>
       </ul>
       <div className="grid-container-galleries">
-        <div className="product flex column">
-          <Link to="/galleries/1">
-            <div className="img">
-              <img src={cardImg}></img>
-            </div>
+        {data.data.map((item) => (
+          <div key={item.id} className="product flex column">
+            <Link to={"/galleries/" + item.id}>
+              <div className="img">
+                <img src={item.legal_image}></img>
+              </div>
 
-            <p className="title">David Zwirner</p>
-          </Link>
-          <div className="flex space-between">
-            <div className="flex">
-              <p className="location">New York & 10 other location</p>
-            </div>
-            <Link to="/galleries/1">
-              <button className="main-button">View Gallery</button>
+              <p className="title">{item.gallery_title}</p>
             </Link>
+            <div className="flex space-between">
+              <div className="flex">
+                <p className="location">{item.location}</p>
+              </div>
+              <Link to={"/galleries/" + item.id}>
+                <button className="main-button">View Gallery</button>
+              </Link>
+            </div>
           </div>
-        </div>
-
-        <div className="product flex column">
-          <Link to="/galleries/1">
-            <div className="img">
-              <img src={cardImg}></img>
-            </div>
-
-            <p className="title">David Zwirner</p>
-          </Link>
-          <div className="flex space-between">
-            <div className="flex">
-              <p className="location">New York & 10 other location</p>
-            </div>
-            <Link to="/galleries/1">
-              <button className="main-button">View Gallery</button>
-            </Link>
-          </div>
-        </div>
-        <div className="product flex column">
-          <Link to="/galleries/1">
-            <div className="img">
-              <img src={cardImg}></img>
-            </div>
-
-            <p className="title">David Zwirner</p>
-          </Link>
-          <div className="flex space-between">
-            <div className="flex">
-              <p className="location">New York & 10 other location</p>
-            </div>
-            <Link to="/galleries/1">
-              <button className="main-button">View Gallery</button>
-            </Link>
-          </div>
-        </div>
-        <div className="product flex column">
-          <Link to="/galleries/1">
-            <div className="img">
-              <img src={cardImg}></img>
-            </div>
-
-            <p className="title">David Zwirner</p>
-          </Link>
-          <div className="flex space-between">
-            <div className="flex">
-              <p className="location">New York & 10 other location</p>
-            </div>
-            <Link to="/galleries/1">
-              <button className="main-button">View Gallery</button>
-            </Link>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
