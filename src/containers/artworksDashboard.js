@@ -59,13 +59,13 @@ function ArtworksDashboard(props) {
                 ? data.data.map((item) => (
                     <div className="artwork-item flex title">
                       <div className="flex">
-                        <img src={cardImg}></img>
+                        <img src={item.image}></img>
                         <div className="flex column">
-                          <p className="name">Rita Khachaturiani</p>
-                          <p className="country">Georgia</p>
+                          <p className="name">{item.title}</p>
+                          <p className="country">{item.location}</p>
                         </div>
                       </div>
-                      <p>500$</p>
+                      <p>{item.buy_it_now}$</p>
                       <p>For Sale</p>
                       <p>Exact Price</p>
                       <button className="main-button">Request Auction</button>
