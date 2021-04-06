@@ -19,12 +19,12 @@ function Shop(props) {
   if (error) return "An error has occurred: " + error.message;
 
   var keys = Object.keys(data.data);
-  var min = data.data[keys[0]].current_bid; // ignoring case of empty list for conciseness
-  var max = data.data[keys[0]].current_bid;
+  var min = data?.data[keys[0]]?.current_bid; // ignoring case of empty list for conciseness
+  var max = data?.data[keys[0]]?.current_bid;
   var i;
 
   for (i = 1; i < keys.length; i++) {
-    var value = data.data[keys[i]].current_bid;
+    var value = data.data[keys[i]]?.current_bid;
     if (value < min) min = value;
     if (value > max) max = value;
   }
@@ -33,8 +33,8 @@ function Shop(props) {
     years.push(data.data[keys[i]].year);
   }
 
-  var minYear = data.data[keys[0]].year; // ignoring case of empty list for conciseness
-  var maxYear = data.data[keys[0]].year;
+  var minYear = data?.data[keys[0]]?.year; // ignoring case of empty list for conciseness
+  var maxYear = data?.data[keys[0]]?.year;
 
   for (i = 1; i < keys.length; i++) {
     var value = data.data[keys[i]].year;

@@ -185,28 +185,6 @@ function Navbar() {
           </div>
         </nav>
         <div className="btn-container">
-          <input
-            ref={searchRef}
-            className={
-              searchActive ? "input-search input-search-active" : "input-search"
-            }
-            type="text"
-            onBlur={() => {
-              setSearchActive(false);
-            }}
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-            placeholder="type and hit enter"
-          />
-          <img
-            onClick={() => {
-              setSearchActive(!searchActive);
-              !searchActive && searchRef.current.focus();
-            }}
-            className="search-btn"
-            src={pathName === "/" ? search : searchDark}
-            alt="search-btn"
-          />
           {currentUser.isAuthenticated ? (
             <Link to="/cart">
               <img

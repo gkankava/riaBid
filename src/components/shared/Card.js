@@ -10,14 +10,14 @@ function Card({ type, img, name, price, secondParam, end_time, index }) {
           <img src={img}></img>
         </div>
 
-        <p className="title">T-Shirt Summer Vibes</p>
+        <p className="title">{name}</p>
       </a>
       <div className="flex space-between">
         <div className="flex">
-          <p className="price">$89.99</p>
+          <p className="price">${price}</p>
           <p className="price gray">$119.99</p>
         </div>
-        <p className="time gray">6d 9h</p>
+        <p className="time gray"></p>
       </div>
     </div>
   );

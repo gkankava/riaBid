@@ -46,8 +46,15 @@
 }
 
 .letters {
+  width: 100%;
   display: flex;
   justify-content: center;
+  @media screen and (max-width: 768px) {
+    overflow-x: scroll;
+    width: 100%;
+    margin: auto;
+    justify-content: flex-start;
+  }
   button {
     background: none;
     border: none;

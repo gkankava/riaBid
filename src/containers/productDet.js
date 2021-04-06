@@ -55,17 +55,17 @@ export default function ProductDet(props) {
   if (error) return "An error has occurred: " + error.message;
 
   const { just_for_you, artwork } = data.data;
-
+  const images = JSON.parse(artwork.images);
   return (
     <section className="product-details">
       <div className="container product-page">
         <div className="product-full flex">
           <div className="flex list">
-            <img src={small} alt="Small" />
-            <img src={small} alt="Small" />
-            <img src={small} alt="Small" />
+            {images[1] ? <img src={images[1].url} alt="Small" /> : null}
+            {images[2] ? <img src={images[2].url} alt="Small" /> : null}
+            {images[3] ? <img src={images[3].url} alt="Small" /> : null}
           </div>
-          <img className="main-pic" src={main} alt="Main" />
+          <img className="main-pic" src={images[0].url} alt="Main" />
           <div className="flex column text">
             <h1>{artwork.title}</h1>
             <p className="id">Product ID: {artwork.id}</p>
@@ -94,7 +94,10 @@ export default function ProductDet(props) {
             ) : null}
             <div className="buyitnow flex">
               <p className="price flex">${artwork.buy_it_now}</p>
-              <button onClick={() => addMutation.mutate(artwork.id)}>
+              <button
+                style={{ cursor: "pointer" }}
+                onClick={() => addMutation.mutate(artwork.id)}
+              >
                 Add to cart
               </button>
             </div>

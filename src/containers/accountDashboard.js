@@ -8,10 +8,26 @@ import accountIcon from "../assets/icons/account.png";
 import favoritesIcon from "../assets/icons/favorites.png";
 import historyIcon from "../assets/icons/history.png";
 import plus from "../assets/icons/plus.png";
+import { editAddress } from "../services/dashboardService";
+import { useMutation } from "react-query";
+import Loading from "./loading";
+import { toast } from "react-toastify";
 
 function AddArtwork(props) {
-  const [filter, setFilter] = React.useState(false);
-
+  const addMutation = useMutation(editAddress, {
+    onMutate: (variables) => {
+      return { id: 1 };
+    },
+    onError: (error, variables, context) => {
+      toast.error(error.context);
+    },
+    onSuccess: (data, variables, context) => {
+      toast("You successfully added artist");
+    },
+    onSettled: (data, error, variables, context) => {
+      // Error or success... doesn't matter!
+    },
+  });
   return (
     <section id="shop" className="container">
       <div className="dashboard-container">
@@ -57,7 +73,7 @@ function AddArtwork(props) {
             <input
               style={{ cursor: "pointer" }}
               type="submit"
-              value="Add Address"
+              value="Save Address"
             ></input>
           </form>
         </div>

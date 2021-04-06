@@ -22,3 +22,13 @@ export function getArtworks() {
 export function addArtist(data) {
   return http.post(apiUrl + "/add-artist", data);
 }
+
+export function addArtwork(data) {
+  return http.post(apiUrl + "/add-artwork", data, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+}
+
+export function editAddress(data) {
+  return http.post(apiUrl + "/update-user");
+}

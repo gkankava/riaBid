@@ -47,21 +47,19 @@ function Artists(props) {
               ALL
             </button>
           )}
-          {Object.keys(formatted_data).map((key) => (
-            <div key={key}>
-              {letter == key ? (
-                <button className="letter active">{key}</button>
-              ) : (
-                <button
-                  key={key}
-                  onClick={() => setLetter(key)}
-                  className="letter"
-                >
-                  {key}
-                </button>
-              )}
-            </div>
-          ))}
+          {Object.keys(formatted_data).map((key) =>
+            letter == key ? (
+              <button className="letter active">{key}</button>
+            ) : (
+              <button
+                key={key}
+                onClick={() => setLetter(key)}
+                className="letter"
+              >
+                {key}
+              </button>
+            )
+          )}
         </div>
         <div className="artist-container">
           {Object.keys(filtered).map((key) => (
