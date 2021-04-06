@@ -26,10 +26,12 @@
       }
       .img {
         overflow: hidden;
-        height: 100%;
+
         img {
           transition: all 150ms;
           width: 100%;
+          height: 20vw;
+          object-fit: cover;
         }
       }
       .title {
@@ -42,6 +44,13 @@
         font-size: 2rem;
         &.gray {
           margin-left: 0.5em;
+          color: #cecece;
+        }
+      }
+      .time {
+        text-align: center;
+        font-size: 1.3rem;
+        &.gray {
           color: #cecece;
         }
       }

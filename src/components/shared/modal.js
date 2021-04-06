@@ -102,7 +102,7 @@ function Modal({ type, setAuthModalActive }) {
                   <input type="checkbox" name="" id="" />
                   <span>Keep me signed in</span>
                 </div>
-                <div className="forget">Forgot password?</div>
+                {/*<div className="forget">Forgot password?</div>*/}
               </div>
             </div>
             {/*<div className="modal-btn-container">

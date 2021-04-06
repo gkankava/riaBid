@@ -101,8 +101,9 @@ a {
     }
   }
   .img {
+    object-fit: contain;
     overflow: hidden;
-    height: 100%;
+    height: 20vw;
     img {
       transition: all 150ms;
       width: 100%;

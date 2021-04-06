@@ -21,11 +21,16 @@ function Main() {
     <section id="main">
       <Hero />
       <Banners />
-      <SharedSlider
-        data={selected_just_for_you}
-        title="SELECTED JUST FOR YOU"
-      />
-      <SharedSlider data={auctions} title="AUCTION" auction />
+      {selected_just_for_you.length ? (
+        <SharedSlider
+          data={selected_just_for_you}
+          title="SELECTED JUST FOR YOU"
+        />
+      ) : null}
+      {auctions.length ? (
+        <SharedSlider data={auctions} title="AUCTION" auction />
+      ) : null}
+
       {/* <Subscribe /> */}
       {/* <div style={{ height: "500px" }}></div> */}
     </section>

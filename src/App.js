@@ -31,11 +31,12 @@ import "react-toastify/dist/ReactToastify.css";
 import { userProvider } from "./store/store";
 import AddArtist from "./containers/addArtist";
 import AddArtwork from "./containers/addArtwork";
+import { getAddress } from "./services/dashboardService";
+import Loading from "./containers/loading";
 const queryClient = new QueryClient();
 
 function App() {
   const { currentUser, setCurrentUser } = userProvider();
-  console.log();
 
   return currentUser.isAuthenticated ? (
     <QueryClientProvider client={queryClient}>

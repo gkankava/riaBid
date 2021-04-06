@@ -32,18 +32,19 @@ function Auctions(props) {
           <div key={item.id} className="product flex column">
             <Link to={"/store/" + item.id}>
               <div className="img">
-                <img src={cardImg}></img>
+                <img src={item.image}></img>
               </div>
 
-              <p className="title">T-Shirt Summer Vibes</p>
+              <p className="title">{item.title}</p>
+              <p className="title">{item.display_name}</p>
             </Link>
             <div className="flex space-between">
               <div className="flex">
-                <p className="price">$89.99</p>
-                <p className="price gray">$119.99</p>
+                <p className="price">${item.current_bid}</p>
+                <p className="price gray">${item.buy_it_now}</p>
               </div>
-              <p className="time gray">6d 9h</p>
             </div>
+            <p className="time gray">End time: {item.end_time}</p>
           </div>
         ))}
       </div>

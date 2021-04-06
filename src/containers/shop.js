@@ -19,12 +19,12 @@ function Shop(props) {
   if (error) return "An error has occurred: " + error.message;
 
   var keys = Object.keys(data.data);
-  var min = data?.data[keys[0]]?.current_bid; // ignoring case of empty list for conciseness
-  var max = data?.data[keys[0]]?.current_bid;
+  var min = data.data[keys[0]].buy_it_now; // ignoring case of empty list for conciseness
+  var max = data.data[keys[0]].buy_it_now;
   var i;
 
   for (i = 1; i < keys.length; i++) {
-    var value = data.data[keys[i]]?.current_bid;
+    var value = data.data[keys[i]]?.buy_it_now;
     if (value < min) min = value;
     if (value > max) max = value;
   }
@@ -45,7 +45,7 @@ function Shop(props) {
   const filteredData = data.data
     .filter(
       (item) =>
-        item.current_bid >= filterPrice[0] && item.current_bid <= filterPrice[1]
+        item.buy_it_now >= filterPrice[0] && item.buy_it_now <= filterPrice[1]
     )
     .filter((item) => item.year >= filterYear[0] && item.year <= filterYear[1])
     .filter((item) => item.product_type == filterType || filterType == "");
@@ -115,18 +115,27 @@ function Shop(props) {
             <div key={item.id} className="product flex column">
               <Link to={"/store/" + item.id}>
                 <div className="img">
-                  <img src={cardImg}></img>
+                  <img src={item.image}></img>
                 </div>
 
                 <p className="title">{item.title}</p>
+                <p className="title">{item.display_name}</p>
               </Link>
-              <div className="flex space-between">
-                <div className="flex">
-                  <p className="price">${item.current_bid}</p>
-                  <p className="price gray">${item.buy_it_now}</p>
+              {item.current_bid ? (
+                <div className="flex space-between">
+                  <div className="flex">
+                    <p className="price">${item.current_bid}</p>
+                    <p className="price gray">${item.buy_it_now}</p>
+                  </div>
+                  <p className="time gray"></p>
                 </div>
-                <p className="time gray"></p>
-              </div>
+              ) : (
+                <div className="flex space-between">
+                  <div className="flex">
+                    <p className="price">${item.buy_it_now}</p>
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>

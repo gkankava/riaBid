@@ -21,7 +21,13 @@ function GalleriesFull(props) {
   if (isLoading) return <Loading></Loading>;
 
   if (error) return "An error has occurred: " + error.message;
-  const { gallery_title, location, legal_image, id } = data.data;
+  const {
+    gallery_title,
+    location,
+    legal_image,
+    id,
+    gallery_description,
+  } = data.data;
   return (
     <section id="shop" className="container galleries">
       <ul className="breadcrumb">
@@ -39,10 +45,10 @@ function GalleriesFull(props) {
         <div className="text">
           <h1>{gallery_title}</h1>
           <p>{location}</p>
+          <p>{gallery_description}</p>
         </div>
         <div className="pictures">
           <img className="bot" src={legal_image}></img>
-          <img className="top" src={cardImg2}></img>
         </div>
       </div>
     </section>

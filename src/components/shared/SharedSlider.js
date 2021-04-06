@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import Card from "./Card";
 import cardImg from "../../assets/dummy/cardImage.jpg";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 function SharedSlider({ auction, title, data }) {
   const dummy = [
@@ -167,7 +168,9 @@ function SharedSlider({ auction, title, data }) {
               <BsArrowRightShort />
             </div>
           </div>
-          <button className="btn-placebid">SHOW MORE</button>
+          <button className="btn-placebid">
+            <Link to="/store">SHOW MORE</Link>
+          </button>
         </div>
       </div>
       <Slider {...settings} ref={sliderRef}>

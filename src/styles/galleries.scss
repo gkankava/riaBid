@@ -59,7 +59,7 @@
 
 .full-gallery {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 2fr 1fr;
   .text {
     h1 {
       font-size: 2.29vw;
@@ -76,8 +76,11 @@
       left: 50%;
     }
     .bot {
+      width: 100%;
+      img {
+        width: 100%;
+      }
       position: relative;
-      top: 2vw;
     }
   }
 }

@@ -30,5 +30,13 @@ export function addArtwork(data) {
 }
 
 export function editAddress(data) {
-  return http.post(apiUrl + "/update-user");
+  return http.post(apiUrl + "/update-user", data);
+}
+
+export function getAddress() {
+  return http.post(apiUrl + "/mydetails");
+}
+
+export function subscribe(data) {
+  return http.post(apiUrl + "/subscribe", data);
 }

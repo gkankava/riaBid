@@ -4,7 +4,8 @@ import main from "../assets/product/main.png";
 import clock from "../assets/product/clock.png";
 import SharedSlider from "../components/shared/SharedSlider";
 import { getAuction } from "../services/auctionsService";
-
+import ReactFancyBox from "react-fancybox";
+import "react-fancybox/lib/fancybox.css";
 import { getArtwork } from "../services/artworksService";
 import Loading from "./loading";
 import { addBag } from "../services/bagService";
@@ -21,8 +22,7 @@ export default function ProductDet(props) {
       return { id: 1 };
     },
     onError: (error, variables, context) => {
-      console.log(error);
-      toast.error(error.context);
+      toast.error("You need to login");
     },
     onSuccess: (data, variables, context) => {
       toast("Artwork added to bag");
@@ -37,8 +37,7 @@ export default function ProductDet(props) {
       return { id: 1 };
     },
     onError: (error, variables, context) => {
-      console.log(error);
-      toast.error(error.context);
+      toast.error("You need to login");
     },
     onSuccess: (data, variables, context) => {
       toast("Successfully bid");
@@ -65,7 +64,10 @@ export default function ProductDet(props) {
             {images[2] ? <img src={images[2].url} alt="Small" /> : null}
             {images[3] ? <img src={images[3].url} alt="Small" /> : null}
           </div>
-          <img className="main-pic" src={images[0].url} alt="Main" />
+          <a className="main-pic" data-fancybox="gallery" href={artwork.image}>
+            <img className="main-pic" src={artwork.image} />
+          </a>
+
           <div className="flex column text">
             <h1>{artwork.title}</h1>
             <p className="id">Product ID: {artwork.id}</p>
@@ -83,6 +85,7 @@ export default function ProductDet(props) {
                     type="text"
                   />
                   <button
+                    style={{ cursor: "pointer" }}
                     onClick={() =>
                       bidMutation.mutate({ id: artwork.id, bidAmount })
                     }
@@ -102,12 +105,17 @@ export default function ProductDet(props) {
               </button>
             </div>
             <h2>Details and product description</h2>
-            <p className="desc">{artwork.description}</p>
+            <p
+              className="desc"
+              dangerouslySetInnerHTML={{ __html: artwork.description }}
+            >
+              {}
+            </p>
             {artwork.on_auction ? (
               <div className="flex clock space-between align-center">
                 <div className="flex align-center">
                   <img src={clock} alt="Clock" />
-                  <p className="yellow">Time Left</p>
+                  <p className="yellow">End time:</p>
                 </div>
                 <p className="red">{artwork.end_time}</p>
               </div>
