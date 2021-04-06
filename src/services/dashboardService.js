@@ -24,9 +24,7 @@ export function addArtist(data) {
 }
 
 export function addArtwork(data) {
-  return http.post(apiUrl + "/add-artwork", data, {
-    headers: { "Content-Type": "multipart/form-data" },
-  });
+  return http.post(apiUrl + "/add-artwork", data);
 }
 
 export function editAddress(data) {
