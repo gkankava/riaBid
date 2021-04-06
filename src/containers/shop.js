@@ -6,15 +6,50 @@ import cardImg from "../assets/dummy/cardImage.jpg";
 import { Link } from "react-router-dom";
 import { QueryClient, useQuery } from "react-query";
 import Loading from "./loading";
+import RangeSlider from "../components/shared/RangeSlider";
 
 function Shop(props) {
   const [filter, setFilter] = useState(false);
   const { isLoading, error, data } = useQuery("artworks", getArtworks);
-
+  const [filterType, setFilterType] = useState("");
+  const [filterPrice, setFilterPrice] = React.useState([0, 1000000]);
+  const [filterYear, setFilterYear] = useState([0, 9999]);
   if (isLoading) return <Loading></Loading>;
 
   if (error) return "An error has occurred: " + error.message;
-  console.log(data.data);
+
+  var keys = Object.keys(data.data);
+  var min = data.data[keys[0]].current_bid; // ignoring case of empty list for conciseness
+  var max = data.data[keys[0]].current_bid;
+  var i;
+
+  for (i = 1; i < keys.length; i++) {
+    var value = data.data[keys[i]].current_bid;
+    if (value < min) min = value;
+    if (value > max) max = value;
+  }
+  const years = [];
+  for (i = 1; i < keys.length; i++) {
+    years.push(data.data[keys[i]].year);
+  }
+
+  var minYear = data.data[keys[0]].year; // ignoring case of empty list for conciseness
+  var maxYear = data.data[keys[0]].year;
+
+  for (i = 1; i < keys.length; i++) {
+    var value = data.data[keys[i]].year;
+    if (value < minYear) minYear = value;
+    if (value > maxYear) maxYear = value;
+  }
+
+  const filteredData = data.data
+    .filter(
+      (item) =>
+        item.current_bid >= filterPrice[0] && item.current_bid <= filterPrice[1]
+    )
+    .filter((item) => item.year >= filterYear[0] && item.year <= filterYear[1])
+    .filter((item) => item.product_type == filterType || filterType == "");
+
   return (
     <section id="shop" className="container auctions shop">
       <ul className="breadcrumb">
@@ -27,30 +62,68 @@ function Shop(props) {
       </ul>
       <div className="shop-grid">
         <div className="filter-container">
-          <div>
-            <h3>Product Type</h3>
+          <div className="cont">
+            <h2>Product Type</h2>
+            <label class="container-checkbox">
+              Private Collection
+              <input
+                onChange={(e) =>
+                  e.target.checked
+                    ? setFilterType(e.target.value)
+                    : setFilterType("")
+                }
+                value="1"
+                type="checkbox"
+              />
+              <span class="checkmark"></span>
+            </label>
+            <label class="container-checkbox">
+              Gallery
+              <input
+                onChange={(e) =>
+                  e.target.checked
+                    ? setFilterType(e.target.value)
+                    : setFilterType("")
+                }
+                value="2"
+                type="checkbox"
+              />
+              <span class="checkmark"></span>
+            </label>
           </div>
-          <div>
-            <h3>Price</h3>
+          <div className="cont">
+            <h2>Price</h2>
+            <RangeSlider
+              value={filterPrice}
+              setValue={setFilterPrice}
+              min={min}
+              max={max}
+            ></RangeSlider>
           </div>
-          <div>
-            <h3>Years</h3>
+          <div className="cont">
+            <h2>Years</h2>
+            <RangeSlider
+              value={filterYear}
+              setValue={setFilterYear}
+              min={0}
+              max={2100}
+            ></RangeSlider>
           </div>
         </div>
         <div className="grid-container-auctions">
-          {data.data.map((item) => (
+          {filteredData.map((item) => (
             <div key={item.id} className="product flex column">
               <Link to={"/store/" + item.id}>
                 <div className="img">
                   <img src={cardImg}></img>
                 </div>
 
-                <p className="title">T-Shirt Summer Vibes</p>
+                <p className="title">{item.title}</p>
               </Link>
               <div className="flex space-between">
                 <div className="flex">
-                  <p className="price">$89.99</p>
-                  <p className="price gray">$119.99</p>
+                  <p className="price">${item.current_bid}</p>
+                  <p className="price gray">${item.buy_it_now}</p>
                 </div>
                 <p className="time gray"></p>
               </div>
