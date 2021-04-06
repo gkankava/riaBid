@@ -38,3 +38,15 @@ export function getAddress() {
 export function subscribe(data) {
   return http.post(apiUrl + "/subscribe", data);
 }
+
+export function contact(data) {
+  return http.post(apiUrl + "/contact", data);
+}
+
+export function requestAuction(id) {
+  return http.post(apiUrl + "/request-auction/" + id);
+}
+
+export function cancelAuction(id) {
+  return http.post(apiUrl + "/cancel-auction/" + id);
+}

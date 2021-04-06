@@ -8,13 +8,30 @@ import accountIcon from "../assets/icons/account.png";
 import favoritesIcon from "../assets/icons/favorites.png";
 import historyIcon from "../assets/icons/history.png";
 import plus from "../assets/icons/plus.png";
-import { useQuery, useQueryClient } from "react-query";
-import { getArtworks } from "../services/dashboardService";
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import { getArtworks, requestAuction } from "../services/dashboardService";
 import Loading from "./loading";
+import { toast } from "react-toastify";
 
 function ArtworksDashboard(props) {
   const [filter, setFilter] = React.useState(false);
   const queryClient = useQueryClient();
+
+  const requestMutation = useMutation(requestAuction, {
+    onMutate: (variables) => {
+      return { id: 1 };
+    },
+    onError: (error, variables, context) => {
+      toast.error(error.context);
+    },
+    onSuccess: (data, variables, context) => {
+      toast("You successfully requested auction");
+    },
+    onSettled: (data, error, variables, context) => {
+      // Error or success... doesn't matter!
+    },
+  });
+
   const { isLoading, error, data } = useQuery("artworksDashboard", getArtworks);
 
   if (isLoading) return <Loading></Loading>;
@@ -68,7 +85,12 @@ function ArtworksDashboard(props) {
                       <p>{item.buy_it_now}$</p>
                       <p>For Sale</p>
                       <p>Exact Price</p>
-                      <button className="main-button">Request Auction</button>
+                      <button
+                        onClick={() => requestMutation.mutate(item.id)}
+                        className="main-button"
+                      >
+                        Request Auction
+                      </button>
                     </div>
                   ))
                 : "You haven't got any artworks"}
