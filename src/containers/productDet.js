@@ -8,7 +8,7 @@ import ReactFancyBox from "react-fancybox";
 import "react-fancybox/lib/fancybox.css";
 import { getArtwork } from "../services/artworksService";
 import Loading from "./loading";
-import { addBag } from "../services/bagService";
+import { addBag, addFavorites } from "../services/bagService";
 import { toast } from "react-toastify";
 import { bidArtwork } from "../services/bidService";
 import { QueryClient, useMutation, useQuery } from "react-query";
@@ -26,6 +26,21 @@ export default function ProductDet(props) {
     },
     onSuccess: (data, variables, context) => {
       toast("Artwork added to bag");
+    },
+    onSettled: (data, error, variables, context) => {
+      // Error or success... doesn't matter!
+    },
+  });
+
+  const favoritesMutation = useMutation(addFavorites, {
+    onMutate: (variables) => {
+      return { id: 1 };
+    },
+    onError: (error, variables, context) => {
+      toast.error("You need to login");
+    },
+    onSuccess: (data, variables, context) => {
+      toast("Artwork added to favorites");
     },
     onSettled: (data, error, variables, context) => {
       // Error or success... doesn't matter!
@@ -97,6 +112,12 @@ export default function ProductDet(props) {
             ) : null}
             <div className="buyitnow flex">
               <p className="price flex">${artwork.buy_it_now}</p>
+              <button
+                style={{ cursor: "pointer" }}
+                onClick={() => favoritesMutation.mutate(artwork.id)}
+              >
+                Add to Favorites
+              </button>
               <button
                 style={{ cursor: "pointer" }}
                 onClick={() => addMutation.mutate(artwork.id)}

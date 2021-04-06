@@ -7,6 +7,14 @@ export function getBag() {
   return http.get(apiEndpoint);
 }
 
+export function addFavorites(id) {
+  return http.post(apiUrl + "/favorites/add/" + id);
+}
+
+export function deleteFavorites(id) {
+  return http.post(apiUrl + "/favorites/delete/" + id);
+}
+
 export function addBag(id) {
   return http.post(apiEndpoint + "/add/" + id);
 }
