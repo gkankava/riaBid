@@ -76,6 +76,7 @@ function Artists(props) {
                   className="artist"
                 >
                   {item.display_name}
+                  <br></br>
                 </Link>
               ))}
             </div>

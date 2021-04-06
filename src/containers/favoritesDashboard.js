@@ -7,10 +7,17 @@ import artworksIcon from "../assets/icons/artworks.png";
 import accountIcon from "../assets/icons/account.png";
 import favoritesIcon from "../assets/icons/favorites.png";
 import historyIcon from "../assets/icons/history.png";
-
+import { useQuery, useQueryClient } from "react-query";
+import Loading from "./loading";
+import { getFavorites } from "../services/dashboardService";
 function FavoritesDashboard(props) {
   const [filter, setFilter] = React.useState(false);
+  const queryClient = useQueryClient();
+  const { isLoading, error, data } = useQuery("favorites", getFavorites);
 
+  if (isLoading) return <Loading></Loading>;
+
+  if (error) return "An error has occurred: " + error.message;
   return (
     <section id="shop" className="container">
       <div className="dashboard-container">
@@ -20,9 +27,7 @@ function FavoritesDashboard(props) {
             <img src={dashboardIcon}></img>
             Dashboard
           </Link>
-          <Link to="/dashboard/artists">
-            <img src={artistsIcon}></img>Artists
-          </Link>
+
           <Link to="/dashboard/artworks">
             <img src={artworksIcon}></img>Artworks
           </Link>
@@ -38,9 +43,30 @@ function FavoritesDashboard(props) {
         </div>
         <div className="flex column bids">
           <h2>Favorites</h2>
-          
-          
-         
+          {data.data.length
+            ? data.data.map((item) => (
+                <div className="bid-card">
+                  <div className="flex space-between">
+                    <div className="flex">
+                      <img src={item.image}></img>
+                      <div classname="flex column">
+                        <p className="name">{item.title}</p>
+                        <p className="country">
+                          Current Bid: {item.current_bid} $
+                        </p>
+                      </div>
+                    </div>
+                    <Link
+                      style={{ alignSelf: "center" }}
+                      to={"/store/" + item.artwork_id}
+                      className="main-button"
+                    >
+                      Full View
+                    </Link>
+                  </div>
+                </div>
+              ))
+            : "You got no favorite artworks"}
         </div>
       </div>
     </section>

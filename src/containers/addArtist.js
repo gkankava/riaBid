@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import cardImg from "../assets/dummy/bid.png";
 import dashboardIcon from "../assets/icons/dashboard.png";
@@ -8,9 +8,39 @@ import accountIcon from "../assets/icons/account.png";
 import favoritesIcon from "../assets/icons/favorites.png";
 import historyIcon from "../assets/icons/history.png";
 import plus from "../assets/icons/plus.png";
+import { useMutation, useQuery } from "react-query";
+import { addArtist } from "../services/dashboardService";
+import Loading from "./loading";
+import { toast } from "react-toastify";
 
-function AddArtwork(props) {
-  const [filter, setFilter] = React.useState(false);
+function AddArtist(props) {
+  const [display_name, setDisplayName] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const [filter, setFilter] = useState(false);
+  const addMutation = useMutation(addArtist, {
+    onMutate: (variables) => {
+      return { id: 1 };
+    },
+    onError: (error, variables, context) => {
+      toast.error(error.context);
+    },
+    onSuccess: (data, variables, context) => {
+      toast("You successfully added artist");
+      setSelectedFile(null);
+      setDisplayName("");
+    },
+    onSettled: (data, error, variables, context) => {
+      // Error or success... doesn't matter!
+    },
+  });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("display_name", display_name);
+    formData.append("avatar", selectedFile);
+    addMutation.mutate(formData);
+  };
 
   return (
     <section id="shop" className="container">
@@ -36,28 +66,23 @@ function AddArtwork(props) {
           </Link>
         </div>
         <div className="flex column  contact-container dashboard">
-          <h2 style={{ marginBottom: "1vw" }}>Address</h2>
-          <form className="contact-form dashboard">
-            <input type="text" name="full_name" placeholder="Full Name"></input>
+          <h2 style={{ marginBottom: "1vw" }}>Add Artist</h2>
+          <form onSubmit={handleSubmit} className="contact-form dashboard">
             <input
               type="text"
-              name="address_one"
-              placeholder="Address Line 1"
+              value={display_name}
+              onChange={(e) => setDisplayName(e.target.value)}
+              name="display_name"
+              placeholder="Display Name"
             ></input>
             <input
-              type="text"
-              name="address_two"
-              placeholder="Address Line 2"
+              onChange={(e) => setSelectedFile(e.target.files[0])}
+              type="file"
             ></input>
-            <input type="text" name="country" placeholder="Country"></input>
-            <input type="text" name="city" placeholder="City"></input>
-            <input type="text" name="zip" placeholder="Zip/Postal Code"></input>
-            <input type="text" name="phone" placeholder="Phone Number"></input>
-
             <input
               style={{ cursor: "pointer" }}
               type="submit"
-              value="Add Address"
+              value="Add Artist"
             ></input>
           </form>
         </div>
@@ -66,4 +91,4 @@ function AddArtwork(props) {
   );
 }
 
-export default AddArtwork;
+export default AddArtist;

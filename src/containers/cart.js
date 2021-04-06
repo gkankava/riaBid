@@ -22,20 +22,22 @@ export default function Cart() {
         </li>
       </ul>
       <div className="grid-container-cart">
-        {data.data.bag.map((item) => (
-          <div key={item.id} className="item flex space-between">
-            <div className="flex">
-              <img src={item.image}></img>
-              <div className="flex column">
-                <h3>{item.title}</h3>
-                <p>Product ID: {item.artwork_id}</p>
+        {data.data.bag.length
+          ? data.data.bag.map((item) => (
+              <div key={item.id} className="item flex space-between">
+                <div className="flex">
+                  <img src={item.image}></img>
+                  <div className="flex column">
+                    <h3>{item.title}</h3>
+                    <p>Product ID: {item.artwork_id}</p>
+                  </div>
+                </div>
+                <p className="price">
+                  {item.on_auction ? item.current_bid : item.buy_it_now}$
+                </p>
               </div>
-            </div>
-            <p className="price">
-              {item.on_auction ? item.current_bid : item.buy_it_now}$
-            </p>
-          </div>
-        ))}
+            ))
+          : "Your cart is empty"}
 
         <div className="full flex column">
           <h3>Full Amount: {data.data.total}$</h3>

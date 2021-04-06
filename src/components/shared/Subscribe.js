@@ -9,7 +9,11 @@ function Subscribe() {
           Subscribe to our newsletter and receive exclusive offers every week
         </p>
         <div className="input-wrapper">
-          <input type="text" placeholder="Your Email Address" />
+          <input
+            style={{ padding: "1vw" }}
+            type="text"
+            placeholder="Your Email Address"
+          />
           <button className="btn-placebid">SUBSCRIBE</button>
         </div>
       </div>

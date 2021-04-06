@@ -7,19 +7,18 @@ import artworksIcon from "../assets/icons/artworks.png";
 import accountIcon from "../assets/icons/account.png";
 import favoritesIcon from "../assets/icons/favorites.png";
 import historyIcon from "../assets/icons/history.png";
-import { useQuery, useQueryClient } from "react-query";
-import { getBidHistory } from "../services/dashboardService";
+import plus from "../assets/icons/plus.png";
+import { useQuery } from "react-query";
+import { getArtists } from "../services/artistsService";
 import Loading from "./loading";
 
-function Dashboard(props) {
+function AddArtwork(props) {
   const [filter, setFilter] = React.useState(false);
-  const queryClient = useQueryClient();
-  const { isLoading, error, data } = useQuery("bidshistory", getBidHistory);
+  const { isLoading, error, data } = useQuery("artists", getArtists);
 
   if (isLoading) return <Loading></Loading>;
 
   if (error) return "An error has occurred: " + error.message;
-
   return (
     <section id="shop" className="container">
       <div className="dashboard-container">
@@ -43,32 +42,39 @@ function Dashboard(props) {
             <img src={historyIcon}></img>Order History
           </Link>
         </div>
-        <div className="flex column bids">
-          <h2>MY BIDS</h2>
-          {data.data.map((item) => (
-            <div className="bid-card">
-              <div className="flex space-between">
-                <div className="flex">
-                  <img src={item.image}></img>
-                  <div classname="flex column">
-                    <p className="name">{item.title}</p>
-                    <p className="country">Current Bid: {item.current_bid} $</p>
-                  </div>
-                </div>
-                <Link
-                  style={{ alignSelf: "center" }}
-                  to={"/store/" + item.artwork_id}
-                  className="main-button"
-                >
-                  Full View
-                </Link>
-              </div>
-            </div>
-          ))}
+        <div className="flex column  contact-container dashboard">
+          <h2 style={{ marginBottom: "1vw" }}>Add Artwork</h2>
+          <form className="contact-form dashboard">
+            <select name="cars" id="cars">
+              {data.data.map((item) => (
+                <option value={item.id}>{item.display_name}</option>
+              ))}
+            </select>
+
+            <input type="text" name="title" placeholder="Title"></input>
+            <input type="text" name="buy_it_now" placeholder="Price"></input>
+            <input type="text" name="year" placeholder="Year"></input>
+            <textarea
+              rows="5"
+              type="text"
+              name="description"
+              placeholder="Description"
+            ></textarea>
+            <select name="product_type" id="product_type">
+              <option value="1">Private Collection</option>
+              <option value="2">Gallery</option>
+            </select>
+            <input type="file" name="avatar" rows="10"></input>
+            <input
+              style={{ cursor: "pointer" }}
+              type="submit"
+              value="Add Artwork"
+            ></input>
+          </form>
         </div>
       </div>
     </section>
   );
 }
 
-export default Dashboard;
+export default AddArtwork;

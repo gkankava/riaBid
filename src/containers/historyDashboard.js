@@ -21,9 +21,7 @@ function HistoryDashboard(props) {
             <img src={dashboardIcon}></img>
             Dashboard
           </Link>
-          <Link to="/dashboard/artists">
-            <img src={artistsIcon}></img>Artists
-          </Link>
+
           <Link to="/dashboard/artworks">
             <img src={artworksIcon}></img>Artworks
           </Link>
@@ -39,49 +37,47 @@ function HistoryDashboard(props) {
         </div>
         <div className="flex column bids">
           <div className="artworks-container">
-            
             <div className="artworks-grid">
-            
-               <div className="artwork-item flex title">
-             <div className="flex"><img src={cardImg}></img>
-             <div className="flex column">
+              <div className="artwork-item flex title">
+                <div className="flex">
+                  <img src={cardImg}></img>
+                  <div className="flex column">
                     <p className="name">Rita Khachaturiani</p>
                     <p className="country">Georgia</p>
-                  </div></div>
-               <p>500$</p>
-               <p> </p>
-               <p> </p>
-                <p>Successfull</p>
-              </div>
-             <div className="artwork-item flex title">
-             <div className="flex"><img src={cardImg}></img>
-             <div className="flex column">
-                    <p className="name">Rita Khachaturiani</p>
-                    <p className="country">Georgia</p>
-                  </div></div>
-               <p>500$</p>
-               <p> </p>
-               <p> </p>
+                  </div>
+                </div>
+                <p>500$</p>
+                <p> </p>
+                <p> </p>
                 <p>Successfull</p>
               </div>
               <div className="artwork-item flex title">
-             <div className="flex"><img src={cardImg}></img>
-             <div className="flex column">
+                <div className="flex">
+                  <img src={cardImg}></img>
+                  <div className="flex column">
                     <p className="name">Rita Khachaturiani</p>
                     <p className="country">Georgia</p>
-                  </div></div>
-               <p>500$</p>
-               <p> </p>
-               <p> </p>
+                  </div>
+                </div>
+                <p>500$</p>
+                <p> </p>
+                <p> </p>
+                <p>Successfull</p>
+              </div>
+              <div className="artwork-item flex title">
+                <div className="flex">
+                  <img src={cardImg}></img>
+                  <div className="flex column">
+                    <p className="name">Rita Khachaturiani</p>
+                    <p className="country">Georgia</p>
+                  </div>
+                </div>
+                <p>500$</p>
+                <p> </p>
+                <p> </p>
                 <p>Successfull</p>
               </div>
             </div>
-            
-            
-              
-             
-             
-            
           </div>
         </div>
       </div>

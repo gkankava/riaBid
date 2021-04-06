@@ -29,6 +29,8 @@ import Cart from "./containers/cart";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { userProvider } from "./store/store";
+import AddArtist from "./containers/addArtist";
+import AddArtwork from "./containers/addArtwork";
 const queryClient = new QueryClient();
 
 function App() {
@@ -86,6 +88,16 @@ function App() {
             exact
             path="/dashboard/history"
             render={(props) => <HistoryDashboard {...props} />}
+          />
+          <Route
+            exact
+            path="/dashboard/addartist"
+            render={(props) => <AddArtist {...props} />}
+          />
+          <Route
+            exact
+            path="/dashboard/addartwork"
+            render={(props) => <AddArtwork {...props} />}
           />
           <Route
             exact
