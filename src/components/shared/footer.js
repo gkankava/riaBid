@@ -21,11 +21,7 @@ function footer() {
             art scene in Georgia and South Caucasus.
           </p>
           <div className="social-list">
-            <FaFacebookF />
-            <FaTwitter />
-            <FaLinkedinIn />
             <FaInstagram />
-            <FaYoutube />
           </div>
         </div>
         <div className="col-wrapper">
