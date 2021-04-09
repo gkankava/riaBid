@@ -3,12 +3,29 @@ import { useMutation, useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import cardImg from "../assets/dummy/cart-dummy.png";
 import { getBag } from "../services/bagService";
-import { createOrder } from "../services/dashboardService";
+import { createOrder, removeItem } from "../services/dashboardService";
 import Loading from "./loading";
 import { toast } from "react-toastify";
 
 export default function Cart() {
   const orderMutation = useMutation(createOrder, {
+    onMutate: (variables) => {
+      return { id: 1 };
+    },
+    onError: (error, variables, context) => {
+      toast.error(error.context);
+    },
+    onSuccess: (data, variables, context) => {
+      toast("You successfully created order");
+      window.location.href =
+        "https://api.riabid.ge/payorder/" + data.data.order_id;
+    },
+    onSettled: (data, error, variables, context) => {
+      // Error or success... doesn't matter!
+    },
+  });
+
+  const removeMutation = useMutation(removeItem, {
     onMutate: (variables) => {
       return { id: 1 };
     },
@@ -54,7 +71,12 @@ export default function Cart() {
                   <p className="price">
                     {item.on_auction ? item.current_bid : item.buy_it_now}₾
                   </p>
-                  <p>Remove</p>
+                  <button
+                    style={{ border: "none", backgroundColor: "transparent" }}
+                    onClick={() => removeMutation.mutate(item.id)}
+                  >
+                    Remove
+                  </button>
                 </div>
               </div>
             ))
