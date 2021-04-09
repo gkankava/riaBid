@@ -52,7 +52,7 @@ function FavoritesDashboard(props) {
                       <div classname="flex column">
                         <p className="name">{item.title}</p>
                         <p className="country">
-                          Current Bid: {item.current_bid} $
+                          Current Bid: {item.current_bid} ₾
                         </p>
                       </div>
                     </div>

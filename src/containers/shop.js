@@ -124,15 +124,15 @@ function Shop(props) {
               {item.current_bid ? (
                 <div className="flex space-between">
                   <div className="flex">
-                    <p className="price">${item.current_bid}</p>
-                    <p className="price gray">${item.buy_it_now}</p>
+                    <p className="price">₾{item.current_bid}</p>
+                    <p className="price gray">₾{item.buy_it_now}</p>
                   </div>
                   <p className="time gray"></p>
                 </div>
               ) : (
                 <div className="flex space-between">
                   <div className="flex">
-                    <p className="price">${item.buy_it_now}</p>
+                    <p className="price">₾{item.buy_it_now}</p>
                   </div>
                 </div>
               )}

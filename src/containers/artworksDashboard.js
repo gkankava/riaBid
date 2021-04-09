@@ -82,7 +82,7 @@ function ArtworksDashboard(props) {
                           <p className="country">{item.location}</p>
                         </div>
                       </div>
-                      <p>{item.buy_it_now}$</p>
+                      <p>{item.buy_it_now}₾</p>
                       <p>For Sale</p>
                       <p>Exact Price</p>
                       <button

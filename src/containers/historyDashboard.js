@@ -46,7 +46,7 @@ function HistoryDashboard(props) {
                     <p className="country">Georgia</p>
                   </div>
                 </div>
-                <p>500$</p>
+                <p>500₾</p>
                 <p> </p>
                 <p> </p>
                 <p>Successfull</p>
@@ -59,7 +59,7 @@ function HistoryDashboard(props) {
                     <p className="country">Georgia</p>
                   </div>
                 </div>
-                <p>500$</p>
+                <p>500₾</p>
                 <p> </p>
                 <p> </p>
                 <p>Successfull</p>
@@ -72,7 +72,7 @@ function HistoryDashboard(props) {
                     <p className="country">Georgia</p>
                   </div>
                 </div>
-                <p>500$</p>
+                <p>500₾</p>
                 <p> </p>
                 <p> </p>
                 <p>Successfull</p>

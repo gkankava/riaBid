@@ -52,7 +52,7 @@ function Dashboard(props) {
                   <img src={item.image}></img>
                   <div classname="flex column">
                     <p className="name">{item.title}</p>
-                    <p className="country">Current Bid: {item.current_bid} $</p>
+                    <p className="country">Current Bid: {item.current_bid} ₾</p>
                   </div>
                 </div>
                 <Link

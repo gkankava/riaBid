@@ -40,8 +40,8 @@ function Auctions(props) {
             </Link>
             <div className="flex space-between">
               <div className="flex">
-                <p className="price">${item.current_bid}</p>
-                <p className="price gray">${item.buy_it_now}</p>
+                <p className="price">₾{item.current_bid}</p>
+                <p className="price gray">₾{item.buy_it_now}</p>
               </div>
             </div>
             <p className="time gray">End time: {item.end_time}</p>

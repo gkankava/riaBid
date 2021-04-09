@@ -33,14 +33,14 @@ export default function Cart() {
                   </div>
                 </div>
                 <p className="price">
-                  {item.on_auction ? item.current_bid : item.buy_it_now}$
+                  {item.on_auction ? item.current_bid : item.buy_it_now}₾
                 </p>
               </div>
             ))
           : "Your cart is empty"}
 
         <div className="full flex column">
-          <h3>Full Amount: {data.data.total}$</h3>
+          <h3>Full Amount: {data.data.total}₾</h3>
           <a href="https://api.riabid.ge/payorder/2">Pay Now</a>
         </div>
       </div>
