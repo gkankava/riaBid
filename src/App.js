@@ -33,6 +33,7 @@ import AddArtist from "./containers/addArtist";
 import AddArtwork from "./containers/addArtwork";
 import { getAddress } from "./services/dashboardService";
 import Loading from "./containers/loading";
+import Delivery from "./containers/delivery";
 const queryClient = new QueryClient();
 
 function App() {
@@ -58,6 +59,11 @@ function App() {
             render={(props) => <Artists {...props} />}
           />
           <Route exact path="/cart" render={(props) => <Cart {...props} />} />
+          <Route
+            exact
+            path="/delivery"
+            render={(props) => <Delivery {...props} />}
+          />
           <Route
             exact
             path="/artists/:index"
@@ -150,6 +156,11 @@ function App() {
             exact
             path="/artists"
             render={(props) => <Artists {...props} />}
+          />
+          <Route
+            exact
+            path="/delivery"
+            render={(props) => <Delivery {...props} />}
           />
 
           <Route

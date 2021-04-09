@@ -64,7 +64,7 @@
     padding: 7px 19px;
     box-sizing: border-box;
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 200;
     &.active {
       border: 1px solid #000;
       border-radius: 2px;
@@ -81,11 +81,11 @@
   }
   .letter {
     font-size: 28px;
-    font-weight: 800;
+    font-weight: 200;
   }
   .artist {
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 100;
     color: #000;
   }
 }

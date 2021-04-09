@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  font-weight: 200;
 }
 * {
   &:active,
@@ -111,7 +112,7 @@ a {
   }
   .title {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 200;
     color: #000;
   }
   .price,

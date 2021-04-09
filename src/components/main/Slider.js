@@ -22,21 +22,24 @@ function SliderComp({ activeSlide, setActiveSlide, heroSliderRef }) {
     <Slider {...settings} ref={heroSliderRef}>
       <Slide
         img={bg}
-        text="Make your house
-into a home"
-        btn={{ action: () => console.log("click"), text: "shop now" }}
+        author="A.W."
+        text="In the future, everyone will be world-famous for 15 minutes."
+        btn={{
+          action: () => window.location.href("/store"),
+          text: "Browse art",
+        }}
       />
       <Slide
         img={bg2}
-        text="Make your house
-into a home"
-        btn={{ action: () => console.log("click"), text: "buy now" }}
+        author="A.W."
+        text="In the future, everyone will be world-famous for 15 minutes."
+        btn={{ action: () => console.log("click"), text: "Browse art" }}
       />
       <Slide
         img={bg}
-        text="Make your house
-into a home"
-        btn={{ action: () => console.log("click"), text: "shop now" }}
+        author="A.W."
+        text="In the future, everyone will be world-famous for 15 minutes."
+        btn={{ action: () => console.log("click"), text: "Browse art" }}
       />
     </Slider>
   );

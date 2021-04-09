@@ -9,7 +9,7 @@ function Banners() {
       <div className="banner-item-wrapper orange">
         <img src={img1} alt="" />
         <div className="banner-item-content-wrapper">
-          <p>Trending artworks</p>
+          <p>Popular artworks</p>
           <button className="btn-placebid">
             <Link to="/store">VIEW ALL</Link>
           </button>
