@@ -115,6 +115,9 @@ a {
     object-fit: cover;
     overflow: hidden;
     height: 20vw;
+    @media screen and (max-width: 768px) {
+      min-height: 20vw;
+    }
     img {
       transition: all 150ms;
       width: 100%;
