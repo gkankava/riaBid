@@ -67,6 +67,11 @@ header {
           margin-top: 80px;
 
           li {
+            &:hover {
+              a {
+                color: #fbb03b;
+              }
+            }
             cursor: pointer;
             width: auto;
             text-align: center;
