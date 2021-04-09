@@ -26,7 +26,7 @@ function footer() {
         </div>
         <div className="col-wrapper">
           <div className="col col2">
-            <h4>Abou RiaBid</h4>
+            <h4>About RiaBid</h4>
             <ul>
               <li>
                 <Link to="/text">About Us</Link>
@@ -34,8 +34,12 @@ function footer() {
               <li>
                 <Link to="/buy">Buying on Ria Bid</Link>
               </li>
+
               <li>
                 <Link to="/sell">Selling on Ria Bid</Link>
+              </li>
+              <li>
+                <Link to="/delivery">Delivery</Link>
               </li>
               <li>
                 <Link to="/contact">Contacts</Link>
