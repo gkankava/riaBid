@@ -4,6 +4,7 @@ import { userProvider } from "../../store/store";
 import { GrClose } from "react-icons/gr";
 import { login, register } from "../../services/authService";
 import { useMutation } from "react-query";
+import { toast } from "react-toastify";
 
 function Modal({ type, setAuthModalActive }) {
   const { currentUser, setCurrentUser } = userProvider();
@@ -51,7 +52,7 @@ function Modal({ type, setAuthModalActive }) {
       return { id: 1 };
     },
     onError: (error, variables, context) => {
-      // An error happened!
+      toast.error("Username/Password incorrect");
       console.log(`rolling back optimistic update with id ${context.id}`);
     },
     onSuccess: (data, variables, context) => {
@@ -60,6 +61,7 @@ function Modal({ type, setAuthModalActive }) {
         token: data,
       });
       window.location.href = "/";
+      _closeModal();
       // Boom baby!
     },
     onSettled: (data, error, variables, context) => {
@@ -135,7 +137,6 @@ function Modal({ type, setAuthModalActive }) {
               className="btn-signup"
               onClick={() => {
                 loginMutation.mutate({ email, password });
-                _closeModal();
               }}
             >
               Sign In
