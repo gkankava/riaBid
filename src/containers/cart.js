@@ -1,5 +1,5 @@
 import React from "react";
-import { useMutation, useQuery } from "react-query";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 import { Link } from "react-router-dom";
 import cardImg from "../assets/dummy/cart-dummy.png";
 import { getBag } from "../services/bagService";
@@ -8,6 +8,7 @@ import Loading from "./loading";
 import { toast } from "react-toastify";
 
 export default function Cart() {
+  const queryClient = useQueryClient();
   const orderMutation = useMutation(createOrder, {
     onMutate: (variables) => {
       return { id: 1 };
@@ -17,6 +18,7 @@ export default function Cart() {
     },
     onSuccess: (data, variables, context) => {
       toast("You successfully created order");
+
       window.location.href =
         "https://api.riabid.ge/payorder/" + data.data.order_id;
     },
@@ -34,6 +36,7 @@ export default function Cart() {
     },
     onSuccess: (data, variables, context) => {
       toast("You successfully removed item");
+      queryClient.invalidateQueries("bag");
     },
     onSettled: (data, error, variables, context) => {
       // Error or success... doesn't matter!
