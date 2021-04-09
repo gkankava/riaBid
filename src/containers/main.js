@@ -22,10 +22,7 @@ function Main() {
       <Hero />
       <Banners />
       {selected_just_for_you.length ? (
-        <SharedSlider
-          data={selected_just_for_you}
-          title="SELECTED JUST FOR YOU"
-        />
+        <SharedSlider data={selected_just_for_you} title="RECOMMENDED" />
       ) : null}
       {auctions.length ? (
         <SharedSlider data={auctions} title="AUCTION" auction />
