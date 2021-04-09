@@ -36,7 +36,7 @@ function Auctions(props) {
               </div>
 
               <p className="title">{item.title}</p>
-              <p className="title">{item.display_name}</p>
+              <p className="title2">{item.display_name}</p>
             </Link>
             <div className="flex space-between">
               <div className="flex">

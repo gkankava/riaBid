@@ -126,6 +126,17 @@ export default function ProductDet(props) {
               </button>
             </div>
             <h2>Details and product description</h2>
+            <p className="desc">{artwork.medium}</p>
+            {artwork.depth ? (
+              <p className="desc">
+                {artwork.height}x{artwork.width}x{artwork.depth} cm
+              </p>
+            ) : (
+              <p className="desc">
+                {artwork.height}x{artwork.width} cm
+              </p>
+            )}
+
             <p
               className="desc"
               dangerouslySetInnerHTML={{ __html: artwork.description }}

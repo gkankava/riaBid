@@ -22,8 +22,30 @@ function AddArtwork(props) {
   const [buy_it_now, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [year, setYear] = useState("");
+  const [height, setHeight] = useState("");
+  const [width, setWidth] = useState("");
+  const [depth, setDepth] = useState("");
+  const [units, setUnits] = useState("");
+  const [medium, setMedium] = useState("");
+  const [category, setCategory] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
-
+  const categories = [
+    "Painting",
+    "Sculpture",
+    "Photography",
+    "Print",
+    "Drawing, Collage or other Work on Paper",
+    "Mixed Media",
+    "Performance Art",
+    "Installation",
+    "Video/Film/Animation",
+    "Architecture",
+    "Fashion Design and Wearable Art",
+    "Jewelry",
+    "Design/Decorative Art",
+    "Textile Arts",
+    "Other",
+  ];
   const addMutation = useMutation(addArtwork, {
     onMutate: (variables) => {
       return { id: 1 };
@@ -48,6 +70,12 @@ function AddArtwork(props) {
     formData.append("buy_it_now", buy_it_now);
     formData.append("description", description);
     formData.append("year", year);
+    formData.append("category_id", category);
+    formData.append("depth", depth);
+    formData.append("height", height);
+    formData.append("medium", medium);
+    formData.append("units", units);
+    formData.append("width", width);
     formData.append("image1", selectedFile[0]);
     formData.append("image2", selectedFile[1]);
     formData.append("image3", selectedFile[2]);
@@ -61,6 +89,7 @@ function AddArtwork(props) {
   if (isLoading) return <Loading></Loading>;
 
   if (error) return "An error has occurred: " + error.message;
+
   return (
     <section id="shop" className="container">
       <div className="dashboard-container">
@@ -102,6 +131,17 @@ function AddArtwork(props) {
               ))}
             </select>
 
+            <select
+              onChange={(e) => setCategory(e.target.value)}
+              name="category"
+              id="category"
+            >
+              <option value="0">Choose Category</option>
+              {categories.map((item, index) => (
+                <option value={index + 1}>{item}</option>
+              ))}
+            </select>
+
             <input
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -109,6 +149,46 @@ function AddArtwork(props) {
               name="title"
               placeholder="Title"
             ></input>
+            <input
+              value={medium}
+              onChange={(e) => setMedium(e.target.value)}
+              type="text"
+              name="medium"
+              placeholder="Medium"
+            ></input>
+            <div className="flex space-between">
+              <input
+                value={height}
+                onChange={(e) => setHeight(e.target.value)}
+                type="text"
+                name="medium"
+                placeholder="Height"
+              ></input>
+              <input
+                value={width}
+                onChange={(e) => setWidth(e.target.value)}
+                type="text"
+                name="medium"
+                placeholder="Width"
+              ></input>{" "}
+              <input
+                value={depth}
+                onChange={(e) => setDepth(e.target.value)}
+                type="text"
+                name="medium"
+                placeholder="Depth"
+              ></input>
+              <select
+                value={units}
+                onChange={(e) => setUnits(e.target.value)}
+                type="text"
+                name="medium"
+                placeholder="Units"
+              >
+                <option value="1">IN</option>
+                <option value="2">CM</option>
+              </select>{" "}
+            </div>
             <input
               value={buy_it_now}
               onChange={(e) => setPrice(e.target.value)}

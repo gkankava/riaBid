@@ -35,6 +35,10 @@ export function deleteAddress(id) {
   return http.post(apiUrl + "/address/delete/" + id);
 }
 
+export function createOrder(id) {
+  return http.post(apiUrl + "/create-order");
+}
+
 export function getAddress() {
   return http.get(apiUrl + "/myaddresses");
 }

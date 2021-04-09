@@ -60,7 +60,7 @@ function Navbar() {
             {currentUser.isAuthenticated ? (
               <div className="nav-login-container">
                 <Link onClick={() => setNavActive(false)} to="/dashboard">
-                  User
+                  Go To Dashboard
                 </Link>
                 <button
                   className="btn-create"

@@ -1,11 +1,29 @@
 import React from "react";
-import { useQuery } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import cardImg from "../assets/dummy/cart-dummy.png";
 import { getBag } from "../services/bagService";
+import { createOrder } from "../services/dashboardService";
 import Loading from "./loading";
+import { toast } from "react-toastify";
 
 export default function Cart() {
+  const orderMutation = useMutation(createOrder, {
+    onMutate: (variables) => {
+      return { id: 1 };
+    },
+    onError: (error, variables, context) => {
+      toast.error(error.context);
+    },
+    onSuccess: (data, variables, context) => {
+      toast("You successfully created order");
+      window.location.href =
+        "https://api.riabid.ge/payorder/" + data.data.order_id;
+    },
+    onSettled: (data, error, variables, context) => {
+      // Error or success... doesn't matter!
+    },
+  });
   const { isLoading, error, data } = useQuery("bag", getBag);
 
   if (isLoading) return <Loading></Loading>;
@@ -32,16 +50,19 @@ export default function Cart() {
                     <p>Product ID: {item.artwork_id}</p>
                   </div>
                 </div>
-                <p className="price">
-                  {item.on_auction ? item.current_bid : item.buy_it_now}₾
-                </p>
+                <div className="flex column space-between">
+                  <p className="price">
+                    {item.on_auction ? item.current_bid : item.buy_it_now}₾
+                  </p>
+                  <p>Remove</p>
+                </div>
               </div>
             ))
           : "Your cart is empty"}
 
         <div className="full flex column">
           <h3>Full Amount: {data.data.total}₾</h3>
-          <a href="https://api.riabid.ge/payorder/2">Pay Now</a>
+          <button onClick={() => orderMutation.mutate()}>Pay Now</button>
         </div>
       </div>
     </section>
