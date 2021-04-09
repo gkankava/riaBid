@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import cardImg from "../assets/dummy/bid.png";
 import dashboardIcon from "../assets/icons/dashboard.png";
@@ -13,7 +13,7 @@ import { useMutation, useQuery } from "react-query";
 import Loading from "./loading";
 import { toast } from "react-toastify";
 
-function addAddress(props) {
+function AddAddress(props) {
   const [title, setName] = useState("");
   const [address_1, setAddressOne] = useState("");
   const [address_2, setAddressTwo] = useState("");
@@ -21,6 +21,7 @@ function addAddress(props) {
   const [city, setCity] = useState("");
   const [zip, setZip] = useState("");
   const [phone, setPhone] = useState("");
+
   const editMutation = useMutation(editAddress, {
     onMutate: (variables) => {
       return { id: 1 };
@@ -29,7 +30,7 @@ function addAddress(props) {
       toast.error(error.context);
     },
     onSuccess: (data, variables, context) => {
-      toast("You successfully edited address");
+      toast(data.data);
     },
     onSettled: (data, error, variables, context) => {
       // Error or success... doesn't matter!
@@ -45,16 +46,10 @@ function addAddress(props) {
       country,
       city,
       zip,
-      phone,
+      mobile: phone,
     };
     editMutation.mutate(data);
   };
-
-  const { isLoading, error, data } = useQuery("address", getAddress);
-
-  if (isLoading) return <Loading></Loading>;
-
-  if (error) return "An error has occurred: " + error.message;
 
   return (
     <section id="shop" className="container">
@@ -87,55 +82,55 @@ function addAddress(props) {
               onChange={(e) => setName(e.target.value)}
               type="text"
               name="full_name"
-              placeholder={data.data.name || "Full Name"}
+              placeholder={"Full Name"}
             ></input>
             <input
               value={address_1}
               onChange={(e) => setAddressOne(e.target.value)}
               type="text"
               name="address_one"
-              placeholder={data.data.address_1 || "Address Line 1"}
+              placeholder={"Address Line 1"}
             ></input>
             <input
               value={address_2}
               onChange={(e) => setAddressTwo(e.target.value)}
               type="text"
               name="address_two"
-              placeholder={data.data.address_2 || "Address Line 2"}
+              placeholder={"Address Line 2"}
             ></input>
             <input
               value={country}
               onChange={(e) => setCountry(e.target.value)}
               type="text"
               name="country"
-              placeholder={data.data.country || "Country"}
+              placeholder={"Country"}
             ></input>
             <input
               value={city}
               onChange={(e) => setCity(e.target.value)}
               type="text"
               name="city"
-              placeholder={data.data.city || "City"}
+              placeholder={"City"}
             ></input>
             <input
               value={zip}
               onChange={(e) => setZip(e.target.value)}
               type="text"
               name="zip"
-              placeholder={data.data.zip || "Zip/Postal Code"}
+              placeholder={"Zip/Postal Code"}
             ></input>
             <input
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               type="text"
               name="phone"
-              placeholder={data.data.phone || "Phone Number"}
+              placeholder={"Phone Number"}
             ></input>
 
             <input
               style={{ cursor: "pointer" }}
               type="submit"
-              value="Save Address"
+              value="Add Address"
             ></input>
           </form>
         </div>
@@ -144,4 +139,4 @@ function addAddress(props) {
   );
 }
 
-export default addAddress;
+export default AddAddress;

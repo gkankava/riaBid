@@ -34,6 +34,7 @@ import AddArtwork from "./containers/addArtwork";
 import { getAddress } from "./services/dashboardService";
 import Loading from "./containers/loading";
 import Delivery from "./containers/delivery";
+import AddAddress from "./containers/addAddress";
 const queryClient = new QueryClient();
 
 function App() {
@@ -100,6 +101,16 @@ function App() {
             exact
             path="/dashboard/addartist"
             render={(props) => <AddArtist {...props} />}
+          />
+          <Route
+            exact
+            path="/dashboard/editaddress/:id"
+            render={(props) => <AddAddress {...props} />}
+          />
+          <Route
+            exact
+            path="/dashboard/addaddress"
+            render={(props) => <AddAddress {...props} />}
           />
           <Route
             exact

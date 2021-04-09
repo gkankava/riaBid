@@ -90,7 +90,7 @@ export default function ProductDet(props) {
               <div>
                 <p className="current">Current bid</p>
                 <div className="price-cont flex">
-                  <p>{artwork.current_bid}$</p>
+                  <p>{artwork.current_bid}₾</p>
                   <p className="bids">{artwork.bidders_count} Bids</p>
                 </div>
                 <div className="bid flex">
@@ -111,7 +111,7 @@ export default function ProductDet(props) {
               </div>
             ) : null}
             <div className="buyitnow flex">
-              <p className="price flex">${artwork.buy_it_now}</p>
+              <p className="price flex">₾{artwork.buy_it_now}</p>
               <button
                 style={{ cursor: "pointer" }}
                 onClick={() => favoritesMutation.mutate(artwork.id)}

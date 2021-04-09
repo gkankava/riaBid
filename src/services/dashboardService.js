@@ -28,11 +28,15 @@ export function addArtwork(data) {
 }
 
 export function editAddress(data) {
-  return http.post(apiUrl + "/update-user", data);
+  return http.post(apiUrl + "/address/add", data);
+}
+
+export function deleteAddress(id) {
+  return http.post(apiUrl + "/address/delete/" + id);
 }
 
 export function getAddress() {
-  return http.post(apiUrl + "/mydetails");
+  return http.get(apiUrl + "/myaddresses");
 }
 
 export function subscribe(data) {

@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/riabid.png";
+import logo from "../assets/logo-new.svg";
 
 export default function Loading() {
   return (

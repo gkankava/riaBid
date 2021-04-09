@@ -7,13 +7,35 @@ import artworksIcon from "../assets/icons/artworks.png";
 import accountIcon from "../assets/icons/account.png";
 import favoritesIcon from "../assets/icons/favorites.png";
 import historyIcon from "../assets/icons/history.png";
-import { useQuery, useQueryClient } from "react-query";
+import plus from "../assets/icons/plus.png";
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import {
+  deleteAddress,
+  getAddress,
+  getArtworks,
+  requestAuction,
+} from "../services/dashboardService";
 import Loading from "./loading";
-import { getFavorites } from "../services/dashboardService";
+import { toast } from "react-toastify";
+
 function AccountDashboard(props) {
   const [filter, setFilter] = React.useState(false);
   const queryClient = useQueryClient();
-  const { isLoading, error, data } = useQuery("favorites", getFavorites);
+  const deleteMutation = useMutation(deleteAddress, {
+    onMutate: (variables) => {
+      return { id: 1 };
+    },
+    onError: (error, variables, context) => {
+      toast.error(error.context);
+    },
+    onSuccess: (data, variables, context) => {
+      toast(data.data);
+    },
+    onSettled: (data, error, variables, context) => {
+      queryClient.invalidateQueries("addresses");
+    },
+  });
+  const { isLoading, error, data } = useQuery("addresses", getAddress);
 
   if (isLoading) return <Loading></Loading>;
 
@@ -42,31 +64,35 @@ function AccountDashboard(props) {
           </Link>
         </div>
         <div className="flex column bids">
-          <h2>Favorites</h2>
-          {data.data.length
-            ? data.data.map((item) => (
-                <div className="bid-card">
-                  <div className="flex space-between">
-                    <div className="flex">
-                      <img src={item.image}></img>
-                      <div classname="flex column">
-                        <p className="name">{item.title}</p>
-                        <p className="country">
-                          Current Bid: {item.current_bid} ₾
-                        </p>
+          <div className="artworks-container">
+            <div className="flex space-between">
+              <Link to="/dashboard/addaddress" className="add">
+                <img src={plus}></img>Add Address
+              </Link>
+            </div>
+            <div className="artworks-grid">
+              {data.data.length
+                ? data.data.map((item) => (
+                    <div className="artwork-item flex title">
+                      <div className="flex">
+                        <p>{item.full_name}</p>
                       </div>
+                      <p>{item.address_1}</p>
+                      <p>{item.address_2}</p>
+                      <p>{item.mobile}</p>
+                      <p>
+                        <button
+                          onClick={() => deleteMutation.mutate(item.id)}
+                          className="main-button"
+                        >
+                          Delete
+                        </button>
+                      </p>
                     </div>
-                    <Link
-                      style={{ alignSelf: "center" }}
-                      to={"/store/" + item.artwork_id}
-                      className="main-button"
-                    >
-                      Full View
-                    </Link>
-                  </div>
-                </div>
-              ))
-            : "You got no favorite artworks"}
+                  ))
+                : "You haven't got any addresses"}
+            </div>
+          </div>
         </div>
       </div>
     </section>
