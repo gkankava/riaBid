@@ -52,7 +52,6 @@ function Navbar() {
       <div className="container">
         <a className="logo-container" href="/">
           <img className="logo" src={ln} alt="logo" />
-          <img className="logo-text" src={ria} alt="logo-text" />
         </a>
         <nav className={navActive ? "nav-active" : null}>
           <div className="overlay" onClick={() => setNavActive(false)} />
@@ -111,11 +110,6 @@ function Navbar() {
                   }}
                 >
                   Artists
-                  <img
-                    className="arrow"
-                    src={pathName == "/" ? arrow : arrowbl}
-                    alt="logo-text"
-                  />
                 </NavLink>
               </li>
               <li>
@@ -132,11 +126,6 @@ function Navbar() {
                   }}
                 >
                   Artworks
-                  <img
-                    className="arrow"
-                    src={pathName == "/" ? arrow : arrowbl}
-                    alt="logo-text"
-                  />
                 </NavLink>
               </li>
               <li>
@@ -153,11 +142,6 @@ function Navbar() {
                   }}
                 >
                   Auctions
-                  <img
-                    className="arrow"
-                    src={pathName == "/" ? arrow : arrowbl}
-                    alt="logo-text"
-                  />
                 </NavLink>
               </li>
               <li>
@@ -174,11 +158,6 @@ function Navbar() {
                   }}
                 >
                   Galleries
-                  <img
-                    className="arrow"
-                    src={pathName == "/" ? arrow : arrowbl}
-                    alt="logo-text"
-                  />
                 </NavLink>
               </li>
             </ul>
