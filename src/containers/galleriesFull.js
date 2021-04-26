@@ -27,7 +27,7 @@ function GalleriesFull(props) {
     legal_image,
     id,
     gallery_description,
-  } = data.data;
+  } = data.data.gallery;
   return (
     <section id="shop" className="container galleries">
       <ul className="breadcrumb">
