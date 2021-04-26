@@ -79,7 +79,7 @@ ul.breadcrumb {
 
   li {
     display: inline;
-    font-size: 18px;
+    font-size: 14px;
 
     a {
       color: #b2b2b2;
@@ -124,13 +124,14 @@ a {
     }
   }
   .title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 200;
     color: #000;
+    padding-top: 10px;
   }
   .price,
   .time {
-    font-size: 2rem;
+    font-size: 1.3rem;
     &.gray {
       margin-left: 0.5em;
       color: #cecece;

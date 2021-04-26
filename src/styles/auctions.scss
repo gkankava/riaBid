@@ -35,19 +35,18 @@
         }
       }
       .title {
-        margin-top: 0.7vw;
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: 200;
         color: #000;
       }
       .title2 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-weight: 200;
         color: #000;
       }
       .price,
       .time {
-        font-size: 2rem;
+        font-size: 1.5rem;
         &.gray {
           margin-left: 0.5em;
           color: #cecece;
@@ -55,7 +54,7 @@
       }
       .time {
         text-align: center;
-        font-size: 1.3rem;
+        font-size: 1rem;
         &.gray {
           color: #cecece;
         }

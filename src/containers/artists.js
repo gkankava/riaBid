@@ -18,6 +18,7 @@ function Artists(props) {
 
   let formatted_data = data.data.reduce((r, e) => {
     // get first letter of name of current element
+
     let group = e.display_name[0];
     // if there is no property in accumulator with this letter create it
     if (!r[group]) r[group] = { group, children: [e] };
@@ -67,16 +68,28 @@ function Artists(props) {
               <p key={key} className="letter">
                 {key}
               </p>
-              {formatted_data[key].children.map((item) => (
-                <Link
-                  key={item.id}
-                  to={"/artists/" + item.id}
-                  className="artist"
-                >
-                  {item.display_name}
-                  <br></br>
-                </Link>
-              ))}
+              {formatted_data[key].children.map((item) =>
+                item.has_artwork ? (
+                  <Link
+                    style={{ color: "#d43e3e" }}
+                    key={item.id}
+                    to={"/artists/" + item.id}
+                    className="artist"
+                  >
+                    {item.display_name}
+                    <br></br>
+                  </Link>
+                ) : (
+                  <Link
+                    key={item.id}
+                    to={"/artists/" + item.id}
+                    className="artist"
+                  >
+                    {item.display_name}
+                    <br></br>
+                  </Link>
+                )
+              )}
             </div>
           ))}
         </div>

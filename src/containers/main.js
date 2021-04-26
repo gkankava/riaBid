@@ -20,7 +20,7 @@ function Main() {
   return (
     <section id="main">
       <Hero />
-      <Banners />
+
       {selected_just_for_you.length ? (
         <SharedSlider data={selected_just_for_you} title="RECOMMENDED" />
       ) : null}
