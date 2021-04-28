@@ -106,10 +106,10 @@ function Navbar() {
                         ? "black"
                         : vW <= 768 && pathName === "/"
                         ? "black"
-                        : "white",
+                        : "black",
                   }}
                 >
-                  Artists
+                  ARTISTS
                 </NavLink>
               </li>
               <li>
@@ -122,10 +122,10 @@ function Navbar() {
                         ? "black"
                         : vW <= 768 && pathName === "/"
                         ? "black"
-                        : "white",
+                        : "black",
                   }}
                 >
-                  Artworks
+                  ARTWORKS
                 </NavLink>
               </li>
               <li>
@@ -138,10 +138,10 @@ function Navbar() {
                         ? "black"
                         : vW <= 768 && pathName === "/"
                         ? "black"
-                        : "white",
+                        : "black",
                   }}
                 >
-                  Auctions
+                  AUCTIONS
                 </NavLink>
               </li>
               <li>
@@ -154,10 +154,10 @@ function Navbar() {
                         ? "black"
                         : vW <= 768 && pathName === "/"
                         ? "black"
-                        : "white",
+                        : "black",
                   }}
                 >
-                  Galleries
+                  GALLERIES
                 </NavLink>
               </li>
             </ul>
@@ -168,7 +168,7 @@ function Navbar() {
             <Link to="/cart">
               <img
                 className="cart-btn"
-                src={pathName === "/" ? cart : cartDark}
+                src={pathName === "/" ? cartDark : cartDark}
                 alt="search-btn"
               />
             </Link>
@@ -178,7 +178,7 @@ function Navbar() {
             <div className="account-wrapper">
               <img
                 className="user-btn"
-                src={pathName === "/" ? user : userDark}
+                src={pathName === "/" ? userDark : userDark}
                 alt="user-btn"
                 onClick={() => setAuthActive(!authActive)}
               />
@@ -210,7 +210,7 @@ function Navbar() {
             <div className="account-wrapper">
               <img
                 className="user-btn"
-                src={pathName === "/" ? user : userDark}
+                src={pathName === "/" ? userDark : userDark}
                 alt="user-btn"
                 onClick={() => setAuthActive(!authActive)}
               />
@@ -249,7 +249,7 @@ function Navbar() {
 
           <img
             className="hamburger"
-            src={pathName === "/" ? hamburger : hamburgerDark}
+            src={pathName === "/" ? hamburgerDark : hamburgerDark}
             alt="hamburger"
             onClick={() => setNavActive(!navActive)}
           />
