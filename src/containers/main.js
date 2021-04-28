@@ -17,6 +17,7 @@ function Main() {
   if (error) return "An error has occurred: " + error.message;
 
   const { selected_just_for_you, auctions } = data.data;
+
   return (
     <section id="main">
       <Hero />
@@ -25,7 +26,7 @@ function Main() {
         <SharedSlider data={selected_just_for_you} title="RECOMMENDED" />
       ) : null}
       {auctions.length ? (
-        <SharedSlider data={auctions} title="AUCTION" auction />
+        <SharedSlider data={auctions} title="AUCTIONS" auction />
       ) : null}
 
       {/* <Subscribe /> */}

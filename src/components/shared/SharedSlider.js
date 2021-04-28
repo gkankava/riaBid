@@ -140,6 +140,7 @@ function SharedSlider({ auction, title, data }) {
         name={item.title}
         img={item.image}
         price={item.buy_it_now}
+        display_name={item.display_name}
         secondParam={item.on_auction ? item.current_bid : undefined}
         end_time={item.end_time}
       />

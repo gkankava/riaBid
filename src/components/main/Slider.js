@@ -23,7 +23,7 @@ function SliderComp({ activeSlide, setActiveSlide, heroSliderRef }) {
       <Slide
         img={bg}
         author="A.W."
-        text="In the future, everyone will be world-famous for 15 minutes."
+        text="In the future, everyone will be world famous for 15 minutes."
         btn={{
           action: () => window.location.href("/store"),
           text: "Browse art",

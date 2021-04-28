@@ -35,7 +35,9 @@ function Auctions(props) {
                 <img src={item.image}></img>
               </div>
 
-              <p className="title">{item.title}</p>
+              <p className="title">
+                <i>{item.title}</i>
+              </p>
               <p className="title2">{item.display_name}</p>
             </Link>
             <div className="flex space-between">

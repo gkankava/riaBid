@@ -13,7 +13,7 @@ import cart from "../../assets/cart-light.svg";
 import cartDark from "../../assets/cart-dark.svg";
 import user from "../../assets/icons/user.svg";
 import userDark from "../../assets/icons/user-dark.svg";
-import hamburger from "../../assets/icons/hamburger.svg";
+import favorites from "../../assets/icons/favorites.svg";
 import hamburgerDark from "../../assets/icons/hamburger-dark.svg";
 import { userProvider } from "../../store/store";
 
@@ -165,7 +165,7 @@ function Navbar() {
         </nav>
         <div className="btn-container">
           {currentUser.isAuthenticated ? (
-            <Link to="/cart">
+            <Link style={{ height: "22px" }} to="/cart">
               <img
                 className="cart-btn"
                 src={pathName === "/" ? cartDark : cartDark}
@@ -173,7 +173,14 @@ function Navbar() {
               />
             </Link>
           ) : null}
-
+          <Link style={{ height: "22px" }} to="/dashboard/favorites">
+            <img
+              className="s"
+              style={{ height: "22px" }}
+              src={pathName === "/" ? favorites : favorites}
+              alt="hamburger"
+            />
+          </Link>
           {currentUser.isAuthenticated ? (
             <div className="account-wrapper">
               <img
@@ -214,6 +221,7 @@ function Navbar() {
                 alt="user-btn"
                 onClick={() => setAuthActive(!authActive)}
               />
+
               <div
                 className={authActive ? "triangle triangle-active" : "triangle"}
               />
