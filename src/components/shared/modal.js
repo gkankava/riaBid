@@ -179,13 +179,7 @@ function Modal({ type, setAuthModalActive }) {
                   value="3"
                   onChange={(e) => setAccountType(e.target.value)}
                 />
-                <input
-                  type="radio"
-                  name="type"
-                  id="option-4"
-                  value="4"
-                  onChange={(e) => setAccountType(e.target.value)}
-                />
+
                 <label htmlFor="option-1" className="option option-1">
                   <span>Buyer</span>
                 </label>
@@ -194,9 +188,6 @@ function Modal({ type, setAuthModalActive }) {
                 </label>
                 <label htmlFor="option-3" className="option option-3">
                   <span>Seller</span>
-                </label>
-                <label htmlFor="option-4" className="option option-4">
-                  <span>Lander</span>
                 </label>
               </div>
               <input
