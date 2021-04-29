@@ -40,6 +40,8 @@
         img {
           transition: all 150ms;
           width: 100%;
+          height: 18vw;
+          object-fit: contain;
         }
       }
       .title {
