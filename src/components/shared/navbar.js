@@ -173,44 +173,49 @@ function Navbar() {
               />
             </Link>
           ) : null}
-          <Link style={{ height: "22px" }} to="/dashboard/favorites">
-            <img
-              className="s"
-              style={{ height: "22px" }}
-              src={pathName === "/" ? favorites : favorites}
-              alt="hamburger"
-            />
-          </Link>
+
           {currentUser.isAuthenticated ? (
-            <div className="account-wrapper">
-              <img
-                className="user-btn"
-                src={pathName === "/" ? userDark : userDark}
-                alt="user-btn"
-                onClick={() => setAuthActive(!authActive)}
-              />
-              <div
-                className={authActive ? "triangle triangle-active" : "triangle"}
-              />
-              <div
-                className={
-                  authActive
-                    ? "account-in-container account-in-container-active"
-                    : "account-in-container"
-                }
-              >
-                <Link onClick={() => setAuthActive(false)} to="/dashboard">
-                  Go To Dashboard
-                </Link>
-                <button
-                  className="btn-create"
-                  onClick={() => {
-                    logout();
-                    window.location.href = "/";
-                  }}
+            <div style={{ display: "flex" }}>
+              <Link style={{ height: "22px" }} to="/dashboard/favorites">
+                <img
+                  className="s"
+                  style={{ height: "22px" }}
+                  src={pathName === "/" ? favorites : favorites}
+                  alt="hamburger"
+                />
+              </Link>
+              <div className="account-wrapper">
+                <img
+                  className="user-btn"
+                  src={pathName === "/" ? userDark : userDark}
+                  alt="user-btn"
+                  onClick={() => setAuthActive(!authActive)}
+                />
+                <div
+                  className={
+                    authActive ? "triangle triangle-active" : "triangle"
+                  }
+                />
+                <div
+                  className={
+                    authActive
+                      ? "account-in-container account-in-container-active"
+                      : "account-in-container"
+                  }
                 >
-                  LOG OUT
-                </button>
+                  <Link onClick={() => setAuthActive(false)} to="/dashboard">
+                    Go To Dashboard
+                  </Link>
+                  <button
+                    className="btn-create"
+                    onClick={() => {
+                      logout();
+                      window.location.href = "/";
+                    }}
+                  >
+                    LOG OUT
+                  </button>
+                </div>
               </div>
             </div>
           ) : (

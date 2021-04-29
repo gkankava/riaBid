@@ -91,23 +91,33 @@ function Shop(props) {
               <span class="checkmark"></span>
             </label>
           </div>
-          <div className="cont">
+          <div
+            className="cont"
+            style={{ display: "flex", flexDirection: "column" }}
+          >
             <h2>Price</h2>
-            <RangeSlider
-              value={filterPrice}
-              setValue={setFilterPrice}
-              min={min}
-              max={max}
-            ></RangeSlider>
+            <div style={{ width: "90%", alignSelf: "center" }}>
+              <RangeSlider
+                value={filterPrice}
+                setValue={setFilterPrice}
+                min={min}
+                max={max}
+              ></RangeSlider>
+            </div>
           </div>
-          <div className="cont">
+          <div
+            className="cont"
+            style={{ display: "flex", flexDirection: "column" }}
+          >
             <h2>Years</h2>
-            <RangeSlider
-              value={filterYear}
-              setValue={setFilterYear}
-              min={0}
-              max={2100}
-            ></RangeSlider>
+            <div style={{ width: "90%", alignSelf: "center" }}>
+              <RangeSlider
+                value={filterYear}
+                setValue={setFilterYear}
+                min={0}
+                max={2100}
+              ></RangeSlider>
+            </div>
           </div>
         </div>
         <div className="grid-container-auctions">
