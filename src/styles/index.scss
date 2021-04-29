@@ -21,6 +21,41 @@ h6 {
   font-weight: 200;
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+  span {
+    border: 1px solid #d8d8d8;
+    padding: 15px 30px;
+    font-size: 15px;
+  }
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  border: 1px solid #d8d8d8;
+
+  z-index: 1;
+  flex-direction: column;
+  button {
+    background: transparent;
+    padding: 15px 30px;
+    border: none;
+    &:hover {
+      background: #fbb03b;
+      cursor: pointer;
+      color: #fff;
+    }
+  }
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
 html,
 body {
   overflow-x: hidden;

@@ -52,14 +52,31 @@ function Shop(props) {
 
   return (
     <section id="shop" className="container auctions shop">
-      <ul className="breadcrumb">
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/store">Artworks ({data.data.length})</Link>
-        </li>
-      </ul>
+      <div className="flex space-between">
+        {" "}
+        <ul className="breadcrumb">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/store">Artworks ({data.data.length})</Link>
+          </li>
+        </ul>
+        <div>
+          <span style={{ fontSize: "15px", fontWeight: 400 }}>
+            Sort {"    "}
+          </span>
+
+          <div class="dropdown">
+            <span>All Art</span>
+            <div class="dropdown-content">
+              <button>All Art</button>
+              <button>Trending</button>
+              <button>Latest Releases</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="shop-grid">
         <div className="filter-container">
           <div className="cont">
@@ -128,7 +145,9 @@ function Shop(props) {
                   <img src={item.image}></img>
                 </div>
 
-                <p className="title">{item.title}</p>
+                <p className="title">
+                  <i>{item.title}</i>
+                </p>
                 <p className="title2">{item.display_name}</p>
               </Link>
               {item.current_bid ? (
