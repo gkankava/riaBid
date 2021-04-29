@@ -170,7 +170,7 @@ a {
     &:checked {
       ~ {
         .checkmark {
-          background-color: #2196f3;
+          background-color: #000;
           &:after {
             display: block;
           }

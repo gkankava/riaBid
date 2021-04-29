@@ -21,7 +21,7 @@ function footer() {
             art scene in Georgia and South Caucasus.
           </p>
           <div className="social-list">
-            <FaInstagram />
+            <FaInstagram size="2em" />
           </div>
         </div>
         <div className="col-wrapper">
@@ -66,7 +66,7 @@ function footer() {
         <div className="hr-comp" />
       </div>
       <div className="bottom">
-        <p>DESIGN BY MAGSMAN - © 2020. ALL RIGHTS RESERVED.</p>
+        <p>CREATED BY MAGSMAN - © 2020. ALL RIGHTS RESERVED.</p>
       </div>
     </footer>
   );

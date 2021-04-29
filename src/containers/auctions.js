@@ -24,7 +24,7 @@ function Auctions(props) {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/auctions">Auctions</Link>
+          <Link to="/auctions">Auctions ({data.data.length})</Link>
         </li>
       </ul>
       <div className="grid-container-auctions">

@@ -57,7 +57,7 @@ function Shop(props) {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/store">Artworks</Link>
+          <Link to="/store">Artworks ({data.data.length})</Link>
         </li>
       </ul>
       <div className="shop-grid">

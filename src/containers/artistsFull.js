@@ -31,6 +31,7 @@ function ArtistsFull(props) {
         <li>
           <Link to="/auctions">Artist</Link>
         </li>
+        <li>{data?.data[0]?.display_name}</li>
       </ul>
       <div className="grid-container-auctions">
         {data.data.length ? (
