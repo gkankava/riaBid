@@ -7,7 +7,7 @@ import Main from "./containers/main";
 import Shop from "./containers/shop";
 import Dashboard from "./containers/dashboard";
 import Artists from "./containers/artists";
-
+import Search from "./containers/search";
 import ArtistsDashboard from "./containers/artistsDashboard";
 import ArtworksDashboard from "./containers/artworksDashboard";
 import AccountDashboard from "./containers/accountDashboard";
@@ -58,6 +58,11 @@ function App() {
             exact
             path="/artists"
             render={(props) => <Artists {...props} />}
+          />
+          <Route
+            exact
+            path="/search"
+            render={(props) => <Search {...props} />}
           />
           <Route exact path="/cart" render={(props) => <Cart {...props} />} />
           <Route
@@ -157,7 +162,11 @@ function App() {
         <Switch>
           <Route exact path="/" render={(props) => <Main {...props} />} />
           <Route exact path="/store" render={(props) => <Shop {...props} />} />
-
+          <Route
+            exact
+            path="/search"
+            render={(props) => <Search {...props} />}
+          />
           <Route
             exact
             path="/dashboard"

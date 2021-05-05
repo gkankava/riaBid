@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 import { getArtists } from "../services/artistsService";
 import { Link } from "react-router-dom";
 import Loading from "./loading";
+import queryString from "query-string";
 
 function Artists(props) {
   const [filter, setFilter] = useState(false);
@@ -34,6 +35,7 @@ function Artists(props) {
       obj[key] = formatted_data[key];
       return obj;
     }, {});
+
   return (
     <section id="shop" className="container">
       <div className="contact-container">

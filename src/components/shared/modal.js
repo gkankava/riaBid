@@ -14,7 +14,14 @@ function Modal({ type, setAuthModalActive }) {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [legal_image, setLegalImage] = useState("");
+  const [location, setLocation] = useState("");
+  const [error, setError] = useState({
+    email: "",
+    name: "",
+    lastname: "",
+    password: "",
+  });
   const _closeModal = () => {
     setAuthModalActive({
       login: false,
@@ -31,13 +38,15 @@ function Modal({ type, setAuthModalActive }) {
     },
     onError: (error, variables, context) => {
       // An error happened!
-      console.log(`rolling back optimistic update with id ${context.id}`);
+      setError(error.response.data);
     },
     onSuccess: (data, variables, context) => {
       setCurrentUser({
         isAuthenticated: true,
         token: data,
       });
+      _closeModal();
+      window.location.href = "/";
     },
     onSettled: (data, error, variables, context) => {
       // Error or success... doesn't matter!
@@ -60,8 +69,9 @@ function Modal({ type, setAuthModalActive }) {
         isAuthenticated: true,
         token: data,
       });
-      window.location.href = "/";
+
       _closeModal();
+      window.location.href = "/";
       // Boom baby!
     },
     onSettled: (data, error, variables, context) => {
@@ -170,7 +180,10 @@ function Modal({ type, setAuthModalActive }) {
                   name="type"
                   id="option-2"
                   value="2"
-                  onChange={(e) => setAccountType(e.target.value)}
+                  onChange={(e) => {
+                    setAccountType(e.target.value);
+                    setUserType(1);
+                  }}
                 />
                 <input
                   type="radio"
@@ -190,6 +203,7 @@ function Modal({ type, setAuthModalActive }) {
                   <span>Seller</span>
                 </label>
               </div>
+              <span className="error">{error.name}</span>
               <input
                 type="text"
                 onChange={(e) => setName(e.target.value)}
@@ -198,6 +212,7 @@ function Modal({ type, setAuthModalActive }) {
                 id="name"
                 placeholder="First Name"
               />
+              <span className="error">{error.lastname}</span>
               <input
                 onChange={(e) => setLastname(e.target.value)}
                 value={lastname}
@@ -206,6 +221,7 @@ function Modal({ type, setAuthModalActive }) {
                 id="lastname"
                 placeholder="Last Name"
               />
+              <span className="error">{error.email}</span>
               <input
                 type="text"
                 value={email}
@@ -214,6 +230,7 @@ function Modal({ type, setAuthModalActive }) {
                 id="email"
                 placeholder="E-mail"
               />
+              <span className="error">{error.password}</span>
               <input
                 type="password"
                 name="password"
@@ -222,29 +239,36 @@ function Modal({ type, setAuthModalActive }) {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
               />
-              <div className="wrapper">
-                <input
-                  type="radio"
-                  name="legal"
-                  id="option-5"
-                  defaultChecked
-                  value="1"
-                  onChange={(e) => setUserType(e.target.value)}
-                />
-                <input
-                  value="2"
-                  type="radio"
-                  name="legal"
-                  id="option-6"
-                  onChange={(e) => setUserType(e.target.value)}
-                />
-                <label htmlFor="option-5" className="option option-5">
-                  <span>Physical</span>
-                </label>
-                <label htmlFor="option-6" className="option option-6">
-                  <span>Legal</span>
-                </label>
-              </div>
+              {userType == 2 ? (
+                <input type="text" placeholder="Location"></input>
+              ) : null}
+              {userType == 2 ? <input type="file"></input> : null}
+              {accountType == 1 || accountType == 3 ? (
+                <div className="wrapper">
+                  <input
+                    type="radio"
+                    name="legal"
+                    id="option-5"
+                    defaultChecked
+                    value="1"
+                    onChange={(e) => setUserType(e.target.value)}
+                  />
+                  <input
+                    value="2"
+                    type="radio"
+                    name="legal"
+                    id="option-6"
+                    onChange={(e) => setUserType(e.target.value)}
+                  />
+                  <label htmlFor="option-5" className="option option-5">
+                    <span>Physical</span>
+                  </label>
+                  <label htmlFor="option-6" className="option option-6">
+                    <span>Company</span>
+                  </label>
+                </div>
+              ) : null}
+
               <div className="keep-wrapper-signup">
                 <input type="checkbox" name="" id="" />
                 <span className="terms-span">
@@ -265,8 +289,6 @@ function Modal({ type, setAuthModalActive }) {
                 };
 
                 registerMutation.mutate(data);
-
-                _closeModal();
               }}
             >
               Sign Up

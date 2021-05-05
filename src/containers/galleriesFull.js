@@ -51,6 +51,31 @@ function GalleriesFull(props) {
           <img className="bot" src={legal_image}></img>
         </div>
       </div>
+      <section id="shop" className="container auctions">
+        <div className="grid-container-auctions">
+          {data.data.artworks.map((item) => (
+            <div key={item.id} className="product flex column">
+              <Link to={"/store/" + item.id}>
+                <div className="img">
+                  <img src={item.image}></img>
+                </div>
+
+                <p className="title">
+                  <i>{item.title}</i>
+                </p>
+                <p className="title2">{item.display_name}</p>
+              </Link>
+              <div className="flex space-between">
+                <div className="flex">
+                  <p className="price">₾{item.current_bid}</p>
+                  <p className="price gray">₾{item.buy_it_now}</p>
+                </div>
+              </div>
+              <p className="time gray">End time: {item.end_time}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </section>
   );
 }
