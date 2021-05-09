@@ -29,6 +29,7 @@ h6 {
 .dropdown {
   position: relative;
   display: inline-block;
+
   span {
     border: 1px solid #d8d8d8;
     padding: 15px 30px;
@@ -158,6 +159,7 @@ a {
     height: 20vw;
     @media screen and (max-width: 768px) {
       height: auto;
+      width: 100%;
       min-height: 20vw;
     }
     img {

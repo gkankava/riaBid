@@ -1,6 +1,10 @@
 .artworks-container {
   padding: 30px 38px;
   border: 1px solid #e6e6e6;
+  @media screen and (max-width: 768px) {
+    padding: 0;
+    border: none;
+  }
   .add {
     background: none;
     border: none;
@@ -21,9 +25,14 @@
     .artwork-item {
       padding: 12px;
       border: 1px solid #e6e6e6;
-      align-items:center;
+      align-items: center;
       display: flex;
       justify-content: space-between;
+      @media screen and (max-width: 768px) {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 12px;
+      }
       .name {
         font-size: 15px;
       }

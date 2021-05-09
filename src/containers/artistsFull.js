@@ -39,7 +39,7 @@ function ArtistsFull(props) {
             <div className="product flex column">
               <Link to={"/store/" + item.id}>
                 <div className="img">
-                  <img src={cardImg}></img>
+                  <img src={item.image}></img>
                 </div>
 
                 <p className="title">{item.title}</p>

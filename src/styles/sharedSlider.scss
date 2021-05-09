@@ -25,7 +25,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        margin-right: 20px;
+
         .right-arrow {
           font-size: 30px;
           display: flex;
@@ -61,7 +61,9 @@
       }
       .action-wrapper {
         position: absolute;
-
+        .arrow-wrapper {
+          margin-right: 20px;
+        }
         button {
           display: unset;
           width: 140px;

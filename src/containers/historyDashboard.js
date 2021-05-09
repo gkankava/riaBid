@@ -36,7 +36,9 @@ function HistoryDashboard(props) {
           </Link>
         </div>
         <div className="flex column bids">
-          <div className="artworks-container">
+          <h2>Order History</h2>
+          <p>You have got no past orders</p>
+          {/* <div className="artworks-container">
             <div className="artworks-grid">
               <div className="artwork-item flex title">
                 <div className="flex">
@@ -51,34 +53,8 @@ function HistoryDashboard(props) {
                 <p> </p>
                 <p>Successfull</p>
               </div>
-              <div className="artwork-item flex title">
-                <div className="flex">
-                  <img src={cardImg}></img>
-                  <div className="flex column">
-                    <p className="name">Rita Khachaturiani</p>
-                    <p className="country">Georgia</p>
-                  </div>
-                </div>
-                <p>500₾</p>
-                <p> </p>
-                <p> </p>
-                <p>Successfull</p>
-              </div>
-              <div className="artwork-item flex title">
-                <div className="flex">
-                  <img src={cardImg}></img>
-                  <div className="flex column">
-                    <p className="name">Rita Khachaturiani</p>
-                    <p className="country">Georgia</p>
-                  </div>
-                </div>
-                <p>500₾</p>
-                <p> </p>
-                <p> </p>
-                <p>Successfull</p>
-              </div>
             </div>
-          </div>
+  </div>*/}
         </div>
       </div>
     </section>

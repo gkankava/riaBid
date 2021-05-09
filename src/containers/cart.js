@@ -61,14 +61,14 @@ export default function Cart() {
         {data.data.bag.length
           ? data.data.bag.map((item) => (
               <div key={item.id} className="item flex space-between">
-                <div className="flex">
+                <div className="flex mob-flex">
                   <img src={item.image}></img>
                   <div className="flex column">
                     <h3>{item.title}</h3>
                     <p>Product ID: {item.artwork_id}</p>
                   </div>
                 </div>
-                <div className="flex column space-between">
+                <div className="flex column space-between bet-mob">
                   <p className="price">
                     {item.on_auction ? item.current_bid : item.buy_it_now}₾
                   </p>
