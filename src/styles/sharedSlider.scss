@@ -7,17 +7,17 @@
 
   .head-wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
     position: relative;
     h3 {
-      font-size: 22px;
+      font-size: 16px;
       letter-spacing: 5px;
       font-weight: 400;
     }
     .action-wrapper {
-      position: absolute;
+      position: relative;
       right: 0;
       display: flex;
       flex-direction: row;
@@ -55,7 +55,13 @@
 @media screen and (min-width: 726px) {
   .selectedFor {
     .head-wrapper {
+      justify-content: center;
+      h3 {
+        font-size: 22px;
+      }
       .action-wrapper {
+        position: absolute;
+
         button {
           display: unset;
           width: 140px;
