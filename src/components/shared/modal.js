@@ -61,7 +61,7 @@ function Modal({ type, setAuthModalActive }) {
       return { id: 1 };
     },
     onError: (error, variables, context) => {
-      toast.error("Username/Password incorrect");
+      toast.error(error.response.data.error);
       console.log(`rolling back optimistic update with id ${context.id}`);
     },
     onSuccess: (data, variables, context) => {

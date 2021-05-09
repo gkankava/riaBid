@@ -37,14 +37,16 @@
         margin-right: 24px;
         object-fit: contain;
         @media screen and (max-width: 768px) {
-          width: 50px;
+          width: 25vw;
+          height: 25vw;
+          object-fit: contain;
         }
       }
       .name {
         font-size: 24px;
         font-weight: 600;
         @media screen and (max-width: 768px) {
-          font-size: 14px;
+          font-size: 18px;
         }
       }
       .country {
@@ -52,7 +54,12 @@
         font-size: 22px;
         font-weight: 400;
         @media screen and (max-width: 768px) {
-          font-size: 12px;
+          font-size: 15px;
+        }
+      }
+      .main-button {
+        @media screen and (max-width: 768px) {
+          display: none;
         }
       }
       button {

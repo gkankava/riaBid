@@ -46,24 +46,28 @@ function Dashboard(props) {
         <div className="flex column bids">
           <h2>MY BIDS</h2>
           {data.data.map((item) => (
-            <div className="bid-card">
-              <div className="flex space-between">
-                <div className="flex">
-                  <img src={item.image}></img>
-                  <div classname="flex column">
-                    <p className="name">{item.title}</p>
-                    <p className="country">Current Bid: {item.current_bid} ₾</p>
+            <Link to={"/store/" + item.artwork_id}>
+              <div className="bid-card">
+                <div className="flex space-between">
+                  <div className="flex">
+                    <img src={item.image}></img>
+                    <div classname="flex column">
+                      <p className="name">{item.title}</p>
+                      <p className="country">
+                        Current Bid: {item.current_bid} ₾
+                      </p>
+                    </div>
                   </div>
+                  <Link
+                    style={{ alignSelf: "center" }}
+                    to={"/store/" + item.artwork_id}
+                    className="main-button"
+                  >
+                    Full View
+                  </Link>
                 </div>
-                <Link
-                  style={{ alignSelf: "center" }}
-                  to={"/store/" + item.artwork_id}
-                  className="main-button"
-                >
-                  Full View
-                </Link>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
