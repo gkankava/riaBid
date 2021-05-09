@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import small from "../assets/product/small-img.png";
 import main from "../assets/product/main.png";
 import clock from "../assets/product/clock.png";
+import favoritesIcon from "../assets/favorites.png";
+
 import SharedSlider from "../components/shared/SharedSlider";
 import { getAuction } from "../services/auctionsService";
 import ReactFancyBox from "react-fancybox";
@@ -72,7 +74,20 @@ export default function ProductDet(props) {
   const images = JSON.parse(artwork.images);
   return (
     <section className="product-details">
-      <div className="container product-page">
+      <div className="container product-page" style={{ position: "relative" }}>
+        <button
+          style={{
+            cursor: "pointer",
+            position: "absolute",
+            right: 0,
+            background: "transparent",
+            border: "none",
+            top: 0,
+          }}
+          onClick={() => favoritesMutation.mutate(artwork.id)}
+        >
+          <img src={favoritesIcon}></img>
+        </button>
         <div className="product-full flex">
           <div className="flex list">
             {images[1] ? <img src={images[1].url} alt="Small" /> : null}
@@ -112,12 +127,7 @@ export default function ProductDet(props) {
             ) : null}
             <div className="buyitnow flex">
               <p className="price flex">₾{artwork.buy_it_now}</p>
-              <button
-                style={{ cursor: "pointer" }}
-                onClick={() => favoritesMutation.mutate(artwork.id)}
-              >
-                Add to Favorites
-              </button>
+
               <button
                 style={{ cursor: "pointer" }}
                 onClick={() => addMutation.mutate(artwork.id)}
