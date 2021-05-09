@@ -9,8 +9,10 @@ import bg3 from "../../assets/bg/bg3.jpg";
 function SliderComp({ activeSlide, setActiveSlide, heroSliderRef }) {
   const settings = {
     dots: false,
-    infinite: false,
+    infinite: true,
     speed: 500,
+    autoplay: true,
+    autoplaySpeed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0,

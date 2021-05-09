@@ -29,12 +29,14 @@
         .right-arrow {
           font-size: 30px;
           display: flex;
+          cursor: pointer;
           justify-content: center;
           align-items: center;
         }
         .left-arrow {
           font-size: 30px;
           display: flex;
+          cursor: pointer;
           justify-content: center;
           align-items: center;
         }
@@ -61,6 +63,9 @@
           font-size: 13px;
           background-color: white;
           border: 1px solid black;
+          &:hover {
+            border: 1px solid rgb(251, 176, 59);
+          }
         }
       }
     }

@@ -1,7 +1,7 @@
 import React from "react";
 import { BsArrowRightShort } from "react-icons/bs";
 
-function Slide({ img, text, btn, author }) {
+function Slide({ img, text, btn, author, action }) {
   return (
     <div className="slide" style={{ backgroundImage: `url(${img})` }}>
       {/* <img src={img} alt="slide" /> */}
@@ -15,7 +15,7 @@ function Slide({ img, text, btn, author }) {
             <div className="circle">
               <BsArrowRightShort style={{ fontSize: "25px" }} />
             </div>
-            <span>{btn.text}</span>
+            <span onClick={() => btn.action()}>{btn.text}</span>
           </div>
         )}
       </div>

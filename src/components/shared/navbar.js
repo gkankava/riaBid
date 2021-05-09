@@ -101,12 +101,7 @@ function Navbar() {
                   to={`/artists`}
                   activeClassName="active-item"
                   style={{
-                    color:
-                      pathName !== "/"
-                        ? "black"
-                        : vW <= 768 && pathName === "/"
-                        ? "black"
-                        : "black",
+                    color: pathName == "/artists" ? "#fbb03b " : "black",
                   }}
                 >
                   ARTISTS
@@ -117,12 +112,7 @@ function Navbar() {
                   to={`/store`}
                   activeClassName="active-item"
                   style={{
-                    color:
-                      pathName !== "/"
-                        ? "black"
-                        : vW <= 768 && pathName === "/"
-                        ? "black"
-                        : "black",
+                    color: pathName == "/store" ? "#fbb03b " : "black",
                   }}
                 >
                   ARTWORKS
@@ -133,12 +123,7 @@ function Navbar() {
                   to={`/auctions`}
                   activeClassName="active-item"
                   style={{
-                    color:
-                      pathName !== "/"
-                        ? "black"
-                        : vW <= 768 && pathName === "/"
-                        ? "black"
-                        : "black",
+                    color: pathName == "/auctions" ? "#fbb03b " : "black",
                   }}
                 >
                   AUCTIONS
@@ -149,12 +134,7 @@ function Navbar() {
                   to={`/galleries`}
                   activeClassName="active-item"
                   style={{
-                    color:
-                      pathName !== "/"
-                        ? "black"
-                        : vW <= 768 && pathName === "/"
-                        ? "black"
-                        : "black",
+                    color: pathName == "/galleries" ? "#fbb03b " : "black",
                   }}
                 >
                   GALLERIES
