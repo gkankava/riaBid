@@ -59,7 +59,7 @@ function Contact(props) {
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            rows="10"
+            rows="4"
             placeholder="Description"
           ></textarea>
           <input

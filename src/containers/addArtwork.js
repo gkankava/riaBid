@@ -184,9 +184,11 @@ function AddArtwork(props) {
                 type="text"
                 name="medium"
                 placeholder="Units"
+                style={{ display: "none" }}
               >
-                <option value="1">IN</option>
-                <option value="2">CM</option>
+                <option selected value="2">
+                  CM
+                </option>
               </select>{" "}
             </div>
             <input

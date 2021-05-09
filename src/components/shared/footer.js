@@ -11,8 +11,8 @@ import { Link } from "react-router-dom";
 
 function footer() {
   return (
-    <footer>
-      <div className="container top">
+    <footer class="container">
+      <div className=" top">
         <div className="col col1">
           <img src={logo} alt="" />
           <p>
@@ -62,7 +62,7 @@ function footer() {
           </div>
         </div>
       </div>
-      <div className="container hr">
+      <div className=" hr">
         <div className="hr-comp" />
       </div>
       <div className="bottom">

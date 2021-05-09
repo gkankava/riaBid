@@ -71,7 +71,6 @@ function GalleriesFull(props) {
                   <p className="price gray">₾{item.buy_it_now}</p>
                 </div>
               </div>
-              <p className="time gray">End time: {item.end_time}</p>
             </div>
           ))}
         </div>

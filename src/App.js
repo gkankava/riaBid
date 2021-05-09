@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, useHistory } from "react-router-dom";
 import Navbar from "./components/shared/navbar";
 import Footer from "./components/shared/footer";
 import Subscribe from "./components/shared/Subscribe";
@@ -35,6 +35,7 @@ import { getAddress } from "./services/dashboardService";
 import Loading from "./containers/loading";
 import Delivery from "./containers/delivery";
 import AddAddress from "./containers/addAddress";
+import ScrollToTop from "./components/shared/ScrollToTop";
 const queryClient = new QueryClient();
 
 function App() {

@@ -34,13 +34,19 @@ function SliderComp({ activeSlide, setActiveSlide, heroSliderRef }) {
         img={bg2}
         author="A.W."
         text="In the future, everyone will be world-famous for 15 minutes."
-        btn={{ action: () => console.log("click"), text: "Browse art" }}
+        btn={{
+          action: () => window.location.href("/store"),
+          text: "Browse art",
+        }}
       />
       <Slide
         img={bg3}
         author="A.W."
         text="In the future, everyone will be world-famous for 15 minutes."
-        btn={{ action: () => console.log("click"), text: "Browse art" }}
+        btn={{
+          action: () => window.location.href("/store"),
+          text: "Browse art",
+        }}
       />
     </Slider>
   );
