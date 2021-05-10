@@ -6,6 +6,8 @@ import Subscribe from "../components/shared/Subscribe";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import { getDashboard } from "../services/dashboardService";
 import Loading from "./loading";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import { Link } from "react-router-dom";
 
 const queryClient = new QueryClient();
 
@@ -16,7 +18,7 @@ function Main() {
 
   if (error) return "An error has occurred: " + error.message;
 
-  const { selected_just_for_you, auctions } = data.data;
+  const { selected_just_for_you, auctions, trending } = data.data;
 
   return (
     <section id="main">
@@ -31,6 +33,20 @@ function Main() {
 
       {/* <Subscribe /> */}
       {/* <div style={{ height: "500px" }}></div> */}
+      <div className="selectedFor container">
+        <div className="head-wrapper">
+          <h3>Trending</h3>
+        </div>
+        <div className=" masonry-grid">
+          {trending.map((item) => (
+            <div>
+              <Link to={"/store/" + item.id}>
+                <img src={item.image}></img>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
