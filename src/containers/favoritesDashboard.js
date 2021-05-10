@@ -42,31 +42,30 @@ function FavoritesDashboard(props) {
           </Link>
         </div>
         <div className="flex column bids">
-          <h2>Favorites</h2>
-          {data.data.length
-            ? data.data.map((item) => (
-                <div className="bid-card">
+          <section className=" auctions">
+            <div className="grid-container-auctions">
+              {data.data.map((item) => (
+                <div key={item.id} className="product flex column">
+                  <Link to={"/store/" + item.id}>
+                    <div className="img">
+                      <img src={item.image}></img>
+                    </div>
+
+                    <p className="title">
+                      <i>{item.title}</i>
+                    </p>
+                    <p className="title2">{item.display_name}</p>
+                  </Link>
                   <div className="flex space-between">
                     <div className="flex">
-                      <img src={item.image}></img>
-                      <div classname="flex column">
-                        <p className="name">{item.title}</p>
-                        <p className="country">
-                          Current Bid: {item.current_bid} ₾
-                        </p>
-                      </div>
+                      <p className="price">₾{item.current_bid}</p>
+                      <p className="price gray">₾{item.buy_it_now}</p>
                     </div>
-                    <Link
-                      style={{ alignSelf: "center" }}
-                      to={"/store/" + item.artwork_id}
-                      className="main-button"
-                    >
-                      Full View
-                    </Link>
                   </div>
                 </div>
-              ))
-            : "You got no favorite artworks"}
+              ))}
+            </div>
+          </section>
         </div>
       </div>
     </section>
