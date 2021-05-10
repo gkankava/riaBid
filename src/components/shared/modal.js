@@ -88,10 +88,7 @@ function Modal({ type, setAuthModalActive }) {
         {type.login ? (
           <>
             <h3>Log In</h3>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has
-            </p>
+            <p>WELCOME TO RIA BID</p>
             <div className="input-container">
               <input
                 value={email}
