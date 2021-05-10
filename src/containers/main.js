@@ -35,7 +35,7 @@ function Main() {
       {/* <div style={{ height: "500px" }}></div> */}
       <div className="selectedFor container">
         <div className="head-wrapper">
-          <h3>Trending</h3>
+          <h3>TRENDING</h3>
         </div>
         <div className=" masonry-grid">
           {trending.map((item) => (
