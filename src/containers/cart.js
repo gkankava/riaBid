@@ -69,15 +69,20 @@ export default function Cart() {
                   </div>
                 </div>
                 <div className="flex column space-between bet-mob">
-                  <p className="price">
-                    {item.on_auction ? item.current_bid : item.buy_it_now}₾
-                  </p>
                   <button
-                    style={{ border: "none", backgroundColor: "transparent" }}
+                    style={{
+                      border: "none",
+                      backgroundColor: "transparent",
+                      cursor: "pointer",
+                      color: "red",
+                    }}
                     onClick={() => removeMutation.mutate(item.id)}
                   >
                     Remove
                   </button>
+                  <p className="price">
+                    {item.on_auction ? item.current_bid : item.buy_it_now}₾
+                  </p>
                 </div>
               </div>
             ))
