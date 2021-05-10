@@ -14,7 +14,7 @@ function footer() {
     <footer class="container">
       <div className=" top">
         <div className="col col1">
-          <img src={logo} alt="" />
+          <img style={{ marginBottom: "14px" }} src={logo} alt="" />
           <p>
             The Ria Keburia Foundation, founded in 2018 by the Georgian patron
             of the arts Ria Keburia, aims to support development of contemporary

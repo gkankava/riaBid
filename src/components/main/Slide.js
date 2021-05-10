@@ -15,7 +15,9 @@ function Slide({ img, text, btn, author, action }) {
             <div className="circle">
               <BsArrowRightShort style={{ fontSize: "25px" }} />
             </div>
-            <span onClick={() => btn.action()}>{btn.text}</span>
+            <span onClick={() => (window.location.href = "/store")}>
+              {btn.text}
+            </span>
           </div>
         )}
       </div>

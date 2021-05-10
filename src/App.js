@@ -35,7 +35,7 @@ import { getAddress } from "./services/dashboardService";
 import Loading from "./containers/loading";
 import Delivery from "./containers/delivery";
 import AddAddress from "./containers/addAddress";
-import ScrollToTop from "./components/shared/ScrollToTop";
+import ScrollToTopOnMount from "./components/shared/ScrollToTop";
 const queryClient = new QueryClient();
 
 function App() {
@@ -44,7 +44,9 @@ function App() {
   return currentUser.isAuthenticated ? (
     <QueryClientProvider client={queryClient}>
       <ToastContainer />
+
       <BrowserRouter>
+        <ScrollToTopOnMount></ScrollToTopOnMount>
         <Navbar />
         <Switch>
           <Route exact path="/" render={(props) => <Main {...props} />} />

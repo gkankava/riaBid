@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import Filter from "../components/shop/Filter";
-import CardGrid from "../components/shop/CardGrid";
+import React, { useEffect, useState } from "react";
+
 import { getArtworks } from "../services/artworksService";
-import cardImg from "../assets/dummy/cardImage.jpg";
 import { Link } from "react-router-dom";
-import { QueryClient, useQuery } from "react-query";
+import { useQuery } from "react-query";
 import Loading from "./loading";
 import RangeSlider from "../components/shared/RangeSlider";
+import ScrollToTopOnMount from "../components/shared/ScrollToTop";
 
 function Shop(props) {
   const [filter, setFilter] = useState(false);
@@ -14,6 +13,7 @@ function Shop(props) {
   const [filterType, setFilterType] = useState("");
   const [filterPrice, setFilterPrice] = React.useState([0, 1000000]);
   const [filterYear, setFilterYear] = useState([0, 9999]);
+
   if (isLoading) return <Loading></Loading>;
 
   if (error) return "An error has occurred: " + error.message;
