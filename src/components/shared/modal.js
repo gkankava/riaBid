@@ -41,12 +41,8 @@ function Modal({ type, setAuthModalActive }) {
       setError(error.response.data);
     },
     onSuccess: (data, variables, context) => {
-      setCurrentUser({
-        isAuthenticated: true,
-        token: data,
-      });
       _closeModal();
-      window.location.href = "/";
+      window.location.href = "/approveemail";
     },
     onSettled: (data, error, variables, context) => {
       // Error or success... doesn't matter!
