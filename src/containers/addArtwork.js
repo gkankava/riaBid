@@ -184,7 +184,7 @@ function AddArtwork(props) {
                 type="text"
                 name="medium"
                 placeholder="Units"
-                style={{ display: "none" }}
+                disabled
               >
                 <option selected value="2">
                   CM
