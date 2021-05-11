@@ -26,6 +26,18 @@ h6 {
   font-weight: 200;
 }
 
+.favoritesIcon {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  background: transparent;
+  border: none;
+  top: 0;
+  @media screen and (max-width: 768px) {
+    position: relative;
+  }
+}
+
 .masonry-grid {
   display: flex;
   flex-wrap: wrap;

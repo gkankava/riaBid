@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import small from "../assets/product/small-img.png";
 import main from "../assets/product/main.png";
 import clock from "../assets/product/clock.png";
-import favoritesIcon from "../assets/favorites.png";
+import favoritesIcon from "../assets/favorites.svg";
 
 import SharedSlider from "../components/shared/SharedSlider";
 import { getAuction } from "../services/auctionsService";
@@ -76,14 +76,7 @@ export default function ProductDet(props) {
     <section className="product-details">
       <div className="container product-page" style={{ position: "relative" }}>
         <button
-          style={{
-            cursor: "pointer",
-            position: "absolute",
-            right: 0,
-            background: "transparent",
-            border: "none",
-            top: 0,
-          }}
+          className="favoritesIcon"
           onClick={() => favoritesMutation.mutate(artwork.id)}
         >
           <img src={favoritesIcon}></img>

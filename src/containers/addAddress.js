@@ -30,7 +30,8 @@ function AddAddress(props) {
       toast.error(error.context);
     },
     onSuccess: (data, variables, context) => {
-      toast(data.data);
+      toast(data.data.success);
+      window.location.href = "/dashboard/account";
     },
     onSettled: (data, error, variables, context) => {
       // Error or success... doesn't matter!
