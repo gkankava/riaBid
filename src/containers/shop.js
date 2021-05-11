@@ -8,9 +8,27 @@ import RangeSlider from "../components/shared/RangeSlider";
 import ScrollToTopOnMount from "../components/shared/ScrollToTop";
 
 function Shop(props) {
+  const categories = [
+    "Painting",
+    "Sculpture",
+    "Photography",
+    "Print",
+    "Drawing, Collage or other Work on Paper",
+    "Mixed Media",
+    "Performance Art",
+    "Installation",
+    "Video/Film/Animation",
+    "Architecture",
+    "Fashion Design and Wearable Art",
+    "Jewelry",
+    "Design/Decorative Art",
+    "Textile Arts",
+    "Other",
+  ];
   const [filter, setFilter] = useState(false);
   const { isLoading, error, data } = useQuery("artworks", getArtworks);
   const [filterType, setFilterType] = useState("");
+    const [categoryType, setCategoryType] = useState("");
   const [filterPrice, setFilterPrice] = React.useState([0, 1000000]);
   const [filterYear, setFilterYear] = useState([0, 9999]);
 
@@ -107,6 +125,23 @@ function Shop(props) {
               />
               <span class="checkmark"></span>
             </label>
+          </div>
+          <div className="cont">
+            <h2>Category</h2>
+            
+            {categories.map((item,i) => <label class="container-checkbox">
+              {item}
+              <input
+                onChange={(e) =>
+                  e.target.checked
+                    ? setCategoryType(e.target.value)
+                    : setCategoryType("")
+                }
+                value={i}
+                type="checkbox"
+              />
+              <span class="checkmark"></span>
+            </label>)}
           </div>
           <div
             className="cont"

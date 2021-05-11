@@ -18,14 +18,14 @@ import { toast } from "react-toastify";
 function AddArtwork(props) {
   const [artist_id, setArtist] = useState("");
   const [title, setTitle] = useState("");
-  const [product_type, setProductType] = useState("");
+  const [product_type, setProductType] = useState("1");
   const [buy_it_now, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [year, setYear] = useState("");
   const [height, setHeight] = useState("");
   const [width, setWidth] = useState("");
   const [depth, setDepth] = useState("");
-  const [units, setUnits] = useState("");
+  const [units, setUnits] = useState("2");
   const [medium, setMedium] = useState("");
   const [category, setCategory] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
