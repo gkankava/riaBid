@@ -64,11 +64,11 @@ function Navbar() {
                 <button
                   className="btn-create"
                   onClick={() => {
-                    setAuthModalActive({ login: false, register: true });
-                    setNavActive(false);
+                    logout();
+                    window.location.href = "/";
                   }}
                 >
-                  CREATE
+                  LOG OUT
                 </button>
               </div>
             ) : (
