@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import ll from "../../assets/logo-light.svg";
 import ld from "../../assets/logo-def.svg";
-
+import plus from "../../assets/icons/plus.svg";
 import ln from "../../assets/logo-new.svg";
 import ria from "../../assets/riabid.svg";
 import arrow from "../../assets/icons/arrow-down.svg";
@@ -145,12 +145,13 @@ function Navbar() {
         </nav>
         <div className="btn-container">
           {currentUser.isAuthenticated ? (
+            <Link style={{ height: "22px" }} to="/dashboard/addartwork">
+              <img className="cart-btn" src={plus} alt="search-btn" />
+            </Link>
+          ) : null}
+          {currentUser.isAuthenticated ? (
             <Link style={{ height: "22px" }} to="/cart">
-              <img
-                className="cart-btn"
-                src={pathName === "/" ? cartDark : cartDark}
-                alt="search-btn"
-              />
+              <img className="cart-btn" src={cartDark} alt="search-btn" />
             </Link>
           ) : null}
 
