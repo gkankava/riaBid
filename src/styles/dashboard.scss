@@ -7,18 +7,20 @@
   }
   .sidebar {
     height: auto;
-    padding: 30px 38px;
+    padding: 20px 28px;
     border: 1px solid #e6e6e6;
     a {
       display: grid;
-      grid-template-columns: 1fr 9fr;
+      grid-template-columns: 2fr 9fr;
       align-items: center;
       background: none;
       color: #000;
       border: none;
       text-align: left;
       padding: 15px 0;
-
+      img {
+        width: 60%;
+      }
       &.active {
         color: #fbb03b;
       }
