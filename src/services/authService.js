@@ -19,6 +19,15 @@ export async function change({ email }) {
   return data;
 }
 
+export async function changePass({ token, password }) {
+  const { data } = await http.post(apiUrl + "/user/changePass", {
+    token,
+    new_password: password,
+  });
+
+  return data;
+}
+
 export async function enableTwoFactor({ code }) {
   const { data } = await http.post(apiUrl + "/user/enable2fa", {
     code,
@@ -44,7 +53,7 @@ export async function twoFactorLogin({ email, password, code }) {
 }
 
 export async function changePassword({ oldPassword, newPassword }) {
-  return await http.put(apiUrl + "/user/changepassword", {
+  return await http.post(apiUrl + "/user/changepassword", {
     oldPassword,
     newPassword,
   });
