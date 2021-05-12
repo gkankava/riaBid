@@ -54,7 +54,8 @@ function AddArtwork(props) {
       toast.error(error.context);
     },
     onSuccess: (data, variables, context) => {
-      toast("You successfully added artist");
+      toast("You successfully added artwork");
+      window.location.href = "/store";
     },
     onSettled: (data, error, variables, context) => {
       // Error or success... doesn't matter!
