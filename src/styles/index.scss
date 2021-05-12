@@ -26,6 +26,15 @@ h6 {
   font-weight: 200;
 }
 
+.smaller {
+  input,
+  select {
+    @media screen and (max-width: 768px) {
+      font-size: 12px !important;
+      padding: 15px 12px !important;
+    }
+  }
+}
 .favoritesIcon {
   cursor: pointer;
   position: absolute;

@@ -157,7 +157,7 @@ function AddArtwork(props) {
               name="medium"
               placeholder="Medium"
             ></input>
-            <div className="flex space-between">
+            <div className="flex space-between smaller">
               <input
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
