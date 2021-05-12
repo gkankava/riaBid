@@ -221,7 +221,11 @@ function Navbar() {
                 <button
                   className="btn-signin"
                   onClick={() => {
-                    setAuthModalActive({ login: true, register: false });
+                    setAuthModalActive({
+                      login: true,
+                      register: false,
+                      forgot: false,
+                    });
                     setAuthActive(false);
                   }}
                 >
@@ -231,7 +235,11 @@ function Navbar() {
                 <button
                   className="btn-create"
                   onClick={() => {
-                    setAuthModalActive({ login: false, register: true });
+                    setAuthModalActive({
+                      login: false,
+                      register: true,
+                      forgot: false,
+                    });
                     setAuthActive(false);
                   }}
                 >
@@ -248,7 +256,9 @@ function Navbar() {
             onClick={() => setNavActive(!navActive)}
           />
         </div>
-        {authModalActive.login || authModalActive.register ? (
+        {authModalActive.login ||
+        authModalActive.register ||
+        authModalActive.forgot ? (
           <Modal
             type={authModalActive}
             setAuthModalActive={setAuthModalActive}

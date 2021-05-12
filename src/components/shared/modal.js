@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { userProvider } from "../../store/store";
 
 import { GrClose } from "react-icons/gr";
-import { login, register } from "../../services/authService";
+import { change, login, register } from "../../services/authService";
 import { useMutation } from "react-query";
 import { toast } from "react-toastify";
 
@@ -26,6 +26,7 @@ function Modal({ type, setAuthModalActive }) {
     setAuthModalActive({
       login: false,
       register: false,
+      modal: false,
     });
   };
 
@@ -75,6 +76,25 @@ function Modal({ type, setAuthModalActive }) {
     },
   });
 
+  const changeMutation = useMutation(change, {
+    onMutate: (variables) => {
+      // A mutation is about to happen!
+
+      // Optionally return a context containing data to use when for example rolling back
+      return { id: 1 };
+    },
+    onError: (error, variables, context) => {
+      toast.error(error.response.data.error);
+    },
+    onSuccess: (data, variables, context) => {
+      _closeModal();
+      window.location.href = "/";
+      // Boom baby!
+    },
+    onSettled: (data, error, variables, context) => {
+      // Error or success... doesn't matter!
+    },
+  });
   return (
     <div className="auth-modal">
       <div className="modal-container">
@@ -104,8 +124,17 @@ function Modal({ type, setAuthModalActive }) {
               />
               <div className="action-wrapper">
                 <div className="keep-wrapper">
-                  <input type="checkbox" name="" id="" />
-                  <span>Keep me signed in</span>
+                  <strong
+                    onClick={() =>
+                      setAuthModalActive({
+                        login: false,
+                        register: false,
+                        forgot: true,
+                      })
+                    }
+                  >
+                    Forgot Password?
+                  </strong>
                 </div>
                 {/*<div className="forget">Forgot password?</div>*/}
               </div>
@@ -143,6 +172,40 @@ function Modal({ type, setAuthModalActive }) {
               }}
             >
               Sign In
+            </button>
+            <p className="href-signup">
+              Not a member yet?{" "}
+              <strong
+                onClick={() =>
+                  setAuthModalActive({ login: false, register: true })
+                }
+              >
+                Sign Up
+              </strong>
+            </p>
+          </>
+        ) : type.forgot ? (
+          <>
+            <h3>Reset Password</h3>
+
+            <div className="input-container" style={{ width: "100%" }}>
+              <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                name=""
+                id=""
+                placeholder="E-mail"
+              />
+            </div>
+
+            <button
+              className="btn-signup"
+              onClick={() => {
+                changeMutation.mutate({ email });
+              }}
+            >
+              Send
             </button>
             <p className="href-signup">
               Not a member yet?{" "}

@@ -37,6 +37,7 @@ import Delivery from "./containers/delivery";
 import AddAddress from "./containers/addAddress";
 import ScrollToTopOnMount from "./components/shared/ScrollToTop";
 import Approve from "./containers/approve";
+import Forgot from "./containers/forgot";
 const queryClient = new QueryClient();
 
 function App() {
@@ -175,6 +176,11 @@ function App() {
             exact
             path="/dashboard"
             render={(props) => <Dashboard {...props} />}
+          />
+          <Route
+            exact
+            path="/forgot"
+            render={(props) => <Forgot {...props} />}
           />
           <Route
             exact

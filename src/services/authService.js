@@ -13,6 +13,12 @@ export async function login({ email, password }) {
   localStorage.setItem(tokenKey, jwt);
 }
 
+export async function change({ email }) {
+  const { data } = await http.post(apiUrl + "/user/change-request", { email });
+
+  return data;
+}
+
 export async function enableTwoFactor({ code }) {
   const { data } = await http.post(apiUrl + "/user/enable2fa", {
     code,
