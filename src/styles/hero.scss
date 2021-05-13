@@ -31,17 +31,19 @@
   background-repeat: no-repeat;
   background-size: cover;
   .container {
-    padding: 80px;
+    padding: 20px;
     p {
+      text-align: center;
       font-size: 30px;
-      font-weight: 300;
+      font-weight: 400;
       z-index: 5;
       color: white;
     }
     .wrapper {
-      z-index: 5;
       display: flex;
+      margin-top: 5vw;
       align-content: center;
+      justify-content: center;
       .circle {
         height: 39px;
         width: 39px;
@@ -109,7 +111,7 @@
   }
 }
 
-@media screen and (min-width: 1224px) {
+@media screen and (min-width: 1100px) {
   .hero-wrapper {
     .arrow-next {
       // right: 100px;
@@ -119,10 +121,16 @@
     }
   }
   .slide {
+    .container {
+      padding: 80px;
+    }
     p {
       // margin-left: 300px;
     }
     .wrapper {
+      z-index: 5;
+      display: flex;
+
       // margin-left: 300px;
     }
   }

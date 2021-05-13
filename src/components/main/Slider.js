@@ -10,9 +10,9 @@ function SliderComp({ activeSlide, setActiveSlide, heroSliderRef }) {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
-    autoplay: true,
-    autoplaySpeed: 3000,
+    speed: 1000,
+    autoplay: false,
+    autoplaySpeed: 4000,
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0,

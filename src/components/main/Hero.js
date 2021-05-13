@@ -7,11 +7,11 @@ function Hero() {
   const heroSliderRef = useRef();
   return (
     <div className="hero-wrapper">
-      <Tracker
+      {/*<Tracker
         activeSlide={activeSlide}
         slideCount={3}
         heroSliderRef={heroSliderRef}
-      />
+      />*/}
       <Slider
         activeSlide={activeSlide}
         setActiveSlide={setActiveSlide}
