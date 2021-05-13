@@ -11,7 +11,7 @@ function Delivery(props) {
       <div className="bread" style={{ gridArea: "beard" }}>
         {/* home / shop */}
       </div>
-      <h1>About Us</h1>
+      <h1>Delivery</h1>
       <div className="grid-container-text">
         <div className="first">
           <p>
