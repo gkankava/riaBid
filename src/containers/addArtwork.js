@@ -68,7 +68,7 @@ function AddArtwork(props) {
     formData.append("title", title);
     formData.append("artist_id", artist_id);
     formData.append("product_type", product_type);
-    formData.append("buy_it_now", buy_it_now);
+    formData.append("buy_it_now", buy_it_now * 1.4);
     formData.append("description", description);
     formData.append("year", year);
     formData.append("category_id", category);
@@ -192,13 +192,20 @@ function AddArtwork(props) {
                 </option>
               </select>{" "}
             </div>
-            <input
-              value={buy_it_now}
-              onChange={(e) => setPrice(e.target.value)}
-              type="text"
-              name="buy_it_now"
-              placeholder="Price"
-            ></input>
+            <div style={{ position: "relative" }}>
+              {" "}
+              <input
+                value={buy_it_now}
+                onChange={(e) => setPrice(e.target.value)}
+                type="text"
+                name="buy_it_now"
+                placeholder="Price"
+              ></input>
+              <p style={{ position: "absolute", right: 0 }}>
+                Final Price: {buy_it_now * 1.4} $
+              </p>
+              <p>+ Riabid commission 40%</p>
+            </div>
             <input
               value={year}
               onChange={(e) => setYear(e.target.value)}
