@@ -38,7 +38,7 @@ function Main() {
           <h3>TRENDING</h3>
         </div>
         <div className=" masonry-grid">
-          {trending.map((item) => (
+          {trending.slice(0, 8).map((item) => (
             <div>
               <Link to={"/store/" + item.id}>
                 <img src={item.image}></img>

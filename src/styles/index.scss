@@ -55,7 +55,6 @@ h6 {
     height: 300px;
     line-height: 300px;
 
-    margin: 0 1rem 1rem 0;
     text-align: center;
     font-family: system-ui;
     font-weight: 900;
@@ -72,7 +71,7 @@ h6 {
   }
   @for $i from 1 through 36 {
     div:nth-child(#{$i}) {
-      $h: (random(400) + 70) + px;
+      $h: 25%;
       width: $h;
       @media screen and (max-width: 768px) {
         width: 100%;
