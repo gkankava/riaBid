@@ -23,6 +23,10 @@ export function addArtist(data) {
   return http.post(apiUrl + "/add-artist", data);
 }
 
+export function addIBAN(data) {
+  return http.post(apiUrl + "/updateAngarishi", data);
+}
+
 export function addArtwork(data) {
   return http.post(apiUrl + "/add-artwork", data);
 }

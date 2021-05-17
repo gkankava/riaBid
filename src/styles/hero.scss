@@ -129,7 +129,12 @@
     }
     .wrapper {
       z-index: 5;
+
       display: flex;
+      .circle,
+      span {
+        cursor: pointer;
+      }
 
       // margin-left: 300px;
     }
