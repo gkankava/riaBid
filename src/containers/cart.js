@@ -89,12 +89,25 @@ export default function Cart() {
           : "Your cart is empty"}
 
         <div className="full flex column">
-          <p>
-            Address: {data.data.address.address_1} {data.data.address.address_2}
-          </p>
-          <p>Country: {data.data.address.country}</p>
-          <p>City: {data.data.address.city}</p>
-          <p>Mobile: {data.data.address.mobile}</p>
+          {data.data.address ? (
+            <p>
+              Address: {data.data.address.address_1}{" "}
+              {data.data.address.address_2}
+            </p>
+          ) : null}
+          {data.data.address ? (
+            <p>Country: {data.data.address.country}</p>
+          ) : null}
+          {data.data.address ? <p>City: {data.data.address.city}</p> : null}
+          {data.data.address ? <p>Mobile: {data.data.address.mobile}</p> : null}
+          {data.data.address ? null : (
+            <Link
+              to="/dashboard/addaddress"
+              style={{ color: "red", fontWeight: 400 }}
+            >
+              Please add address to your account
+            </Link>
+          )}
 
           <h3>Full Amount: {data.data.total}₾</h3>
           <button onClick={() => orderMutation.mutate()}>Pay Now</button>
