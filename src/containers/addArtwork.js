@@ -68,7 +68,7 @@ function AddArtwork(props) {
     formData.append("title", title);
     formData.append("artist_id", artist_id);
     formData.append("product_type", product_type);
-    formData.append("buy_it_now", buy_it_now * 1.4);
+    formData.append("buy_it_now", buy_it_now * 1.15);
     formData.append("description", description);
     formData.append("year", year);
     formData.append("category_id", category);
@@ -202,9 +202,9 @@ function AddArtwork(props) {
                 placeholder="Price"
               ></input>
               <p style={{ position: "absolute", right: 0 }}>
-                Final Price: {buy_it_now * 1.4} $
+                Final Price: {buy_it_now * 1.15} $
               </p>
-              <p>+ Riabid commission 40%</p>
+              <p>+ Riabid commission 15%</p>
             </div>
             <input
               value={year}
