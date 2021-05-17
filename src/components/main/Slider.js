@@ -25,7 +25,7 @@ function SliderComp({ activeSlide, setActiveSlide, heroSliderRef }) {
       <Slide
         img={bg}
         author="A.W."
-        text="In the future, everyone will be world famous for 15 minutes."
+        text="IN THE FUTURE, EVERYONE WILL BE WORLD FAMOUS FOR 15 MINUTES."
         btn={{
           action: () => window.location.href("/store"),
           text: "Browse art",
@@ -35,7 +35,7 @@ function SliderComp({ activeSlide, setActiveSlide, heroSliderRef }) {
       <Slide
         img={bg2}
         author="A.W."
-        text="In the future, everyone will be world-famous for 15 minutes."
+        text="IN THE FUTURE, EVERYONE WILL BE WORLD FAMOUS FOR 15 MINUTES."
         btn={{
           action: () => window.location.href("/store"),
           text: "Browse art",
@@ -44,7 +44,7 @@ function SliderComp({ activeSlide, setActiveSlide, heroSliderRef }) {
       <Slide
         img={bg3}
         author="A.W."
-        text="In the future, everyone will be world-famous for 15 minutes."
+        text="IN THE FUTURE, EVERYONE WILL BE WORLD FAMOUS FOR 15 MINUTES."
         btn={{
           action: () => window.location.href("/store"),
           text: "Browse art",

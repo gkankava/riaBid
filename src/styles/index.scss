@@ -198,8 +198,24 @@ a {
 
 .product {
   width: 100%;
+  position: relative;
   margin: auto;
-
+  .sold {
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(242, 241, 239, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p {
+      text-align: center;
+      color: red;
+      font-size: 2rem;
+    }
+  }
   &:hover {
     img {
       transform: scale(1.1);

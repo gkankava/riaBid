@@ -28,7 +28,7 @@ function Shop(props) {
   const [filter, setFilter] = useState(false);
   const { isLoading, error, data } = useQuery("artworks", getArtworks);
   const [filterType, setFilterType] = useState("");
-    const [categoryType, setCategoryType] = useState("");
+  const [categoryType, setCategoryType] = useState("");
   const [filterPrice, setFilterPrice] = React.useState([0, 1000000]);
   const [filterYear, setFilterYear] = useState([0, 9999]);
 
@@ -128,20 +128,22 @@ function Shop(props) {
           </div>
           <div className="cont">
             <h2>Category</h2>
-            
-            {categories.map((item,i) => <label class="container-checkbox">
-              {item}
-              <input
-                onChange={(e) =>
-                  e.target.checked
-                    ? setCategoryType(e.target.value)
-                    : setCategoryType("")
-                }
-                value={i}
-                type="checkbox"
-              />
-              <span class="checkmark"></span>
-            </label>)}
+
+            {categories.map((item, i) => (
+              <label class="container-checkbox">
+                {item}
+                <input
+                  onChange={(e) =>
+                    e.target.checked
+                      ? setCategoryType(e.target.value)
+                      : setCategoryType("")
+                  }
+                  value={i}
+                  type="checkbox"
+                />
+                <span class="checkmark"></span>
+              </label>
+            ))}
           </div>
           <div
             className="cont"
@@ -175,6 +177,11 @@ function Shop(props) {
         <div className="grid-container-auctions">
           {filteredData.map((item) => (
             <div key={item.id} className="product flex column">
+              {item.is_sold ? (
+                <div className="sold">
+                  <p>SOLD</p>
+                </div>
+              ) : null}
               <Link to={"/store/" + item.id}>
                 <div className="img">
                   <img src={item.image}></img>

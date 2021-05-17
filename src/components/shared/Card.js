@@ -11,9 +11,15 @@ function Card({
   end_time,
   index,
   display_name,
+  sold,
 }) {
   return (
     <div className="product flex column">
+      {sold ? (
+        <div className="sold">
+          <p>SOLD</p>
+        </div>
+      ) : null}
       <a href={"/store/" + index}>
         <div className="img">
           <img src={img}></img>

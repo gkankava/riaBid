@@ -89,6 +89,13 @@ export default function Cart() {
           : "Your cart is empty"}
 
         <div className="full flex column">
+          <p>
+            Address: {data.data.address.address_1} {data.data.address.address_2}
+          </p>
+          <p>Country: {data.data.address.country}</p>
+          <p>City: {data.data.address.city}</p>
+          <p>Mobile: {data.data.address.mobile}</p>
+
           <h3>Full Amount: {data.data.total}₾</h3>
           <button onClick={() => orderMutation.mutate()}>Pay Now</button>
         </div>
