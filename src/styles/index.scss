@@ -223,7 +223,7 @@ a {
   }
   .img {
     width: 90%;
-    object-fit: cover;
+    object-fit: contain;
     overflow: hidden;
     height: 20vw;
     @media screen and (max-width: 768px) {
