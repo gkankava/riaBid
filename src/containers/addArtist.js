@@ -75,10 +75,7 @@ function AddArtist(props) {
               name="display_name"
               placeholder="Display Name"
             ></input>
-            <input
-              onChange={(e) => setSelectedFile(e.target.files[0])}
-              type="file"
-            ></input>
+
             <input
               style={{ cursor: "pointer" }}
               type="submit"
