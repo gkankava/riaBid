@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import cardImg from "../assets/dummy/bid.png";
 import dashboardIcon from "../assets/icons/dashboard.svg";
@@ -10,6 +10,7 @@ import historyIcon from "../assets/icons/history.svg";
 import plus from "../assets/icons/plus.svg";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import {
+  addIBAN,
   deleteAddress,
   getAddress,
   getArtworks,
@@ -19,8 +20,25 @@ import Loading from "./loading";
 import { toast } from "react-toastify";
 
 function AccountDashboard(props) {
-  const [filter, setFilter] = React.useState(false);
+  const [filter, setFilter] = useState(false);
   const queryClient = useQueryClient();
+  const [IBAN, setIBAN] = useState("");
+  const addIBANMutation = useMutation(addIBAN, {
+    onMutate: (variables) => {
+      return { id: 1 };
+    },
+    onError: (error, variables, context) => {
+      toast.error(error.context);
+    },
+    onSuccess: (data, variables, context) => {
+      toast(data.data.success);
+      window.location.href = "/dashboard/account";
+    },
+    onSettled: (data, error, variables, context) => {
+      // Error or success... doesn't matter!
+    },
+  });
+
   const deleteMutation = useMutation(deleteAddress, {
     onMutate: (variables) => {
       return { id: 1 };
@@ -35,6 +53,13 @@ function AccountDashboard(props) {
       queryClient.invalidateQueries("addresses");
     },
   });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      angarishis_nomeri: IBAN,
+    };
+    addIBANMutation.mutate(data);
+  };
   const { isLoading, error, data } = useQuery("addresses", getAddress);
 
   if (isLoading) return <Loading></Loading>;
@@ -69,6 +94,23 @@ function AccountDashboard(props) {
               <Link to="/dashboard/addaddress" className="add">
                 <img src={plus}></img>Add Address
               </Link>
+            </div>
+            <div className="flex column  contact-container dashboard">
+              <form onSubmit={handleSubmit} className="contact-form dashboard">
+                <input
+                  value={IBAN}
+                  onChange={(e) => setIBAN(e.target.value)}
+                  type="text"
+                  name="full_name"
+                  placeholder={"IBAN number"}
+                ></input>
+
+                <input
+                  style={{ cursor: "pointer" }}
+                  type="submit"
+                  value="SAVE IBAN"
+                ></input>
+              </form>
             </div>
             <div className="artworks-grid">
               {data.data.length
