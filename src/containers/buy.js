@@ -18,7 +18,7 @@ export default function Buy(props) {
             Ria Bid features 24/7 online auctions and immediate purchases of
             paintings, prints, photographs, different mediums
           </li>
-          <li>Ria Bid also offers fixed price with the 40% commission fee</li>
+          <li>Ria Bid also offers fixed price with the 15% commission fee</li>
           <li>
             All artworks offered on the site have been evaluated by Ria Keburia
             Foundation team
@@ -40,7 +40,7 @@ export default function Buy(props) {
           <li>
             The buyer pays a buyer’s premium on all winning transactions
             directly to Ria Bid. The premium is charged on the buyer’s credit
-            card when the auction closes. Ria Bid collects a 20% buyer's premium
+            card when the auction closes. Ria Bid collects a 15% buyer's premium
             on all lots
           </li>
           <li>
