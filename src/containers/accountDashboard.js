@@ -98,7 +98,7 @@ function AccountDashboard(props) {
             <div className="flex column  contact-container dashboard">
               <form onSubmit={handleSubmit} className="contact-form dashboard">
                 <input
-                  value={IBAN}
+                  value={IBAN || data.data.iban}
                   onChange={(e) => setIBAN(e.target.value)}
                   type="text"
                   name="full_name"
@@ -113,8 +113,8 @@ function AccountDashboard(props) {
               </form>
             </div>
             <div className="artworks-grid">
-              {data.data.length
-                ? data.data.map((item) => (
+              {data.data.addresses.length
+                ? data.data.addresses.map((item) => (
                     <div className="artwork-item flex title">
                       <div className="flex">
                         <p>{item.full_name}</p>
