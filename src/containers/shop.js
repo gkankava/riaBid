@@ -29,10 +29,17 @@ function Shop(props) {
   const [filter, setFilter] = useState(false);
   const { isLoading, error, data } = useQuery("artworks", getArtworks);
   const [filterType, setFilterType] = useState("");
-  const [categoryType, setCategoryType] = useState("");
+  const [categoryType, setCategoryType] = useState([]);
   const [filterPrice, setFilterPrice] = React.useState([0, 1000000]);
   const [filterYear, setFilterYear] = useState([0, 9999]);
 
+  const removeItemOnce = (arr, value) => {
+    var index = arr.indexOf(value);
+    if (index > -1) {
+      arr.splice(index, 1);
+    }
+    return arr;
+  };
   if (isLoading) return <Loading></Loading>;
 
   if (error) return "An error has occurred: " + error.message;
@@ -67,7 +74,12 @@ function Shop(props) {
         item.buy_it_now >= filterPrice[0] && item.buy_it_now <= filterPrice[1]
     )
     .filter((item) => item.year >= filterYear[0] && item.year <= filterYear[1])
-    .filter((item) => item.product_type == filterType || filterType == "");
+    .filter((item) => item.product_type == filterType || filterType == "")
+    .filter(
+      (item) =>
+        categoryType.includes(item.category_id?.toString()) ||
+        categoryType.length === 0
+    );
 
   return (
     <section id="shop" className="container auctions shop">
@@ -134,12 +146,14 @@ function Shop(props) {
               <label class="container-checkbox">
                 {item}
                 <input
-                  onChange={(e) =>
+                  onChange={(e) => {
                     e.target.checked
-                      ? setCategoryType(e.target.value)
-                      : setCategoryType("")
-                  }
-                  value={i}
+                      ? setCategoryType([...categoryType, e.target.value])
+                      : setCategoryType(
+                          removeItemOnce(categoryType, e.target.value)
+                        );
+                  }}
+                  value={i + 1}
                   type="checkbox"
                 />
                 <span class="checkmark"></span>
