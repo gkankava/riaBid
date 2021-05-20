@@ -196,6 +196,13 @@ a {
   color: #000;
 }
 
+.soldDetailed {
+  img {
+    width: 50%;
+    object-fit: contain;
+  }
+}
+
 .product {
   width: 100%;
   position: relative;

@@ -3,7 +3,7 @@ import small from "../assets/product/small-img.png";
 import main from "../assets/product/main.png";
 import clock from "../assets/product/clock.png";
 import favoritesIcon from "../assets/favorites.svg";
-
+import sold from "../assets/sold.png";
 import SharedSlider from "../components/shared/SharedSlider";
 import { getAuction } from "../services/auctionsService";
 import ReactFancyBox from "react-fancybox";
@@ -118,16 +118,22 @@ export default function ProductDet(props) {
                 </div>
               </div>
             ) : null}
-            <div className="buyitnow flex">
-              <p className="price flex">₾{artwork.buy_it_now}</p>
+            {artwork.is_sold ? (
+              <div className="soldDetailed">
+                <img src={sold}></img>
+              </div>
+            ) : (
+              <div className="buyitnow flex">
+                <p className="price flex">₾{artwork.buy_it_now}</p>
 
-              <button
-                style={{ cursor: "pointer" }}
-                onClick={() => addMutation.mutate(artwork.id)}
-              >
-                Add to cart
-              </button>
-            </div>
+                <button
+                  style={{ cursor: "pointer" }}
+                  onClick={() => addMutation.mutate(artwork.id)}
+                >
+                  Add to cart
+                </button>
+              </div>
+            )}
             <h2>Details and product description</h2>
             <p className="desc">{artwork.medium}</p>
             {artwork.depth ? (
