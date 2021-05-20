@@ -1,7 +1,7 @@
 .auctions {
   &.shop {
     .grid-container-auctions {
-      grid-row-gap: 3%;
+      grid-row-gap: 0.2%;
       grid-template-columns: repeat(3, 1fr);
       @media screen and (max-width: 768px) {
         grid-template-columns: 1fr;

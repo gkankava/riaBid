@@ -4,6 +4,7 @@ import { getArtworks } from "../services/artworksService";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import Loading from "./loading";
+import sold from "../assets/sold.png";
 import RangeSlider from "../components/shared/RangeSlider";
 import ScrollToTopOnMount from "../components/shared/ScrollToTop";
 
@@ -179,7 +180,7 @@ function Shop(props) {
             <div key={item.id} className="product flex column">
               {item.is_sold ? (
                 <div className="sold">
-                  <p>SOLD</p>
+                  <img src={sold}></img>
                 </div>
               ) : null}
               <Link to={"/store/" + item.id}>

@@ -205,15 +205,14 @@ a {
     width: 90%;
     height: 100%;
     z-index: 2;
-    background-color: rgba(242, 241, 239, 0.5);
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    p {
-      text-align: center;
-      color: red;
-      font-size: 2rem;
+    img {
+      width: 70%;
+      object-fit: contain;
     }
   }
   &:hover {
