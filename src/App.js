@@ -161,9 +161,9 @@ function App() {
     </QueryClientProvider>
   ) : (
     <QueryClientProvider client={queryClient}>
-      <ScrollToTopOnMount></ScrollToTopOnMount>
       <ToastContainer />
       <BrowserRouter>
+        <ScrollToTopOnMount></ScrollToTopOnMount>
         <Navbar />
         <Switch>
           <Route exact path="/" render={(props) => <Main {...props} />} />
