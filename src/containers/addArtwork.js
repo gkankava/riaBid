@@ -199,10 +199,10 @@ function AddArtwork(props) {
                 onChange={(e) => setPrice(e.target.value)}
                 type="text"
                 name="buy_it_now"
-                placeholder="Price"
+                placeholder="Price GEL"
               ></input>
               <p style={{ position: "absolute", right: 0 }}>
-                Final Price: {buy_it_now * 1.15} $
+                Final Price: {buy_it_now * 1.15} GEL
               </p>
               <p>+ Riabid commission 15%</p>
             </div>
