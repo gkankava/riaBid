@@ -54,7 +54,10 @@ function AddArtwork(props) {
       toast.error(error.context);
     },
     onSuccess: (data, variables, context) => {
-      toast("You successfully added artwork");
+      toast.dark("You successfully added artwork", {
+        progress: undefined,
+        hideProgressBar: true,
+      });
       window.location.href = "/store";
     },
     onSettled: (data, error, variables, context) => {

@@ -25,7 +25,10 @@ function ArtworksDashboard(props) {
       toast.error(error.context);
     },
     onSuccess: (data, variables, context) => {
-      toast("You successfully requested auction");
+      toast.dark("You successfully requested auction", {
+        progress: undefined,
+        hideProgressBar: true,
+      });
     },
     onSettled: (data, error, variables, context) => {
       // Error or success... doesn't matter!
@@ -95,8 +98,36 @@ function ArtworksDashboard(props) {
                   ))
                 : "You haven't got any artworks"}
             </div>
+            {data.data.sold.length ? (
+              <div>
+                <h2>Sold artworks</h2>
+                <div className="artworks-grid">
+                  {data.data.sold.map((item) => (
+                    <div className="artwork-item flex title">
+                      <div className="flex">
+                        <img src={item.image}></img>
+                        <div className="flex column">
+                          <p className="name">{item.title}</p>
+                          <p className="country">{item.location}</p>
+                        </div>
+                      </div>
+                      <p>{item.buy_it_now}₾</p>
+                      <p>For Sale</p>
+                      <p>Exact Price</p>
+                      <button
+                        onClick={() => requestMutation.mutate(item.id)}
+                        className="main-button"
+                      >
+                        Request Auction
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
           </div>
         </div>
+        <div></div>
       </div>
     </section>
   );

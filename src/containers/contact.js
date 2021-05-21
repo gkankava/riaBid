@@ -21,7 +21,10 @@ function Contact(props) {
       toast.error(error.context);
     },
     onSuccess: (data, variables, context) => {
-      toast("You successfully sent information");
+      toast.dark("You successfully sent information", {
+        progress: undefined,
+        hideProgressBar: true,
+      });
     },
     onSettled: (data, error, variables, context) => {
       // Error or success... doesn't matter!

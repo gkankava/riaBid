@@ -31,7 +31,10 @@ function AccountDashboard(props) {
       toast.error(error.context);
     },
     onSuccess: (data, variables, context) => {
-      toast(data.data.success);
+      toast.dark(data.data.success, {
+        progress: undefined,
+        hideProgressBar: true,
+      });
       window.location.href = "/dashboard/account";
     },
     onSettled: (data, error, variables, context) => {
@@ -47,7 +50,10 @@ function AccountDashboard(props) {
       toast.error(error.context);
     },
     onSuccess: (data, variables, context) => {
-      toast(data.data);
+      toast.dark(data.data, {
+        progress: undefined,
+        hideProgressBar: true,
+      });
     },
     onSettled: (data, error, variables, context) => {
       queryClient.invalidateQueries("addresses");

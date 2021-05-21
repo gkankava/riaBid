@@ -27,7 +27,10 @@ export default function ProductDet(props) {
       toast.error("You need to login");
     },
     onSuccess: (data, variables, context) => {
-      toast("Artwork added to bag");
+      toast.dark("Artwork added to bag", {
+        progress: undefined,
+        hideProgressBar: true,
+      });
     },
     onSettled: (data, error, variables, context) => {
       // Error or success... doesn't matter!
@@ -42,7 +45,10 @@ export default function ProductDet(props) {
       toast.error("You need to login");
     },
     onSuccess: (data, variables, context) => {
-      toast("Artwork added to favorites");
+      toast.dark("Artwork added to favorites", {
+        progress: undefined,
+        hideProgressBar: true,
+      });
     },
     onSettled: (data, error, variables, context) => {
       // Error or success... doesn't matter!
@@ -57,7 +63,10 @@ export default function ProductDet(props) {
       toast.error("You need to login");
     },
     onSuccess: (data, variables, context) => {
-      toast("Successfully bid");
+      toast.dark("Successfully bid", {
+        progress: undefined,
+        hideProgressBar: true,
+      });
       window.location.reload();
     },
     onSettled: (data, error, variables, context) => {},

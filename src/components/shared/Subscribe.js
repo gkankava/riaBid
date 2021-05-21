@@ -14,7 +14,10 @@ function Subscribe() {
       toast.error(error.context);
     },
     onSuccess: (data, variables, context) => {
-      toast("You successfully subscribed");
+      toast.dark("You successfully subscribed", {
+        progress: undefined,
+        hideProgressBar: true,
+      });
     },
     onSettled: (data, error, variables, context) => {
       // Error or success... doesn't matter!

@@ -26,7 +26,11 @@ function AddArtist(props) {
       toast.error(error.context);
     },
     onSuccess: (data, variables, context) => {
-      toast("You successfully added artist");
+      toast.dark("You successfully added artist", {
+        progress: undefined,
+        hideProgressBar: true,
+      });
+
       setSelectedFile(null);
       setDisplayName("");
     },

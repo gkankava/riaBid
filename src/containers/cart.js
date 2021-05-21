@@ -17,8 +17,10 @@ export default function Cart() {
       toast.error(error.context);
     },
     onSuccess: (data, variables, context) => {
-      toast("You successfully created order");
-
+      toast.dark("You successfully created order", {
+        progress: undefined,
+        hideProgressBar: true,
+      });
       window.location.href =
         "https://api.riabid.ge/payorder/" + data.data.order_id;
     },

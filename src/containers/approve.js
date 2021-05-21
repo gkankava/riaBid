@@ -1,10 +1,4 @@
 import React, { useState } from "react";
-import Filter from "../components/shop/Filter";
-import CardGrid from "../components/shop/CardGrid";
-import { GoSettings } from "react-icons/go";
-import { useMutation } from "react-query";
-import { contact } from "../services/dashboardService";
-import { toast } from "react-toastify";
 
 function Approve(props) {
   const [title, setTitle] = useState("");
