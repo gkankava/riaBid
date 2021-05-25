@@ -86,8 +86,8 @@ function ArtworksDashboard(props) {
                         </div>
                       </div>
                       <p class="price">{item.buy_it_now}₾</p>
-                      <p>For Sale</p>
-                      <p>Exact Price</p>
+                      <p class="hide">For Sale</p>
+                      <p class="hide">Exact Price</p>
                       <button
                         onClick={() => requestMutation.mutate(item.id)}
                         className="main-button"
@@ -112,8 +112,8 @@ function ArtworksDashboard(props) {
                         </div>
                       </div>
                       <p class="price">{item.buy_it_now}₾</p>
-                      <p>SOLD</p>
-                      <p>Exact Price</p>
+                      <p class="hide">SOLD</p>
+                      <p class="hide">Exact Price</p>
                       <Link
                         style={{ textAlign: "center" }}
                         to="/"
