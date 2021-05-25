@@ -101,23 +101,50 @@ function AccountDashboard(props) {
                 <img src={plus}></img>Add Address
               </Link>
             </div>
-            <div className="flex column  contact-container dashboard">
-              <form onSubmit={handleSubmit} className="contact-form dashboard">
-                <input
-                  value={IBAN || data.data.iban}
-                  onChange={(e) => setIBAN(e.target.value)}
-                  type="text"
-                  name="full_name"
-                  placeholder={"IBAN number"}
-                ></input>
+            {data.data.iban ? (
+              <div className="artworks-grid">
+                <div className="artwork-item flex title">
+                  <div className="flex">
+                    <p>{data.data.iban}</p>
+                  </div>
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                  <p style={{ display: "flex", justifyContent: "flex-end" }}>
+                    <button
+                      onClick={() =>
+                        addIBANMutation.mutate({ angarishis_nomeri: "" })
+                      }
+                      className="main-button"
+                    >
+                      Delete
+                    </button>
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div className="flex column  contact-container dashboard">
+                <form
+                  onSubmit={handleSubmit}
+                  className="contact-form dashboard"
+                >
+                  <input
+                    value={IBAN || data.data.iban}
+                    onChange={(e) => setIBAN(e.target.value)}
+                    type="text"
+                    name="full_name"
+                    placeholder={"IBAN number"}
+                  ></input>
 
-                <input
-                  style={{ cursor: "pointer" }}
-                  type="submit"
-                  value="SAVE IBAN"
-                ></input>
-              </form>
-            </div>
+                  <input
+                    style={{ cursor: "pointer" }}
+                    type="submit"
+                    value="SAVE IBAN"
+                  ></input>
+                </form>
+              </div>
+            )}
+
             <div className="artworks-grid">
               {data.data.addresses.length
                 ? data.data.addresses.map((item) => (
@@ -128,7 +155,9 @@ function AccountDashboard(props) {
                       <p>{item.address_1}</p>
                       <p>{item.address_2}</p>
                       <p>{item.mobile}</p>
-                      <p>
+                      <p
+                        style={{ display: "flex", justifyContent: "flex-end" }}
+                      >
                         <button
                           onClick={() => deleteMutation.mutate(item.id)}
                           className="main-button"
