@@ -27,25 +27,30 @@ function Galleries(props) {
         </li>
       </ul>
       <div className="grid-container-galleries">
-        {data.data.map((item) => (
-          <div key={item.id} className="product flex column">
-            <Link to={"/galleries/" + item.id}>
-              <div className="img">
-                <img src={item.legal_image}></img>
-              </div>
-
-              <p className="title">{item.gallery_title}</p>
-            </Link>
-            <div className="flex space-between">
-              <div className="flex">
-                <p className="location">{item.location}</p>
-              </div>
+        {data.data
+          .filter((item) => item.is_hidden === 0)
+          .map((item) => (
+            <div key={item.id} className="product flex column">
               <Link to={"/galleries/" + item.id}>
-                <button className="main-button">View Gallery</button>
+                <div className="img">
+                  <img src={item.legal_image}></img>
+                </div>
+
+                <p className="title">{item.gallery_title}</p>
               </Link>
+              <div className="flex space-between">
+                <div className="flex">
+                  <p className="location">{item.location}</p>
+                </div>
+                <Link to={"/galleries/" + item.id}>
+                  <button className="main-button">View Gallery</button>
+                </Link>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        {data.data.filter((item) => item.is_hidden === 0).length === 0
+          ? "There are no galleries yet"
+          : null}
       </div>
     </section>
   );
