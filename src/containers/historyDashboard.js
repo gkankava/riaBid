@@ -58,10 +58,10 @@ function HistoryDashboard(props) {
                         <p className="country">{item.year}</p>
                       </div>
                     </div>
-                    <p>{item.subtotal}₾</p>
+                    <p></p>
                     <p> </p>
                     <p> </p>
-                    <p>Successfull</p>
+                    <p>{item.price}₾</p>
                   </div>
                 </div>
               </div>
