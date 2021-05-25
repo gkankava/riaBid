@@ -39,6 +39,16 @@
         width: 100%;
         padding: 12px;
       }
+      p {
+        &.price {
+          @media screen and (max-width: 768px) {
+            display: block;
+          }
+        }
+        @media screen and (max-width: 768px) {
+          display: none;
+        }
+      }
       .name {
         font-size: 15px;
       }

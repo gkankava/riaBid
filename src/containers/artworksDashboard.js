@@ -75,8 +75,8 @@ function ArtworksDashboard(props) {
               </Link>
             </div>
             <div className="artworks-grid">
-              {data.data.length
-                ? data.data.map((item) => (
+              {data.data.unsold.length
+                ? data.data.unsold.map((item) => (
                     <div className="artwork-item flex title">
                       <div className="flex">
                         <img src={item.image}></img>
@@ -85,7 +85,7 @@ function ArtworksDashboard(props) {
                           <p className="country">{item.location}</p>
                         </div>
                       </div>
-                      <p>{item.buy_it_now}₾</p>
+                      <p class="price">{item.buy_it_now}₾</p>
                       <p>For Sale</p>
                       <p>Exact Price</p>
                       <button
@@ -111,15 +111,16 @@ function ArtworksDashboard(props) {
                           <p className="country">{item.location}</p>
                         </div>
                       </div>
-                      <p>{item.buy_it_now}₾</p>
-                      <p>For Sale</p>
+                      <p class="price">{item.buy_it_now}₾</p>
+                      <p>SOLD</p>
                       <p>Exact Price</p>
-                      <button
-                        onClick={() => requestMutation.mutate(item.id)}
+                      <Link
+                        style={{ textAlign: "center" }}
+                        to="/"
                         className="main-button"
                       >
-                        Request Auction
-                      </button>
+                        Order Details
+                      </Link>
                     </div>
                   ))}
                 </div>
