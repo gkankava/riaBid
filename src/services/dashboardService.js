@@ -19,6 +19,10 @@ export function getArtworks() {
   return http.get(apiUrl + "/artworks/my-artworks");
 }
 
+export function getHistory() {
+  return http.get(apiUrl + "/myorders");
+}
+
 export function addArtist(data) {
   return http.post(apiUrl + "/add-artist", data);
 }

@@ -8,9 +8,17 @@ import accountIcon from "../assets/icons/account.svg";
 import favoritesIcon from "../assets/icons/favorites.svg";
 import historyIcon from "../assets/icons/history.svg";
 import plus from "../assets/icons/plus.svg";
+import { getHistory } from "../services/dashboardService";
+import { useQuery } from "react-query";
+import Loading from "./loading";
 
 function HistoryDashboard(props) {
   const [filter, setFilter] = React.useState(false);
+  const { isLoading, error, data } = useQuery("historyDashboard", getHistory);
+
+  if (isLoading) return <Loading></Loading>;
+
+  if (error) return "An error has occurred: " + error.message;
 
   return (
     <section id="shop" className="container">
@@ -37,24 +45,30 @@ function HistoryDashboard(props) {
         </div>
         <div className="flex column bids">
           <h2>Order History</h2>
-          <p>You have got no past orders</p>
-          {/* <div className="artworks-container">
-            <div className="artworks-grid">
-              <div className="artwork-item flex title">
-                <div className="flex">
-                  <img src={cardImg}></img>
-                  <div className="flex column">
-                    <p className="name">Rita Khachaturiani</p>
-                    <p className="country">Georgia</p>
+
+          {data.data.length ? (
+            data.data.map((item) => (
+              <div className="artworks-container">
+                <div className="artworks-grid">
+                  <div className="artwork-item flex title">
+                    <div className="flex">
+                      <img src={item.image}></img>
+                      <div className="flex column">
+                        <p className="name">{item.title}</p>
+                        <p className="country">{item.year}</p>
+                      </div>
+                    </div>
+                    <p>{item.subtotal}₾</p>
+                    <p> </p>
+                    <p> </p>
+                    <p>Successfull</p>
                   </div>
                 </div>
-                <p>500₾</p>
-                <p> </p>
-                <p> </p>
-                <p>Successfull</p>
               </div>
-            </div>
-  </div>*/}
+            ))
+          ) : (
+            <p>You have got no past orders</p>
+          )}
         </div>
       </div>
     </section>
