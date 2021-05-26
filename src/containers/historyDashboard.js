@@ -11,9 +11,11 @@ import plus from "../assets/icons/plus.svg";
 import { getHistory } from "../services/dashboardService";
 import { useQuery } from "react-query";
 import Loading from "./loading";
-
+import { getJwt } from "../services/authService";
+import jwt_decode from "jwt-decode";
 function HistoryDashboard(props) {
   const [filter, setFilter] = React.useState(false);
+  var { user_id } = jwt_decode(getJwt());
   const { isLoading, error, data } = useQuery("historyDashboard", getHistory);
 
   if (isLoading) return <Loading></Loading>;
@@ -42,6 +44,11 @@ function HistoryDashboard(props) {
           <Link to="/dashboard/history">
             <img src={historyIcon}></img>Order History
           </Link>
+          {user_id == 80 ? (
+            <Link to="/dashboard/allorders">
+              <img src={historyIcon}></img>All Orders
+            </Link>
+          ) : null}
         </div>
         <div className="flex column bids">
           <h2>Order History</h2>
@@ -58,8 +65,8 @@ function HistoryDashboard(props) {
                         <p className="country">{item.year}</p>
                       </div>
                     </div>
-                    <p></p>
-                    <p> </p>
+                    <p>{item.name}</p>
+                    <p>{item.lastname}</p>
                     <p> </p>
                     <p>{item.price}₾</p>
                   </div>

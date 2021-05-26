@@ -26,6 +26,15 @@ h6 {
   font-weight: 200;
 }
 
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.right {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
 .smaller {
   input,
   select {
@@ -165,6 +174,9 @@ body {
   border-radius: 6px;
   cursor: pointer;
   transition: 300ms;
+  &.many {
+    margin: 0.5em 0;
+  }
   @media screen and (max-width: 768px) {
     padding: 5px 11px;
   }

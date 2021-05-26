@@ -18,6 +18,8 @@ import {
 } from "../services/dashboardService";
 import Loading from "./loading";
 import { toast } from "react-toastify";
+import { getJwt } from "../services/authService";
+import jwt_decode from "jwt-decode";
 
 function AccountDashboard(props) {
   const [filter, setFilter] = useState(false);
@@ -66,6 +68,8 @@ function AccountDashboard(props) {
     };
     addIBANMutation.mutate(data);
   };
+  var { user_id } = jwt_decode(getJwt());
+
   const { isLoading, error, data } = useQuery("addresses", getAddress);
 
   if (isLoading) return <Loading></Loading>;
@@ -93,6 +97,11 @@ function AccountDashboard(props) {
           <Link to="/dashboard/history">
             <img src={historyIcon}></img>Order History
           </Link>
+          {user_id == 80 ? (
+            <Link to="/dashboard/allorders">
+              <img src={historyIcon}></img>All Orders
+            </Link>
+          ) : null}
         </div>
         <div className="flex column bids">
           <div className="artworks-container">

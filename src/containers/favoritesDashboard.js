@@ -11,9 +11,12 @@ import plus from "../assets/icons/plus.svg";
 import { useQuery, useQueryClient } from "react-query";
 import Loading from "./loading";
 import { getFavorites } from "../services/dashboardService";
+import { getJwt } from "../services/authService";
+import jwt_decode from "jwt-decode";
 function FavoritesDashboard(props) {
   const [filter, setFilter] = React.useState(false);
   const queryClient = useQueryClient();
+  var { user_id } = jwt_decode(getJwt());
   const { isLoading, error, data } = useQuery("favorites", getFavorites);
 
   if (isLoading) return <Loading></Loading>;
@@ -41,6 +44,11 @@ function FavoritesDashboard(props) {
           <Link to="/dashboard/history">
             <img src={historyIcon}></img>Order History
           </Link>
+          {user_id == 80 ? (
+            <Link to="/dashboard/allorders">
+              <img src={historyIcon}></img>All Orders
+            </Link>
+          ) : null}
         </div>
         <div className="flex column bids">
           <section className=" auctions">

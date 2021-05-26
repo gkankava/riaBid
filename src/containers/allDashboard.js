@@ -8,11 +8,20 @@ import accountIcon from "../assets/icons/account.svg";
 import favoritesIcon from "../assets/icons/favorites.svg";
 import historyIcon from "../assets/icons/history.svg";
 import plus from "../assets/icons/plus.svg";
+import { getAll } from "../services/dashboardService";
+import { useQuery } from "react-query";
+import Loading from "./loading";
 import { getJwt } from "../services/authService";
 import jwt_decode from "jwt-decode";
-function ArtistsDashboard(props) {
+function AllDashboard(props) {
   const [filter, setFilter] = React.useState(false);
   var { user_id } = jwt_decode(getJwt());
+  const { isLoading, error, data } = useQuery("allDashboard", getAll);
+
+  if (isLoading) return <Loading></Loading>;
+
+  if (error) return "An error has occurred: " + error.message;
+  console.log(data);
   return (
     <section id="shop" className="container">
       <div className="dashboard-container">
@@ -22,9 +31,7 @@ function ArtistsDashboard(props) {
             <img src={dashboardIcon}></img>
             Dashboard
           </Link>
-          <Link to="/dashboard/artists">
-            <img src={artistsIcon}></img>Artists
-          </Link>
+
           <Link to="/dashboard/artworks">
             <img src={artworksIcon}></img>Artworks
           </Link>
@@ -44,48 +51,39 @@ function ArtistsDashboard(props) {
           ) : null}
         </div>
         <div className="flex column bids">
-          <div className="artists-container">
-            <button className="add">
-              {" "}
-              <img src={plus}></img>Add Artist
-            </button>
-            <div className="artists-grid">
-              <div className="artist-item flex">
-                <div className="flex">
-                  <img src={cardImg}></img>
-                  <div className="flex column">
-                    <p className="name">Rita Khachaturiani</p>
-                    <p className="country">Georgia</p>
+          <h2>Order History</h2>
+
+          {data.data.length ? (
+            data.data.map((item) => (
+              <div className="artworks-container">
+                <div className="artworks-grid">
+                  <div className="artwork-item flex title">
+                    <div className="flex">
+                      <img src={item.image}></img>
+                      <div className="flex column">
+                        <p className="name">{item.title}</p>
+                        <p className="country">{item.year}</p>
+                      </div>
+                    </div>
+                    <p>{item.name}</p>
+                    <p> {item.lastname}</p>
+                    <p>
+                      {item.angarishis_nomeri
+                        ? item.angarishis_nomeri
+                        : "IBAN NOT FOUND"}{" "}
+                    </p>
+                    <p>{item.price}₾</p>
                   </div>
                 </div>
-                <button className="main-button">View Artist</button>
               </div>
-              <div className="artist-item flex">
-                <div className="flex">
-                  <img src={cardImg}></img>
-                  <div className="flex column">
-                    <p className="name">Rita Khachaturiani</p>
-                    <p className="country">Georgia</p>
-                  </div>
-                </div>
-                <button className="main-button">View Artist</button>
-              </div>
-              <div className="artist-item flex">
-                <div className="flex">
-                  <img src={cardImg}></img>
-                  <div className="flex column">
-                    <p className="name">Rita Khachaturiani</p>
-                    <p className="country">Georgia</p>
-                  </div>
-                </div>
-                <button className="main-button">View Artist</button>
-              </div>
-            </div>
-          </div>
+            ))
+          ) : (
+            <p>You have got no past orders</p>
+          )}
         </div>
       </div>
     </section>
   );
 }
 
-export default ArtistsDashboard;
+export default AllDashboard;

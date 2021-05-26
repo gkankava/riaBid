@@ -9,10 +9,15 @@ import favoritesIcon from "../assets/icons/favorites.svg";
 import historyIcon from "../assets/icons/history.svg";
 import plus from "../assets/icons/plus.svg";
 import { useMutation, useQuery, useQueryClient } from "react-query";
-import { getArtworks, requestAuction } from "../services/dashboardService";
+import {
+  deleteArtwork,
+  getArtworks,
+  requestAuction,
+} from "../services/dashboardService";
 import Loading from "./loading";
 import { toast } from "react-toastify";
-
+import { getJwt } from "../services/authService";
+import jwt_decode from "jwt-decode";
 function ArtworksDashboard(props) {
   const [filter, setFilter] = React.useState(false);
   const queryClient = useQueryClient();
@@ -35,6 +40,25 @@ function ArtworksDashboard(props) {
     },
   });
 
+  const deleteMutation = useMutation(deleteArtwork, {
+    onMutate: (variables) => {
+      return { id: 1 };
+    },
+    onError: (error, variables, context) => {
+      toast.error(error.context);
+    },
+    onSuccess: (data, variables, context) => {
+      toast.dark("You successfully deleted artwork", {
+        progress: undefined,
+        hideProgressBar: true,
+      });
+      queryClient.invalidateQueries("artworksDashboard");
+    },
+    onSettled: (data, error, variables, context) => {
+      // Error or success... doesn't matter!
+    },
+  });
+  var { user_id } = jwt_decode(getJwt());
   const { isLoading, error, data } = useQuery("artworksDashboard", getArtworks);
 
   if (isLoading) return <Loading></Loading>;
@@ -62,6 +86,11 @@ function ArtworksDashboard(props) {
           <Link to="/dashboard/history">
             <img src={historyIcon}></img>Order History
           </Link>
+          {user_id == 80 ? (
+            <Link to="/dashboard/allorders">
+              <img src={historyIcon}></img>All Orders
+            </Link>
+          ) : null}
         </div>
         <div className="flex column bids">
           <div className="artworks-container">
@@ -88,12 +117,27 @@ function ArtworksDashboard(props) {
                       <p class="price">{item.buy_it_now}₾</p>
                       <p class="hide">For Sale</p>
                       <p class="hide">Exact Price</p>
-                      <button
-                        onClick={() => requestMutation.mutate(item.id)}
-                        className="main-button"
-                      >
-                        Request Auction
-                      </button>
+                      <div class="right flex column">
+                        {" "}
+                        <Link
+                          to={"/dashboard/editartwork/" + item.id}
+                          className="main-button many"
+                        >
+                          Edit Artwork
+                        </Link>
+                        <button
+                          onClick={() => deleteMutation.mutate(item.id)}
+                          className="main-button many"
+                        >
+                          Delete Artwork
+                        </button>
+                        <button
+                          onClick={() => requestMutation.mutate(item.id)}
+                          className="main-button many"
+                        >
+                          Request Auction
+                        </button>
+                      </div>
                     </div>
                   ))
                 : "You haven't got any artworks"}

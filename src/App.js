@@ -38,6 +38,8 @@ import AddAddress from "./containers/addAddress";
 import ScrollToTopOnMount from "./components/shared/ScrollToTop";
 import Approve from "./containers/approve";
 import Forgot from "./containers/forgot";
+import EditArtwork from "./containers/editArtwork";
+import AllDashboard from "./containers/allDashboard";
 const queryClient = new QueryClient();
 
 function App() {
@@ -109,6 +111,11 @@ function App() {
           />
           <Route
             exact
+            path="/dashboard/allorders"
+            render={(props) => <AllDashboard {...props} />}
+          />
+          <Route
+            exact
             path="/dashboard/addartist"
             render={(props) => <AddArtist {...props} />}
           />
@@ -126,6 +133,11 @@ function App() {
             exact
             path="/dashboard/addartwork"
             render={(props) => <AddArtwork {...props} />}
+          />
+          <Route
+            exact
+            path="/dashboard/editartwork/:id"
+            render={(props) => <EditArtwork {...props} />}
           />
           <Route
             exact

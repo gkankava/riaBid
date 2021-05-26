@@ -7,6 +7,10 @@ export function getArtists() {
   return http.get(apiEndpoint);
 }
 
+export function getArtWith(id) {
+  return http.get(apiUrl + "/artworkWithArtists/" + id);
+}
+
 export function getArtworks(id) {
   console.log(id);
   return http.get(apiEndpoint + "/artworks/" + id);

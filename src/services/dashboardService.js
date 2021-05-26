@@ -23,6 +23,10 @@ export function getHistory() {
   return http.get(apiUrl + "/myorders");
 }
 
+export function getAll() {
+  return http.get(apiUrl + "/allorders");
+}
+
 export function addArtist(data) {
   return http.post(apiUrl + "/add-artist", data);
 }
@@ -65,6 +69,14 @@ export function contact(data) {
 
 export function requestAuction(id) {
   return http.post(apiUrl + "/request-auction/" + id);
+}
+
+export function deleteArtwork(id) {
+  return http.delete(apiUrl + "/delete-artwork/" + id);
+}
+
+export function getArtwork(id) {
+  return http.delete(apiUrl + "/artworks/" + id);
 }
 
 export function cancelAuction(id) {

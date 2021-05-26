@@ -11,10 +11,12 @@ import plus from "../assets/icons/plus.svg";
 import { useQuery, useQueryClient } from "react-query";
 import { getBidHistory } from "../services/dashboardService";
 import Loading from "./loading";
-
+import { getJwt } from "../services/authService";
+import jwt_decode from "jwt-decode";
 function Dashboard(props) {
   const [filter, setFilter] = React.useState(false);
   const queryClient = useQueryClient();
+  var { user_id } = jwt_decode(getJwt());
   const { isLoading, error, data } = useQuery("bidshistory", getBidHistory);
 
   if (isLoading) return <Loading></Loading>;
@@ -43,6 +45,11 @@ function Dashboard(props) {
           <Link to="/dashboard/history">
             <img src={historyIcon}></img>Order History
           </Link>
+          {user_id == 80 ? (
+            <Link to="/dashboard/allorders">
+              <img src={historyIcon}></img>All Orders
+            </Link>
+          ) : null}
         </div>
         <div className="flex column bids">
           <h2>MY BIDS</h2>
