@@ -1,7 +1,7 @@
 import React from "react";
 import { QueryClient } from "react-query";
 import { Link } from "react-router-dom";
-import sold from "../../assets/sold.png";
+import soldImg from "../../assets/sold.png";
 function Card({
   type,
   img,
@@ -17,7 +17,7 @@ function Card({
     <div className="product flex column">
       {sold ? (
         <div className="sold">
-          <img src={sold}></img>
+          <img src={soldImg}></img>
         </div>
       ) : null}
       <a href={"/store/" + index}>
