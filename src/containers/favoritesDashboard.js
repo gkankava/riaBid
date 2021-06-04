@@ -55,7 +55,7 @@ function FavoritesDashboard(props) {
             <div className="grid-container-auctions">
               {data.data.map((item) => (
                 <div key={item.id} className="product flex column">
-                  <Link to={"/store/" + item.id}>
+                  <Link to={"/store/" + item.artwork_id}>
                     <div className="img">
                       <img src={item.image}></img>
                     </div>
