@@ -7,6 +7,7 @@ import Loading from "./loading";
 import sold from "../assets/sold.png";
 import RangeSlider from "../components/shared/RangeSlider";
 import ScrollToTopOnMount from "../components/shared/ScrollToTop";
+import Pagination from "./Pagination";
 
 function Shop(props) {
   const categories = [
@@ -32,7 +33,13 @@ function Shop(props) {
   const [categoryType, setCategoryType] = useState([]);
   const [filterPrice, setFilterPrice] = React.useState([0, 1000000]);
   const [filterYear, setFilterYear] = useState([0, 9999]);
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(9);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
   const removeItemOnce = (arr, value) => {
     var index = arr.indexOf(value);
     if (index > -1) {
@@ -79,7 +86,8 @@ function Shop(props) {
       (item) =>
         categoryType.includes(item.category_id?.toString()) ||
         categoryType.length === 0
-    );
+    )
+    .slice(indexOfFirstPost, indexOfLastPost);
 
   return (
     <section id="shop" className="container auctions shop">
@@ -93,7 +101,7 @@ function Shop(props) {
             <Link to="/store">Artworks ({data.data.length})</Link>
           </li>
         </ul>
-        <div>
+        {/* <div>
           <span style={{ fontSize: "15px", fontWeight: 400 }}>
             Sort {"    "}
           </span>
@@ -106,7 +114,7 @@ function Shop(props) {
               <button>Latest Releases</button>
             </div>
           </div>
-        </div>
+        </div>*/}
       </div>
       <div className="shop-grid">
         <div className="filter-container">
@@ -225,6 +233,32 @@ function Shop(props) {
             </div>
           ))}
         </div>
+        <div></div>
+        <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={
+            data.data
+              .filter(
+                (item) =>
+                  item.buy_it_now >= filterPrice[0] &&
+                  item.buy_it_now <= filterPrice[1]
+              )
+              .filter(
+                (item) =>
+                  item.year >= filterYear[0] && item.year <= filterYear[1]
+              )
+              .filter(
+                (item) => item.product_type == filterType || filterType == ""
+              )
+              .filter(
+                (item) =>
+                  categoryType.includes(item.category_id?.toString()) ||
+                  categoryType.length === 0
+              ).length
+          }
+          currentPage={currentPage}
+          paginate={paginate}
+        ></Pagination>
       </div>
     </section>
   );

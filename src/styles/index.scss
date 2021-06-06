@@ -56,6 +56,40 @@ h6 {
   }
 }
 
+.pagination {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3.6vw;
+  li {
+    margin: 0 0.15vw;
+    list-style-type: none;
+    button {
+      padding: 0.73vw 1.09vw;
+
+      border-radius: 0;
+      outline: none;
+      border: none;
+      color: #000;
+      border: 1px solid #e6e6e6;
+      font-size: 0.77vw;
+      font-family: "PoppinsMedium";
+      transition: 300ms ease;
+      background: transparent;
+      @media screen and (max-width: 768px) {
+        padding: 3vw 4vw;
+        font-size: 3vw;
+      }
+      &:hover {
+        background: #000;
+        cursor: pointer;
+        color: #fff;
+      }
+    }
+  }
+}
+
 .masonry-grid {
   display: flex;
   flex-wrap: wrap;
