@@ -41,7 +41,7 @@ function Main() {
           {trending.slice(0, 8).map((item) => (
             <div>
               <Link to={"/store/" + item.id}>
-                <img src={item.image}></img>
+                <img alt="test" src={item.image}></img>
               </Link>
             </div>
           ))}
