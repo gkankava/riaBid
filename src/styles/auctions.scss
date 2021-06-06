@@ -1,11 +1,11 @@
 .auctions {
   &.shop {
     .grid-container-auctions {
-      grid-row-gap: 0.2%;
+      grid-gap: 1rem;
       grid-template-columns: repeat(3, 1fr);
       @media screen and (max-width: 768px) {
         grid-template-columns: 1fr;
-        grid-gap: 0;
+        grid-gap: 3rem;
       }
     }
   }
@@ -16,7 +16,7 @@
     grid-row-gap: 0.2%;
     @media screen and (max-width: 768px) {
       grid-template-columns: 1fr;
-      grid-gap: 0.1%;
+      grid-gap: 3rem;
     }
     .product {
       &:hover {
