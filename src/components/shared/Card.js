@@ -17,7 +17,7 @@ function Card({
     <div className="product flex column">
       {sold ? (
         <div className="sold">
-          <img src={soldImg}></img>
+          <img alt={name} src={soldImg}></img>
         </div>
       ) : null}
       <a href={"/store/" + index}>
