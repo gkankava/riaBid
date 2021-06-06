@@ -24,6 +24,7 @@ function SliderComp({ activeSlide, setActiveSlide, heroSliderRef }) {
     <Slider {...settings} ref={heroSliderRef}>
       <Slide
         img={bg}
+        alt="test"
         author="A.W."
         text="IN THE FUTURE, EVERYONE WILL BE WORLD FAMOUS FOR 15 MINUTES."
         btn={{
@@ -34,6 +35,7 @@ function SliderComp({ activeSlide, setActiveSlide, heroSliderRef }) {
 
       <Slide
         img={bg2}
+        alt="test"
         author="A.W."
         text="IN THE FUTURE, EVERYONE WILL BE WORLD FAMOUS FOR 15 MINUTES."
         btn={{
@@ -43,6 +45,7 @@ function SliderComp({ activeSlide, setActiveSlide, heroSliderRef }) {
       />
       <Slide
         img={bg3}
+        alt="test"
         author="A.W."
         text="IN THE FUTURE, EVERYONE WILL BE WORLD FAMOUS FOR 15 MINUTES."
         btn={{
