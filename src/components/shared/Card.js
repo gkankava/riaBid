@@ -17,12 +17,12 @@ function Card({
     <div className="product flex column">
       {sold ? (
         <div className="sold">
-          <img alt={name} src={soldImg}></img>
+          <img alt="test" src={soldImg}></img>
         </div>
       ) : null}
       <a href={"/store/" + index}>
         <div className="img">
-          <img src={img}></img>
+          <img alt="test" src={img}></img>
         </div>
 
         <p className="title">
