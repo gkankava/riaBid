@@ -29,8 +29,11 @@ footer {
       .social-list {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-start;
         color: #c5c5c5;
+        a {
+          margin-right: 1rem;
+        }
       }
       ul {
         list-style: none;

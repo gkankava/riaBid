@@ -6,6 +6,7 @@ import {
   FaLinkedinIn,
   FaInstagram,
   FaYoutube,
+  FaPinterest,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -23,6 +24,12 @@ function footer() {
           <div className="social-list">
             <a href="https://instagram.com/ria.bid?igshid=1zjuzuv6w5pf">
               <FaInstagram size="2em" />
+            </a>
+            <a href="https://twitter.com/bid_ria/">
+              <FaTwitter size="2em" />
+            </a>
+            <a href="https://www.pinterest.com/ria_bid/">
+              <FaPinterest size="2em" />
             </a>
           </div>
         </div>
