@@ -241,6 +241,7 @@ function App() {
             path="/contact"
             render={(props) => <Contact {...props} />}
           />
+          <Route exact path="/terms" render={(props) => <Terms {...props} />} />
           <Route exact path="/text" render={(props) => <Text {...props} />} />
           <Route
             exact
