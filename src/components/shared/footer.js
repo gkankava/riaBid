@@ -44,6 +44,9 @@ function footer() {
                 <Link to="/delivery">Delivery</Link>
               </li>
               <li>
+                <Link to="/contact">Terms & Conditions</Link>
+              </li>
+              <li>
                 <Link to="/contact">Contacts</Link>
               </li>
             </ul>

@@ -40,6 +40,7 @@ import Approve from "./containers/approve";
 import Forgot from "./containers/forgot";
 import EditArtwork from "./containers/editArtwork";
 import AllDashboard from "./containers/allDashboard";
+import Terms from "./containers/terms";
 const queryClient = new QueryClient();
 
 function App() {
@@ -159,6 +160,7 @@ function App() {
             path="/contact"
             render={(props) => <Contact {...props} />}
           />
+          <Route exact path="/terms" render={(props) => <Terms {...props} />} />
           <Route exact path="/text" render={(props) => <Text {...props} />} />
           <Route
             exact
