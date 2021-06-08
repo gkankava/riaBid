@@ -9,6 +9,7 @@ import {
   FaPinterest,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Subscribe from "./Subscribe";
 
 function footer() {
   return (
@@ -21,6 +22,7 @@ function footer() {
             of the arts Ria Keburia, aims to support development of contemporary
             art scene in Georgia and South Caucasus.
           </p>
+          <Subscribe></Subscribe>
           <div className="social-list">
             <a href="https://instagram.com/ria.bid?igshid=1zjuzuv6w5pf">
               <FaInstagram size="2em" />
@@ -58,6 +60,7 @@ function footer() {
               </li>
             </ul>
           </div>
+
           <div className="col col3">
             <h4>Partnerships</h4>
             <ul>

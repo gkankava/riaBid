@@ -25,11 +25,8 @@ function Subscribe() {
     },
   });
   return (
-    <div className="container subscribe">
+    <div className="subscribe">
       <div className="wrapper">
-        <p>
-          Subscribe to our newsletter and receive exclusive offers every week
-        </p>
         <div className="input-wrapper">
           <input
             value={email}
