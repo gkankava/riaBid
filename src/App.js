@@ -250,7 +250,7 @@ function App() {
           />
           <Route render={(props) => <NotFound404 />} />
         </Switch>
-        <Subscribe />
+
         <Footer />
       </BrowserRouter>
     </QueryClientProvider>
