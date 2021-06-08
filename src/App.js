@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Switch, Route, useHistory } from "react-router-dom";
 import Navbar from "./components/shared/navbar";
 import Footer from "./components/shared/footer";
-import Subscribe from "./components/shared/Subscribe";
 import Main from "./containers/main";
 import Shop from "./containers/shop";
 import Dashboard from "./containers/dashboard";
@@ -169,7 +168,7 @@ function App() {
           />
           <Route render={(props) => <NotFound404 />} />
         </Switch>
-        <Subscribe />
+
         <Footer />
       </BrowserRouter>
     </QueryClientProvider>
