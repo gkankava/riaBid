@@ -1,5 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
+import { logout } from "./authService";
 
 axios.interceptors.response.use(null, (error) => {
   const expectedError =
@@ -8,7 +9,8 @@ axios.interceptors.response.use(null, (error) => {
     error.response.status < 500;
 
   if (!expectedError) {
-    window.location.href = "/logout";
+    logout();
+    window.location.href = "/";
     toast.error("An unexpected error occurrred.");
   }
 
