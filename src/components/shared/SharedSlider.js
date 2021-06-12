@@ -48,6 +48,8 @@ function SharedSlider({ auction, title, data }) {
   const items = data.map((item) => {
     return (
       <Card
+        is_geo={item.is_geo}
+        price_usd={item.price_usd}
         key={item.id}
         index={item.id}
         type={item.on_auction}

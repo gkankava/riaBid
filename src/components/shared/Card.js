@@ -12,6 +12,8 @@ function Card({
   index,
   display_name,
   sold,
+  is_geo,
+  price_usd,
 }) {
   return (
     <div className="product flex column">
@@ -32,7 +34,7 @@ function Card({
       </a>
       <div className="flex space-between">
         <div className="flex">
-          <p className="price">₾{price}</p>
+          <p className="price">{is_geo ? `₾${price}` : `$${price_usd}`}</p>
         </div>
         <p className="time gray"></p>
       </div>

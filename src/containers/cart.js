@@ -83,7 +83,11 @@ export default function Cart() {
                     Remove
                   </button>
                   <p className="price">
-                    {item.on_auction ? item.current_bid : item.buy_it_now}₾
+                    {item.on_auction
+                      ? item.current_bid + "₾"
+                      : item.is_geo
+                      ? `₾${item.buy_it_now}`
+                      : `$${item.price_usd}`}
                   </p>
                 </div>
               </div>
@@ -111,7 +115,12 @@ export default function Cart() {
             </Link>
           )}
 
-          <h3>Full Amount: {data.data.total}₾</h3>
+          <h3>
+            Full Amount:{" "}
+            {data.data.is_geo
+              ? `₾${data.data.total}`
+              : `$${data.data.total_usd}`}
+          </h3>
           <button onClick={() => orderMutation.mutate()}>Pay Now</button>
         </div>
       </div>

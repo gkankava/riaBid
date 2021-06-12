@@ -133,7 +133,11 @@ export default function ProductDet(props) {
               </div>
             ) : (
               <div className="buyitnow flex">
-                <p className="price flex">₾{artwork.buy_it_now}</p>
+                <p className="price flex">
+                  {artwork.is_geo
+                    ? `₾${artwork.buy_it_now}`
+                    : `$${artwork.price_usd}`}
+                </p>
 
                 <button
                   style={{ cursor: "pointer" }}

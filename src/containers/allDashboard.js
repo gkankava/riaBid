@@ -72,7 +72,11 @@ function AllDashboard(props) {
                         ? item.angarishis_nomeri
                         : "IBAN NOT FOUND"}{" "}
                     </p>
-                    <p>{item.price}₾</p>
+                    <p>
+                      {item.is_geo
+                        ? `₾${item.buy_it_now}`
+                        : `$${item.price_usd}`}
+                    </p>
                   </div>
                 </div>
               </div>

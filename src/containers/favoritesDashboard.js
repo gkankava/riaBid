@@ -67,7 +67,11 @@ function FavoritesDashboard(props) {
                   </Link>
                   <div className="flex space-between">
                     <div className="flex">
-                      <p className="price">₾{item.buy_it_now}</p>
+                      <p className="price">
+                        {item.is_geo
+                          ? `₾${item.buy_it_now}`
+                          : `$${item.price_usd}`}
+                      </p>
                     </div>
                   </div>
                 </div>

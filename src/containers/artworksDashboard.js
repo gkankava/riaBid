@@ -114,7 +114,11 @@ function ArtworksDashboard(props) {
                           <p className="country">{item.location}</p>
                         </div>
                       </div>
-                      <p class="price">{item.buy_it_now}₾</p>
+                      <p class="price">
+                        {item.is_geo
+                          ? `₾${item.buy_it_now}`
+                          : `$${item.price_usd}`}
+                      </p>
                       <p class="hide">For Sale</p>
                       <p class="hide">Exact Price</p>
                       <div class="right flex column">
@@ -155,7 +159,11 @@ function ArtworksDashboard(props) {
                           <p className="country">{item.location}</p>
                         </div>
                       </div>
-                      <p class="price">{item.buy_it_now}₾</p>
+                      <p class="price">
+                        {item.is_geo
+                          ? `₾${item.buy_it_now}`
+                          : `$${item.price_usd}`}
+                      </p>
                       <p class="hide">SOLD</p>
                       <p class="hide">Exact Price</p>
                       <Link
