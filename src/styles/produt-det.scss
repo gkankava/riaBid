@@ -41,6 +41,12 @@
     }
   }
   .product-full {
+    .artist-name {
+      font-size: 1vw;
+      @media only screen and (max-width: 768px) {
+        font-size: 5vw;
+      }
+    }
     .flex {
       .flex {
         img {

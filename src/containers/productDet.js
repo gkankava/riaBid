@@ -102,6 +102,7 @@ export default function ProductDet(props) {
 
           <div className="flex column text">
             <h1>{artwork.title}</h1>
+            <p className="artist-name">{artwork.display_name}</p>
             <p className="id">Product ID: {artwork.id}</p>
             {artwork.on_auction ? (
               <div>
