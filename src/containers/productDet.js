@@ -92,9 +92,21 @@ export default function ProductDet(props) {
         </button>
         <div className="product-full flex">
           <div className="flex list">
-            {images[1] ? <img src={images[1].url} alt="Small" /> : null}
-            {images[2] ? <img src={images[2].url} alt="Small" /> : null}
-            {images[3] ? <img src={images[3].url} alt="Small" /> : null}
+            {images[1] ? (
+              <a data-fancybox="gallery" href={images[1].url}>
+                <img src={images[1].url} alt="Small" />
+              </a>
+            ) : null}
+            {images[2] ? (
+              <a data-fancybox="gallery" href={images[1].url}>
+                <img src={images[2].url} alt="Small" />
+              </a>
+            ) : null}
+            {images[3] ? (
+              <a data-fancybox="gallery" href={images[1].url}>
+                <img src={images[3].url} alt="Small" />
+              </a>
+            ) : null}
           </div>
           <a className="main-pic" data-fancybox="gallery" href={artwork.image}>
             <img className="main-pic" src={artwork.image} />
