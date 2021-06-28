@@ -200,20 +200,23 @@ function Shop(props) {
         <div className="grid-container-auctions">
           {filteredData.map((item) => (
             <div key={item.id} className="product flex column">
-              {item.is_sold ? (
-                <div className="sold">
-                  <img src={sold}></img>
-                </div>
-              ) : null}
-              <Link to={"/store/" + item.id}>
+              <Link to={"/store/" + item.id} style={{ position: "relative" }}>
+                {item.is_sold ? (
+                  <div className="sold">
+                    <img src={sold}></img>
+                  </div>
+                ) : null}
                 <div className="img">
                   <img src={item.image}></img>
                 </div>
-
+              </Link>
+              <Link to={"/store/" + item.id} style={{ position: "relative" }}>
                 <p className="title">
                   <i>{item.title}</i>
                 </p>
-                <p className="title2">{item.display_name}</p>
+              </Link>
+              <Link to={"/artists/" + item.artist_id} className="title2">
+                {item.display_name}
               </Link>
               {item.current_bid ? (
                 <div className="flex space-between">

@@ -112,13 +112,14 @@ function ArtworksDashboard(props) {
                         <div className="flex column">
                           <p className="name">{item.title}</p>
                           <p className="country">{item.location}</p>
+                          <p class="price">
+                            {item.is_geo
+                              ? `₾${item.buy_it_now}`
+                              : `$${item.price_usd}`}
+                          </p>
                         </div>
                       </div>
-                      <p class="price">
-                        {item.is_geo
-                          ? `₾${item.buy_it_now}`
-                          : `$${item.price_usd}`}
-                      </p>
+                      <p></p>
                       <p class="hide">For Sale</p>
                       <p class="hide">Exact Price</p>
                       <div class="right flex column">
@@ -158,12 +159,13 @@ function ArtworksDashboard(props) {
                           <p className="name">{item.title}</p>
                           <p className="country">{item.location}</p>
                         </div>
+                        <p class="price">
+                          {item.is_geo
+                            ? `₾${item.buy_it_now}`
+                            : `$${item.price_usd}`}
+                        </p>
                       </div>
-                      <p class="price">
-                        {item.is_geo
-                          ? `₾${item.buy_it_now}`
-                          : `$${item.price_usd}`}
-                      </p>
+
                       <p class="hide">SOLD</p>
                       <p class="hide">Exact Price</p>
                       <Link
