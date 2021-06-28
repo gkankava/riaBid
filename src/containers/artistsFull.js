@@ -48,14 +48,22 @@ function ArtistsFull(props) {
                 <div className="flex space-between">
                   <div className="flex">
                     <p className="price">₾{item.current_bid}</p>
-                    <p className="price gray">₾{item.buy_it_now}</p>
+                    <p className="price gray">
+                      {item.is_geo
+                        ? `₾${item.buy_it_now}`
+                        : `$${item.price_usd}`}
+                    </p>
                   </div>
                   <p className="time gray">6d 9h</p>
                 </div>
               ) : (
                 <div className="flex space-between">
                   <div className="flex">
-                    <p className="price">₾{item.buy_it_now}</p>
+                    <p className="price">
+                      {item.is_geo
+                        ? `₾${item.buy_it_now}`
+                        : `$${item.price_usd}`}
+                    </p>
                   </div>
                 </div>
               )}

@@ -15,3 +15,7 @@ export function getArtworks(id) {
   console.log(id);
   return http.get(apiEndpoint + "/artworks/" + id);
 }
+
+export function getSearch(keyword) {
+  return http.get(apiUrl + "/search?keyword=" + keyword);
+}

@@ -144,6 +144,14 @@ function Navbar() {
           </div>
         </nav>
         <div className="btn-container">
+          <Link style={{ height: "19px" }} to="/search">
+            <img
+              style={{ height: 19 }}
+              className="cart-btn"
+              src={searchDark}
+              alt="search-btn"
+            />
+          </Link>
           {currentUser.isAuthenticated ? (
             <Link style={{ height: "22px" }} to="/dashboard/addartwork">
               <img className="cart-btn" src={plus} alt="search-btn" />
@@ -248,7 +256,6 @@ function Navbar() {
               </div>
             </div>
           )}
-
           <img
             className="hamburger"
             src={pathName === "/" ? hamburgerDark : hamburgerDark}

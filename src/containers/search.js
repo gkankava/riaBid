@@ -3,29 +3,96 @@ import Filter from "../components/shop/Filter";
 import CardGrid from "../components/shop/CardGrid";
 import { GoSettings } from "react-icons/go";
 import { useQuery } from "react-query";
-import { getArtists } from "../services/artistsService";
+import { getArtists, getSearch } from "../services/artistsService";
 import { Link } from "react-router-dom";
 import Loading from "./loading";
 import queryString from "query-string";
+import SharedSlider from "../components/shared/SharedSlider";
 
 function Search(props) {
   const [filter, setFilter] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const [letter, setLetter] = useState("");
-  const { isLoading, error, data } = useQuery("artists", getArtists);
   let params = queryString.parse(props.location.search);
+  const { isLoading, error, data } = useQuery("search", () =>
+    getSearch(params.search)
+  );
+
+  if (!params.search)
+    return (
+      <section id="shop" className="container">
+        <div className="contact-container">
+          <div
+            className="artist-container"
+            style={{ gridTemplateColumns: "1fr" }}
+          >
+            <input
+              onChange={(e) => setSearchTerm(e.target.value)}
+              value={searchTerm}
+              style={{
+                padding: "15px 22px",
+                border: "1px solid #D8D8D8",
+              }}
+              placeholder="What are you looking for?"
+              type="text"
+            ></input>
+            <a
+              href={"/search?search=" + searchTerm}
+              style={{
+                padding: "15px 22px",
+                border: "1px solid #D8D8D8",
+                background: "#000",
+                color: "#FFF",
+                marginTop: "10px",
+                textAlign: "center",
+              }}
+            >
+              SEARCH
+            </a>
+          </div>
+        </div>
+      </section>
+    );
 
   if (isLoading) return <Loading></Loading>;
 
   if (error) return "An error has occurred: " + error.message;
-  const filtered = data.data.filter((item) =>
-    item.display_name.toLowerCase().includes(params.search)
-  );
-  console.log(filtered);
+
   return (
-    <section id="shop" className="container">
+    <section id="shop" className="container auctions">
+      <h1 style={{ marginBottom: "10px", fontWeight: 300 }}>Artworks</h1>
+      <div className="grid-container-auctions">
+        {data.data.artworks.map((item) => (
+          <div key={item.id} className="product flex column">
+            <Link to={"/store/" + item.id}>
+              <div className="img">
+                <img src={item.image}></img>
+              </div>
+
+              <p className="title">
+                <i>{item.title}</i>
+              </p>
+              <p className="title2">{item.display_name}</p>
+            </Link>
+            <div className="flex space-between">
+              <div className="flex">
+                <p className="price">
+                  {item.is_geo ? `₾${item.buy_it_now}` : `$${item.price_usd}`}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
       <div className="contact-container">
+        <h1
+          style={{ marginBottom: "10px", marginTop: "20px", fontWeight: 300 }}
+        >
+          Artists
+        </h1>
         <div className="artist-container">
-          {filtered.map((item) =>
+          {data.data.artists.map((item) =>
             item.has_artwork ? (
               <Link
                 style={{ color: "#d43e3e" }}
