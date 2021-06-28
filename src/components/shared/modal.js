@@ -109,7 +109,7 @@ function Modal({ type, setAuthModalActive }) {
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                type="text"
+                type="email"
                 name=""
                 id=""
                 placeholder="E-mail"
