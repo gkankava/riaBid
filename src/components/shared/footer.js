@@ -18,9 +18,8 @@ function footer() {
         <div className="col col1">
           <img style={{ marginBottom: "14px" }} src={logo} alt="" />
           <p>
-            The Ria Keburia Foundation, founded in 2018 by the Georgian patron
-            of the arts Ria Keburia, aims to support development of contemporary
-            art scene in Georgia and South Caucasus.
+            Ria Bid is a fundraising online auction oriented towards buying and
+            selling Georgian art .
           </p>
           <Subscribe></Subscribe>
           <div className="social-list">
