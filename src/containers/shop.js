@@ -75,7 +75,7 @@ function Shop(props) {
     if (value > maxYear) maxYear = value;
   }
 
-  const filteredData = data.data
+  let filteredData = data.data
     .filter(
       (item) =>
         item.buy_it_now >= filterPrice[0] && item.buy_it_now <= filterPrice[1]
@@ -88,6 +88,11 @@ function Shop(props) {
         categoryType.length === 0
     )
     .slice(indexOfFirstPost, indexOfLastPost);
+  const sortFilteredData = () => {
+    console.log(filteredData);
+    filteredData = data.data.sort((a, b) => b.id - a.id);
+    console.log(filteredData);
+  };
 
   return (
     <section id="shop" className="container auctions shop">
@@ -101,20 +106,15 @@ function Shop(props) {
             <Link to="/store">Artworks ({data.data.length})</Link>
           </li>
         </ul>
-        {/* <div>
-          <span style={{ fontSize: "15px", fontWeight: 400 }}>
-            Sort {"    "}
-          </span>
-
+        <div>
           <div class="dropdown">
             <span>All Art</span>
             <div class="dropdown-content">
               <button>All Art</button>
-              <button>Trending</button>
-              <button>Latest Releases</button>
+              <button onClick={sortFilteredData}>New In</button>
             </div>
           </div>
-        </div>*/}
+        </div>
       </div>
       <div className="shop-grid">
         <div className="filter-container">
