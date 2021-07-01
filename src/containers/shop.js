@@ -106,6 +106,7 @@ function Shop(props) {
             <Link to="/store">Artworks ({data.data.length})</Link>
           </li>
         </ul>
+        {/*
         <div>
           <div class="dropdown">
             <span>All Art</span>
@@ -114,7 +115,7 @@ function Shop(props) {
               <button onClick={sortFilteredData}>New In</button>
             </div>
           </div>
-        </div>
+        </div>*/}
       </div>
       <div className="shop-grid">
         <div className="filter-container">
