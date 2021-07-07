@@ -4,6 +4,8 @@ import Navbar from "./components/shared/navbar";
 import Footer from "./components/shared/footer";
 import Main from "./containers/main";
 import Shop from "./containers/shop";
+import New from "./containers/newin";
+
 import Dashboard from "./containers/dashboard";
 import Artists from "./containers/artists";
 import Search from "./containers/search";
@@ -55,7 +57,7 @@ function App() {
         <Switch>
           <Route exact path="/" render={(props) => <Main {...props} />} />
           <Route exact path="/store" render={(props) => <Shop {...props} />} />
-
+          <Route exact path="/new" render={(props) => <New {...props} />} />
           <Route
             exact
             path="/dashboard"
@@ -181,6 +183,7 @@ function App() {
         <Switch>
           <Route exact path="/" render={(props) => <Main {...props} />} />
           <Route exact path="/store" render={(props) => <Shop {...props} />} />
+          <Route exact path="/new" render={(props) => <New {...props} />} />
           <Route
             exact
             path="/search"

@@ -9,7 +9,7 @@ import RangeSlider from "../components/shared/RangeSlider";
 import ScrollToTopOnMount from "../components/shared/ScrollToTop";
 import Pagination from "./Pagination";
 
-function Shop(props) {
+function New(props) {
   const categories = [
     "Painting",
     "Sculpture",
@@ -29,7 +29,7 @@ function Shop(props) {
   ];
   const [filter, setFilter] = useState(false);
   const [sort, setSort] = useState(false);
-  const { isLoading, error, data } = useQuery("artworks", getArtworks);
+  const { isLoading, error, data } = useQuery("new", getArtworksNew);
   const [filterType, setFilterType] = useState("");
   const [categoryType, setCategoryType] = useState([]);
   const [filterPrice, setFilterPrice] = React.useState([0, 1000000]);
@@ -109,7 +109,7 @@ function Shop(props) {
         </ul>
         <div>
           <div class="dropdown">
-            <Link to="/new">New In</Link>
+            <Link to="/store">All Art</Link>
           </div>
         </div>
       </div>
@@ -268,4 +268,4 @@ function Shop(props) {
   );
 }
 
-export default Shop;
+export default New;

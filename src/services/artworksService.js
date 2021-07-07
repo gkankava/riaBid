@@ -7,6 +7,10 @@ export function getArtworks() {
   return http.get(apiEndpoint);
 }
 
+export function getArtworksNew() {
+  return http.get(apiEndpoint + "?sort=new");
+}
+
 export function getArtwork(id) {
   return http.get(apiEndpoint + "/" + id);
 }
