@@ -192,6 +192,7 @@ function App() {
         <Switch>
           <Route exact path="/" render={(props) => <Main {...props} />} />
           <Route exact path="/store" render={(props) => <Shop {...props} />} />
+          <Route exact path="/pride" render={(props) => <Pride {...props} />} />
           <Route exact path="/new" render={(props) => <New {...props} />} />
           <Route
             exact
