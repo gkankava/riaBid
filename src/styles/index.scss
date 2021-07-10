@@ -14,6 +14,40 @@
     outline: none;
   }
 }
+
+:root {
+  --h: 5rem;
+
+  --g-red: #d04b36;
+  --g-orange: #e36511;
+  --g-yellow: #ffba00;
+  --g-green: #00b180;
+  --g-blue: #147aab;
+  --g-indigo: #675997;
+
+  --t-blue: #4fa5c2;
+  --t-pink: #f587ac;
+  --t-white: #f9fbfc;
+
+  --b-pink: #c1357e;
+  --b-purple: #675997;
+  --b-blue: #0655a9;
+
+  --p-magenta: #fa5e5b;
+  --p-yellow: #ffba00;
+  --p-blue: #4fa5c2;
+
+  --a-black: #000000;
+  --a-grey: #a3a3a3;
+  --a-white: #ffffff;
+  --a-purple: #800080;
+
+  --nb-black: #000000;
+  --nb-yellow: #fff433;
+  --nb-white: #ffffff;
+  --nb-purple: #9b59d0;
+}
+
 .error {
   color: red;
 }
@@ -263,11 +297,11 @@ a {
 .product {
   width: 100%;
   position: relative;
-  margin: auto;
+
   .sold {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 80%;
     z-index: 2;
 
     display: flex;
@@ -297,6 +331,8 @@ a {
     img {
       transition: all 150ms;
       width: 100%;
+      height: 400px;
+      object-fit: cover;
     }
   }
   .title {
@@ -390,6 +426,52 @@ a {
   }
 }
 
+.lgbtq {
+  margin: auto;
+  text-align: center;
+  width: 700px !important;
+  font-size: 1.5em;
+  padding-top: 1em !important;
+  word-wrap: break-word;
+  @media screen and (max-width: 768px) {
+    width: 350px !important;
+    font-size: 1em;
+  }
+}
+
+.lgbtq-img {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  width: 700px !important;
+  font-size: 1.5em;
+  padding-top: 1em !important;
+  word-wrap: break-word;
+  @media screen and (max-width: 768px) {
+    width: 90% !important;
+    font-size: 1em;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.gay {
+  background-image: linear-gradient(
+    var(--g-red) 0%,
+    var(--g-red) 16.6666%,
+    var(--g-orange) 16.6666%,
+    var(--g-orange) 33.333%,
+    var(--g-yellow) 33.333%,
+    var(--g-yellow) 50%,
+    var(--g-green) 50%,
+    var(--g-green) 66.6666%,
+    var(--g-blue) 66.6666%,
+    var(--g-blue) 83.3333%,
+    var(--g-indigo) 83.3333%,
+    var(--g-indigo) 100%
+  ) !important;
+}
 //imports
 
 @import "./config.scss";

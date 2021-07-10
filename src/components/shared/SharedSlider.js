@@ -5,7 +5,7 @@ import cardImg from "../../assets/dummy/cardImage.jpg";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-function SharedSlider({ auction, title, data }) {
+function SharedSlider({ auction, title, data, slidesToShow, special }) {
   const sliderRef = useRef();
   const [activeItem, setActiveItem] = useState(0);
   const [prevItem, setPrevItem] = useState(0);
@@ -14,7 +14,7 @@ function SharedSlider({ auction, title, data }) {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: slidesToShow,
     slidesToScroll: 4,
     initialSlide: 0,
 
@@ -23,14 +23,14 @@ function SharedSlider({ auction, title, data }) {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: slidesToShow - 1,
           slidesToScroll: 3,
         },
       },
       {
         breakpoint: 726,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: slidesToShow > 3 ? slidesToShow - 2 : slidesToShow - 1,
           slidesToScroll: 2,
           // initialSlide: 0,
         },
@@ -38,7 +38,7 @@ function SharedSlider({ auction, title, data }) {
       {
         breakpoint: 420,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: slidesToShow > 3 ? slidesToShow - 3 : slidesToShow - 1,
           slidesToScroll: 1,
         },
       },
@@ -66,7 +66,10 @@ function SharedSlider({ auction, title, data }) {
   return (
     <div className="selectedFor container">
       <div className="head-wrapper">
-        <h3>{title}</h3>
+        <Link to={special ? "/pride" : "/store"}>
+          {" "}
+          <h3>{title}</h3>
+        </Link>
         <div className="action-wrapper">
           <div className="arrow-wrapper">
             <div
@@ -86,9 +89,11 @@ function SharedSlider({ auction, title, data }) {
               <BsArrowRightShort />
             </div>
           </div>
-          <button className="btn-placebid">
-            <Link to="/store">SHOW MORE</Link>
-          </button>
+          <Link to={special ? "/pride" : "/store"}>
+            <button className="btn-placebid">
+              <Link to={special ? "/pride" : "/store"}>SHOW MORE</Link>
+            </button>
+          </Link>
         </div>
       </div>
       <Slider {...settings} ref={sliderRef}>

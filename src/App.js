@@ -32,6 +32,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { userProvider } from "./store/store";
 import AddArtist from "./containers/addArtist";
 import AddArtwork from "./containers/addArtwork";
+import AddArtworkPride from "./containers/addArtworkPride";
+
 import { getAddress } from "./services/dashboardService";
 import Loading from "./containers/loading";
 import Delivery from "./containers/delivery";
@@ -42,6 +44,7 @@ import Forgot from "./containers/forgot";
 import EditArtwork from "./containers/editArtwork";
 import AllDashboard from "./containers/allDashboard";
 import Terms from "./containers/terms";
+import Pride from "./containers/pride";
 const queryClient = new QueryClient();
 
 function App() {
@@ -57,6 +60,7 @@ function App() {
         <Switch>
           <Route exact path="/" render={(props) => <Main {...props} />} />
           <Route exact path="/store" render={(props) => <Shop {...props} />} />
+          <Route exact path="/pride" render={(props) => <Pride {...props} />} />
           <Route exact path="/new" render={(props) => <New {...props} />} />
           <Route
             exact
@@ -135,6 +139,11 @@ function App() {
             exact
             path="/dashboard/addartwork"
             render={(props) => <AddArtwork {...props} />}
+          />
+          <Route
+            exact
+            path="/dashboard/addartworkpride"
+            render={(props) => <AddArtworkPride {...props} />}
           />
           <Route
             exact

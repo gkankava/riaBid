@@ -7,6 +7,10 @@ export function getArtworks() {
   return http.get(apiEndpoint);
 }
 
+export function getArtworksPride() {
+  return http.get(apiUrl + "/pride-artworks");
+}
+
 export function getArtworksNew() {
   return http.get(apiEndpoint + "?sort=new");
 }

@@ -190,7 +190,11 @@ export default function ProductDet(props) {
           </div>
         </div>
       </div>
-      <SharedSlider data={just_for_you} title="SELECTED JUST FOR YOU" />
+      <SharedSlider
+        slidesToShow={4}
+        data={just_for_you}
+        title="SELECTED JUST FOR YOU"
+      />
     </section>
   );
 }

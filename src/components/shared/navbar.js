@@ -3,6 +3,8 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import ll from "../../assets/logo-light.svg";
 import ld from "../../assets/logo-def.svg";
 import plus from "../../assets/icons/plus.svg";
+import pluspride from "../../assets/pluspride.svg";
+
 import ln from "../../assets/logo-new.svg";
 import ria from "../../assets/riabid.svg";
 import arrow from "../../assets/icons/arrow-down.svg";
@@ -152,11 +154,13 @@ function Navbar() {
               alt="search-btn"
             />
           </Link>
+
           {currentUser.isAuthenticated ? (
             <Link style={{ height: "22px" }} to="/dashboard/addartwork">
               <img className="cart-btn" src={plus} alt="search-btn" />
             </Link>
           ) : null}
+
           {currentUser.isAuthenticated ? (
             <Link style={{ height: "22px" }} to="/cart">
               <img className="cart-btn" src={cartDark} alt="search-btn" />

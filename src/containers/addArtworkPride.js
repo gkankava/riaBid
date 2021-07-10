@@ -15,7 +15,7 @@ import { addArtwork } from "../services/dashboardService";
 import Loading from "./loading";
 import { toast } from "react-toastify";
 
-function AddArtwork(props) {
+function AddArtworkPride(props) {
   const [artist_id, setArtist] = useState("");
   const [title, setTitle] = useState("");
   const [product_type, setProductType] = useState("1");
@@ -29,7 +29,6 @@ function AddArtwork(props) {
   const [medium, setMedium] = useState("");
   const [category, setCategory] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
-  const [pride, setPride] = useState("0");
   const categories = [
     "Painting",
     "Sculpture",
@@ -74,7 +73,7 @@ function AddArtwork(props) {
     formData.append("product_type", product_type);
     formData.append("buy_it_now", buy_it_now * 1.15);
     formData.append("description", description);
-    formData.append("pride", pride);
+    formData.append("is_pride", 1);
     formData.append("year", year);
     formData.append("category_id", category);
     formData.append("depth", depth);
@@ -126,16 +125,6 @@ function AddArtwork(props) {
             onSubmit={handleSubmit}
             className="contact-form dashboard"
           >
-            <select
-              onChange={(e) => setPride(e.target.value)}
-              name="cars"
-              id="cars"
-            >
-              <option value="0">Normal</option>
-
-              <option value="1">Pride</option>
-            </select>
-
             <select
               onChange={(e) => setArtist(e.target.value)}
               name="cars"
@@ -251,10 +240,9 @@ function AddArtwork(props) {
               multiple
               rows="10"
             ></input>
-
             <input
-              style={{ cursor: "pointer" }}
-              className={pride === "1" ? "gay" : ""}
+              style={{ cursor: "pointer", fontWeight: 500 }}
+              className="gay"
               type="submit"
               value="Add Artwork"
             ></input>
@@ -265,4 +253,4 @@ function AddArtwork(props) {
   );
 }
 
-export default AddArtwork;
+export default AddArtworkPride;
