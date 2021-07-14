@@ -11,6 +11,13 @@ export function addFavorites(id) {
   return http.post(apiUrl + "/favorites/add/" + id);
 }
 
+export function addComment({ id, comment }) {
+  return http.post(apiUrl + "/create-comment", {
+    artwork_id: id,
+    comment: comment,
+  });
+}
+
 export function deleteFavorites(id) {
   return http.post(apiUrl + "/favorites/delete/" + id);
 }

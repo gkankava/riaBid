@@ -10,15 +10,17 @@ import ReactFancyBox from "react-fancybox";
 import "react-fancybox/lib/fancybox.css";
 import { getArtwork } from "../services/artworksService";
 import Loading from "./loading";
-import { addBag, addFavorites } from "../services/bagService";
+import { addBag, addComment, addFavorites } from "../services/bagService";
 import { toast } from "react-toastify";
 import { bidArtwork } from "../services/bidService";
 import { QueryClient, useMutation, useQuery } from "react-query";
+import { userProvider } from "../store/store";
 
 export default function ProductDet(props) {
   const queryClient = new QueryClient();
+  const { currentUser } = userProvider();
   const [bidAmount, setBidAmount] = useState();
-
+  const [comment, setComment] = useState("");
   const addMutation = useMutation(addBag, {
     onMutate: (variables) => {
       return { id: 1 };
@@ -31,6 +33,26 @@ export default function ProductDet(props) {
         progress: undefined,
         hideProgressBar: true,
       });
+    },
+    onSettled: (data, error, variables, context) => {
+      // Error or success... doesn't matter!
+    },
+  });
+
+  const commentMutation = useMutation(addComment, {
+    onMutate: (variables) => {
+      return { id: 1 };
+    },
+    onError: (error, variables, context) => {
+      toast.error("Error adding comment");
+    },
+    onSuccess: (data, variables, context) => {
+      toast.dark("Comment added", {
+        progress: undefined,
+        hideProgressBar: true,
+      });
+      setComment("");
+      queryClient.invalidateQueries("product");
     },
     onSettled: (data, error, variables, context) => {
       // Error or success... doesn't matter!
@@ -79,7 +101,12 @@ export default function ProductDet(props) {
 
   if (error) return "An error has occurred: " + error.message;
 
-  const { just_for_you, artwork } = data.data;
+  const { just_for_you, artwork, comments } = data.data;
+  const handleComment = (e) => {
+    e.preventDefault();
+
+    commentMutation.mutate({ id: artwork.id, comment: comment });
+  };
   const images = JSON.parse(artwork.images);
   return (
     <section className="product-details">
@@ -188,6 +215,38 @@ export default function ProductDet(props) {
               </div>
             ) : null}
           </div>
+        </div>
+      </div>
+      <div className="container comment-container">
+        {currentUser.isAuthenticated ? (
+          <form onSubmit={handleComment}>
+            <input
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+              placeholder="Your comment"
+              type="text"
+              className="comment-input"
+            ></input>
+            <input
+              value="ADD COMMENT"
+              type="submit"
+              className="comment-input button"
+            ></input>
+          </form>
+        ) : null}
+
+        <h2>Comments</h2>
+        <div className="flex column">
+          {comments.length ? (
+            comments.map((item) => (
+              <div className="comment">
+                <p>{item.comment}</p>
+                <h4>User #{item.user_id}</h4>
+              </div>
+            ))
+          ) : (
+            <p>There are no comments for this artwork.</p>
+          )}
         </div>
       </div>
       <SharedSlider
