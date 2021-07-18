@@ -482,6 +482,9 @@ a {
   font-weight: 200;
   font-size: 16px;
   margin-bottom: 20px;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 0;
+  }
 
   &.button {
     cursor: pointer;
@@ -497,6 +500,10 @@ a {
     font-size: 16px;
     margin: 0;
     margin-bottom: 20px;
+    @media screen and (max-width: 768px) {
+      position: relative;
+      width: 100%;
+    }
   }
 }
 
