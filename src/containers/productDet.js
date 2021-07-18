@@ -13,11 +13,13 @@ import Loading from "./loading";
 import { addBag, addComment, addFavorites } from "../services/bagService";
 import { toast } from "react-toastify";
 import { bidArtwork } from "../services/bidService";
-import { QueryClient, useMutation, useQuery } from "react-query";
+import { QueryClient, useMutation } from "react-query";
 import { userProvider } from "../store/store";
+import { useQuery, useQueryClient } from "react-query";
 
 export default function ProductDet(props) {
-  const queryClient = new QueryClient();
+  const queryClient = useQueryClient();
+
   const { currentUser } = userProvider();
   const [bidAmount, setBidAmount] = useState();
   const [comment, setComment] = useState("");
@@ -219,7 +221,7 @@ export default function ProductDet(props) {
       </div>
       <div className="container comment-container">
         {currentUser.isAuthenticated ? (
-          <form onSubmit={handleComment}>
+          <form className="commentbox" onSubmit={handleComment}>
             <input
               value={comment}
               onChange={(e) => setComment(e.target.value)}

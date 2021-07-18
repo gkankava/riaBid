@@ -485,8 +485,10 @@ a {
 
   &.button {
     cursor: pointer;
-    width: 100%;
-
+    width: auto;
+    position: absolute;
+    right: 0;
+    top: 1.01em;
     background-color: #fbb03b;
     border: none;
     border-radius: 10px;
@@ -496,6 +498,10 @@ a {
     margin: 0;
     margin-bottom: 20px;
   }
+}
+
+.commentbox {
+  position: relative;
 }
 
 .comment {
