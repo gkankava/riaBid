@@ -12,12 +12,24 @@ export default function Pagination({
   }
 
   pageNumbers =
-    currentPage > 6
+    currentPage > 5
       ? pageNumbers.slice(currentPage - 3, currentPage + 3)
-      : pageNumbers.slice(0, 7);
+      : pageNumbers.slice(0, 5);
   return (
     <nav>
       <ul className="pagination">
+        <li className="page-item">
+          <button
+            onClick={() =>
+              currentPage > 1
+                ? paginate(currentPage - 1)
+                : paginate(currentPage)
+            }
+            className="page-link"
+          >
+            ←
+          </button>
+        </li>
         {pageNumbers.map((number) => (
           <li key={number} className="page-item">
             {currentPage == number ? (
@@ -34,6 +46,15 @@ export default function Pagination({
             )}
           </li>
         ))}
+
+        <li className="page-item">
+          <button
+            onClick={() => paginate(currentPage + 1)}
+            className="page-link"
+          >
+            →
+          </button>
+        </li>
       </ul>
     </nav>
   );
