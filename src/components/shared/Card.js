@@ -24,7 +24,13 @@ function Card({
       ) : null}
       <a href={"/store/" + index}>
         <div className="img">
-          <img alt="test" src={img}></img>
+          <img
+            alt="test"
+            src={img.replace(
+              "https://api.riabid.ge/storage/artworks/",
+              "https://api.riabid.ge/storage/artworks/thumbnail_"
+            )}
+          ></img>
         </div>
 
         <p className="title">

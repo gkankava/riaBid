@@ -68,7 +68,13 @@ function Main() {
           {trending.slice(0, 8).map((item) => (
             <div>
               <Link to={"/store/" + item.id}>
-                <img alt="test" src={item.image}></img>
+                <img
+                  alt="test"
+                  src={item.image.replace(
+                    "https://api.riabid.ge/storage/artworks/",
+                    "https://api.riabid.ge/storage/artworks/thumbnail_"
+                  )}
+                ></img>
               </Link>
             </div>
           ))}

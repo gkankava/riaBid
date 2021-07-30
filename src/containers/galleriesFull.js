@@ -21,13 +21,8 @@ function GalleriesFull(props) {
   if (isLoading) return <Loading></Loading>;
 
   if (error) return "An error has occurred: " + error.message;
-  const {
-    gallery_title,
-    location,
-    legal_image,
-    id,
-    gallery_description,
-  } = data.data.gallery;
+  const { gallery_title, location, legal_image, id, gallery_description } =
+    data.data.gallery;
   return (
     <section id="shop" className="container galleries">
       <ul className="breadcrumb">
@@ -57,7 +52,12 @@ function GalleriesFull(props) {
             <div key={item.id} className="product flex column">
               <Link to={"/store/" + item.id}>
                 <div className="img">
-                  <img src={item.image}></img>
+                  <img
+                    src={item.image.replace(
+                      "https://api.riabid.ge/storage/artworks/",
+                      "https://api.riabid.ge/storage/artworks/thumbnail_"
+                    )}
+                  ></img>
                 </div>
 
                 <p className="title">

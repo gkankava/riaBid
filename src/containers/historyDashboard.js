@@ -59,7 +59,12 @@ function HistoryDashboard(props) {
                 <div className="artworks-grid">
                   <div className="artwork-item flex title">
                     <div className="flex">
-                      <img src={item.image}></img>
+                      <img
+                        src={item.image.replace(
+                          "https://api.riabid.ge/storage/artworks/",
+                          "https://api.riabid.ge/storage/artworks/thumbnail_"
+                        )}
+                      ></img>
                       <div className="flex column">
                         <p className="name">{item.title}</p>
                         <p className="country">{item.year}</p>

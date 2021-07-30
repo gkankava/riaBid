@@ -204,7 +204,12 @@ function Shop(props) {
                   </div>
                 ) : null}
                 <div className="img">
-                  <img src={item.image}></img>
+                  <img
+                    src={item.image.replace(
+                      "https://api.riabid.ge/storage/artworks/",
+                      "https://api.riabid.ge/storage/artworks/thumbnail_"
+                    )}
+                  ></img>
                 </div>
               </Link>
               <Link to={"/store/" + item.id} style={{ position: "relative" }}>

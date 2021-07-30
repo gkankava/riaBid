@@ -58,7 +58,12 @@ function Dashboard(props) {
               <div className="bid-card">
                 <div className="flex space-between">
                   <div className="flex">
-                    <img src={item.image}></img>
+                    <img
+                      src={item.image.replace(
+                        "https://api.riabid.ge/storage/artworks/",
+                        "https://api.riabid.ge/storage/artworks/thumbnail_"
+                      )}
+                    ></img>
                     <div classname="flex column">
                       <p className="name">{item.title}</p>
                       <p className="country">

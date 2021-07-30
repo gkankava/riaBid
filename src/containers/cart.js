@@ -64,7 +64,12 @@ export default function Cart() {
           ? data.data.bag.map((item) => (
               <div key={item.id} className="item flex space-between">
                 <div className="flex mob-flex">
-                  <img src={item.image}></img>
+                  <img
+                    src={item.image.replace(
+                      "https://api.riabid.ge/storage/artworks/",
+                      "https://api.riabid.ge/storage/artworks/thumbnail_"
+                    )}
+                  ></img>
                   <div className="flex column">
                     <h3>{item.title}</h3>
                     <p>Product ID: {item.artwork_id}</p>

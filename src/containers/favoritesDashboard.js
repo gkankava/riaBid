@@ -57,7 +57,12 @@ function FavoritesDashboard(props) {
                 <div key={item.id} className="product flex column">
                   <Link to={"/store/" + item.artwork_id}>
                     <div className="img">
-                      <img src={item.image}></img>
+                      <img
+                        src={item.image.replace(
+                          "https://api.riabid.ge/storage/artworks/",
+                          "https://api.riabid.ge/storage/artworks/thumbnail_"
+                        )}
+                      ></img>
                     </div>
 
                     <p className="title">
