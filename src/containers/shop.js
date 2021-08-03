@@ -95,6 +95,18 @@ function Shop(props) {
     console.log(filteredData);
   };
 
+  const newArr1 = filteredData.filter(function (value, index, Arr) {
+    return index % 3 == 0;
+  });
+
+  const newArr2 = filteredData.filter(function (value, index, Arr) {
+    return index % 3 == 1;
+  });
+
+  const newArr3 = filteredData.filter(function (value, index, Arr) {
+    return index % 3 == 2;
+  });
+
   return (
     <section id="shop" className="container auctions shop">
       <div className="flex space-between">
@@ -194,53 +206,151 @@ function Shop(props) {
             </div>
           </div>
         </div>
-        <div className="grid-container-auctions">
-          {filteredData.map((item) => (
-            <div key={item.id} className="product flex column">
-              <Link to={"/store/" + item.id} style={{ position: "relative" }}>
-                {item.is_sold ? (
-                  <div className="sold">
-                    <img src={sold}></img>
+        <div className="new-shop">
+          <div className="flex column">
+            {newArr1.map((item) => (
+              <div key={item.id} className="product flex column">
+                <Link to={"/store/" + item.id} style={{ position: "relative" }}>
+                  {item.is_sold ? (
+                    <div className="sold">
+                      <img src={sold}></img>
+                    </div>
+                  ) : null}
+                  <div className="img">
+                    <img
+                      src={item.image.replace(
+                        "https://api.riabid.ge/storage/artworks/",
+                        "https://api.riabid.ge/storage/artworks/thumbnail_"
+                      )}
+                    ></img>
                   </div>
-                ) : null}
-                <div className="img">
-                  <img
-                    src={item.image.replace(
-                      "https://api.riabid.ge/storage/artworks/",
-                      "https://api.riabid.ge/storage/artworks/thumbnail_"
-                    )}
-                  ></img>
-                </div>
-              </Link>
-              <Link to={"/store/" + item.id} style={{ position: "relative" }}>
-                <p className="title">
-                  <i>{item.title}</i>
-                </p>
-              </Link>
-              <Link to={"/artists/" + item.artist_id} className="title2">
-                {item.display_name}
-              </Link>
-              {item.current_bid ? (
-                <div className="flex space-between">
-                  <div className="flex">
-                    <p className="price">₾{item.current_bid}</p>
-                    <p className="price gray">₾{item.buy_it_now}</p>
+                </Link>
+                <Link to={"/store/" + item.id} style={{ position: "relative" }}>
+                  <p className="title">
+                    <i>{item.title}</i>
+                  </p>
+                </Link>
+                <Link to={"/artists/" + item.artist_id} className="title2">
+                  {item.display_name}
+                </Link>
+                {item.current_bid ? (
+                  <div className="flex space-between">
+                    <div className="flex">
+                      <p className="price">₾{item.current_bid}</p>
+                      <p className="price gray">₾{item.buy_it_now}</p>
+                    </div>
+                    <p className="time gray"></p>
                   </div>
-                  <p className="time gray"></p>
-                </div>
-              ) : (
-                <div className="flex space-between">
-                  <div className="flex">
-                    <p className="price">
-                      {item.is_geo
-                        ? `₾${item.buy_it_now}`
-                        : `$${item.price_usd}`}
-                    </p>
+                ) : (
+                  <div className="flex space-between">
+                    <div className="flex">
+                      <p className="price">
+                        {item.is_geo
+                          ? `₾${item.buy_it_now}`
+                          : `$${item.price_usd}`}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-          ))}
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="flex column">
+            {newArr2.map((item) => (
+              <div key={item.id} className="product flex column">
+                <Link to={"/store/" + item.id} style={{ position: "relative" }}>
+                  {item.is_sold ? (
+                    <div className="sold">
+                      <img src={sold}></img>
+                    </div>
+                  ) : null}
+                  <div className="img">
+                    <img
+                      src={item.image.replace(
+                        "https://api.riabid.ge/storage/artworks/",
+                        "https://api.riabid.ge/storage/artworks/thumbnail_"
+                      )}
+                    ></img>
+                  </div>
+                </Link>
+                <Link to={"/store/" + item.id} style={{ position: "relative" }}>
+                  <p className="title">
+                    <i>{item.title}</i>
+                  </p>
+                </Link>
+                <Link to={"/artists/" + item.artist_id} className="title2">
+                  {item.display_name}
+                </Link>
+                {item.current_bid ? (
+                  <div className="flex space-between">
+                    <div className="flex">
+                      <p className="price">₾{item.current_bid}</p>
+                      <p className="price gray">₾{item.buy_it_now}</p>
+                    </div>
+                    <p className="time gray"></p>
+                  </div>
+                ) : (
+                  <div className="flex space-between">
+                    <div className="flex">
+                      <p className="price">
+                        {item.is_geo
+                          ? `₾${item.buy_it_now}`
+                          : `$${item.price_usd}`}
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="flex column">
+            {newArr3.map((item) => (
+              <div key={item.id} className="product flex column">
+                <Link to={"/store/" + item.id} style={{ position: "relative" }}>
+                  {item.is_sold ? (
+                    <div className="sold">
+                      <img src={sold}></img>
+                    </div>
+                  ) : null}
+                  <div className="img">
+                    <img
+                      src={item.image.replace(
+                        "https://api.riabid.ge/storage/artworks/",
+                        "https://api.riabid.ge/storage/artworks/thumbnail_"
+                      )}
+                    ></img>
+                  </div>
+                </Link>
+                <Link to={"/store/" + item.id} style={{ position: "relative" }}>
+                  <p className="title">
+                    <i>{item.title}</i>
+                  </p>
+                </Link>
+                <Link to={"/artists/" + item.artist_id} className="title2">
+                  {item.display_name}
+                </Link>
+                {item.current_bid ? (
+                  <div className="flex space-between">
+                    <div className="flex">
+                      <p className="price">₾{item.current_bid}</p>
+                      <p className="price gray">₾{item.buy_it_now}</p>
+                    </div>
+                    <p className="time gray"></p>
+                  </div>
+                ) : (
+                  <div className="flex space-between">
+                    <div className="flex">
+                      <p className="price">
+                        {item.is_geo
+                          ? `₾${item.buy_it_now}`
+                          : `$${item.price_usd}`}
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
         <div></div>
         <Pagination
