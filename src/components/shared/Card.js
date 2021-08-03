@@ -19,13 +19,13 @@ function Card({
     <div className="product flex column">
       {sold ? (
         <div className="sold">
-          <img alt="test" src={soldImg}></img>
+          <img alt="Sold image" src={soldImg}></img>
         </div>
       ) : null}
       <a href={"/store/" + index}>
         <div className="img">
           <img
-            alt="test"
+            alt={name}
             src={img.replace(
               "https://api.riabid.ge/storage/artworks/",
               "https://api.riabid.ge/storage/artworks/thumbnail_"

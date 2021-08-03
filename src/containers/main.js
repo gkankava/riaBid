@@ -80,7 +80,7 @@ function Main() {
             <div>
               <Link to={"/store/" + item.id}>
                 <img
-                  alt="test"
+                  alt={item.title}
                   src={item.image.replace(
                     "https://api.riabid.ge/storage/artworks/",
                     "https://api.riabid.ge/storage/artworks/thumbnail_"

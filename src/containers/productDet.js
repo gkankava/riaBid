@@ -16,6 +16,7 @@ import { bidArtwork } from "../services/bidService";
 import { QueryClient, useMutation } from "react-query";
 import { userProvider } from "../store/store";
 import { useQuery, useQueryClient } from "react-query";
+import { MetaTags } from "react-meta-tags";
 
 export default function ProductDet(props) {
   const queryClient = useQueryClient();
@@ -112,6 +113,11 @@ export default function ProductDet(props) {
   const images = JSON.parse(artwork.images);
   return (
     <section className="product-details">
+      <MetaTags>
+        <title>
+          {artwork.title} - {artwork.display_name}
+        </title>
+      </MetaTags>
       <div className="container product-page" style={{ position: "relative" }}>
         <button
           className="favoritesIcon"
