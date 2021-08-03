@@ -17,6 +17,7 @@
     "react-fancybox": "^0.2.5",
     "react-icons": "^4.2.0",
     "react-loading": "^2.0.3",
+    "react-meta-tags": "^1.0.1",
     "react-query": "^3.9.6",
     "react-query-devtools": "^2.6.3",
     "react-responsive-masonry": "^2.1.2",

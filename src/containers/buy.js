@@ -2,12 +2,20 @@ import React from "react";
 import Filter from "../components/shop/Filter";
 import CardGrid from "../components/shop/CardGrid";
 import { GoSettings } from "react-icons/go";
+import { MetaTags } from "react-meta-tags";
 
 export default function Buy(props) {
   const [filter, setFilter] = React.useState(false);
 
   return (
     <section id="shop" className="container">
+      <MetaTags>
+        <title>Buying on Ria Bid</title>
+        <meta
+          name="description"
+          content="Ria Bid features 24/7 online auctions and immediate purchases of paintings, prints, photographs, different mediums."
+        />
+      </MetaTags>
       <div className="bread" style={{ gridArea: "beard" }}>
         {/* home / shop */}
       </div>

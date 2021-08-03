@@ -7,6 +7,7 @@ import { getArtists } from "../services/artistsService";
 import { Link } from "react-router-dom";
 import Loading from "./loading";
 import queryString from "query-string";
+import { MetaTags } from "react-meta-tags";
 
 function Artists(props) {
   const [filter, setFilter] = useState(false);
@@ -38,6 +39,13 @@ function Artists(props) {
 
   return (
     <section id="shop" className="container">
+      <MetaTags>
+        <title>ARTISTS: Browse Artists | Contemporary Georgian artists</title>
+        <meta
+          name="description"
+          content="Explore artists on riabid. Browse Modern and Contemporary Georgian artist pages that include artworks for sale, art auction results."
+        />
+      </MetaTags>
       <div className="contact-container">
         <div className="bread" style={{ gridArea: "beard" }}>
           {/* home / shop */}

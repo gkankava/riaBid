@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { QueryClient, useQuery } from "react-query";
 import { getAuctions } from "../services/auctionsService";
 import Loading from "./loading";
+import { MetaTags } from "react-meta-tags";
 const queryClient = new QueryClient();
 
 function Auctions(props) {
@@ -19,6 +20,15 @@ function Auctions(props) {
 
   return (
     <section id="shop" className="container auctions">
+      <MetaTags>
+        <title>
+          Buy and Sell Contemporary and Modern Art | Ria Bid Auctions
+        </title>
+        <meta
+          name="description"
+          content="Find the art here. Purchase desired works. Browse and bid on paintings, prints, photos, and more by the Riabid. leading Georgian artists in curated online auctions."
+        />
+      </MetaTags>
       <ul className="breadcrumb">
         <li>
           <Link to="/">Home</Link>

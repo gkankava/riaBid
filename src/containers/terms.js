@@ -1,8 +1,16 @@
 import React from "react";
+import { MetaTags } from "react-meta-tags";
 
 export default function Terms() {
   return (
     <div className="container" style={{ marginTop: "100px" }}>
+      <MetaTags>
+        <title>Terms and Conditions - Subscription Agreement</title>
+        <meta
+          name="description"
+          content="The Terms & Conditions (hereinafter the “Agreement”) is a set of rules governing the legal relationship between the Foundation and the Users."
+        />
+      </MetaTags>
       <div className="WordSection1">
         <b>
           <span

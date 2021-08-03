@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { getGalleries } from "../services/galleriesService";
 import { useQuery } from "react-query";
 import Loading from "./loading";
+import { MetaTags } from "react-meta-tags";
 
 function Galleries(props) {
   const [filter, setFilter] = React.useState(false);
@@ -18,6 +19,13 @@ function Galleries(props) {
 
   return (
     <section id="shop" className="container galleries">
+      <MetaTags>
+        <title>Art Galleries on Ria Bid</title>
+        <meta
+          name="description"
+          content="Browse digital galleries.Travel digital art."
+        />
+      </MetaTags>
       <ul className="breadcrumb">
         <li>
           <Link to="/">Home</Link>

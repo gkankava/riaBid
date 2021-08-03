@@ -2,12 +2,20 @@ import React from "react";
 import Filter from "../components/shop/Filter";
 import CardGrid from "../components/shop/CardGrid";
 import { GoSettings } from "react-icons/go";
+import { MetaTags } from "react-meta-tags";
 
 function Text(props) {
   const [filter, setFilter] = React.useState(false);
 
   return (
     <section id="shop" className="container">
+      <MetaTags>
+        <title>Ria Bid | About us</title>
+        <meta
+          name="description"
+          content="Riabid platform is suitable for art lovers, patrons, collectors, students, and educators to discover, learn about, and collect art inside and outside Georgia."
+        />
+      </MetaTags>
       <div className="bread" style={{ gridArea: "beard" }}>
         {/* home / shop */}
       </div>

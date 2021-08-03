@@ -2,12 +2,20 @@ import React from "react";
 import Filter from "../components/shop/Filter";
 import CardGrid from "../components/shop/CardGrid";
 import { GoSettings } from "react-icons/go";
+import { MetaTags } from "react-meta-tags";
 
 function Delivery(props) {
   const [filter, setFilter] = React.useState(false);
 
   return (
     <section id="shop" className="container">
+      <MetaTags>
+        <title>Delivery on Ria Bid</title>
+        <meta
+          name="description"
+          content="WE DELIVER WITHIN GEORGIA AND WORLDWIDE."
+        />
+      </MetaTags>
       <div className="bread" style={{ gridArea: "beard" }}>
         {/* home / shop */}
       </div>

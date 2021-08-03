@@ -5,6 +5,7 @@ import { GoSettings } from "react-icons/go";
 import { useMutation } from "react-query";
 import { contact } from "../services/dashboardService";
 import { toast } from "react-toastify";
+import { MetaTags } from "react-meta-tags";
 
 function Contact(props) {
   const [filter, setFilter] = useState(false);
@@ -41,6 +42,10 @@ function Contact(props) {
 
   return (
     <section id="shop" className="container">
+      <MetaTags>
+        <title>Ria Bid | Contact Us</title>
+        <meta name="description" content="Do you have any questions?!" />
+      </MetaTags>
       <div className="contact-container">
         <div className="bread" style={{ gridArea: "beard" }}>
           {/* home / shop */}
