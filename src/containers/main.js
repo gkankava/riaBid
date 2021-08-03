@@ -8,6 +8,7 @@ import { getDashboard } from "../services/dashboardService";
 import Loading from "./loading";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { Link } from "react-router-dom";
+import { MetaTags } from "react-meta-tags";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,16 @@ function Main() {
 
   return (
     <section id="main">
+      <MetaTags>
+        <title>
+          Ria Bid | Ria Bid is a fundraising online auction oriented towards
+          buying and selling Georgian art .
+        </title>
+        <meta
+          name="description"
+          content="RiaBid is the art auctions online. Find artworks for sale, online auctions for contemporary art, top galleries, leading Georgian artists."
+        />
+      </MetaTags>
       <Hero />
 
       {selected_just_for_you.length ? (
