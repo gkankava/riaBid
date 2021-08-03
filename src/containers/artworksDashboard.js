@@ -18,6 +18,7 @@ import Loading from "./loading";
 import { toast } from "react-toastify";
 import { getJwt } from "../services/authService";
 import jwt_decode from "jwt-decode";
+import { MetaTags } from "react-meta-tags";
 function ArtworksDashboard(props) {
   const [filter, setFilter] = React.useState(false);
   const queryClient = useQueryClient();
@@ -66,6 +67,10 @@ function ArtworksDashboard(props) {
   if (error) return "An error has occurred: " + error.message;
   return (
     <section id="shop" className="container">
+      <MetaTags>
+        <title>Artwork & Artist home - RiaBid</title>
+        <meta name="description" content="User space on Riabid.ge" />
+      </MetaTags>
       <div className="dashboard-container">
         <div className="flex column sidebar">
           <h3>Pages</h3>

@@ -13,6 +13,7 @@ import Loading from "./loading";
 import { getFavorites } from "../services/dashboardService";
 import { getJwt } from "../services/authService";
 import jwt_decode from "jwt-decode";
+import { MetaTags } from "react-meta-tags";
 function FavoritesDashboard(props) {
   const [filter, setFilter] = React.useState(false);
   const queryClient = useQueryClient();
@@ -24,6 +25,10 @@ function FavoritesDashboard(props) {
   if (error) return "An error has occurred: " + error.message;
   return (
     <section id="shop" className="container">
+      <MetaTags>
+        <title>Saved Artworks - RiaBid</title>
+        <meta name="description" content="User space on Riabid.ge" />
+      </MetaTags>
       <div className="dashboard-container">
         <div className="flex column sidebar">
           <h3>Pages</h3>

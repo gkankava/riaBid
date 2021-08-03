@@ -13,6 +13,7 @@ import { getBidHistory } from "../services/dashboardService";
 import Loading from "./loading";
 import { getJwt } from "../services/authService";
 import jwt_decode from "jwt-decode";
+import { MetaTags } from "react-meta-tags";
 function Dashboard(props) {
   const [filter, setFilter] = React.useState(false);
   const queryClient = useQueryClient();
@@ -25,6 +26,10 @@ function Dashboard(props) {
 
   return (
     <section id="shop" className="container">
+      <MetaTags>
+        <title>Bid History - RiaBid</title>
+        <meta name="description" content="User space on Riabid.ge" />
+      </MetaTags>
       <div className="dashboard-container">
         <div className="flex column sidebar">
           <h3>Pages</h3>

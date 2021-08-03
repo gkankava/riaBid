@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import Loading from "./loading";
 import queryString from "query-string";
 import SharedSlider from "../components/shared/SharedSlider";
+import { MetaTags } from "react-meta-tags";
 
 function Search(props) {
   const [filter, setFilter] = useState(false);
@@ -60,6 +61,13 @@ function Search(props) {
 
   return (
     <section id="shop" className="container auctions">
+      <MetaTags>
+        <title>Search Results for {params.search} | RiaBid</title>
+        <meta
+          name="description"
+          content="Find the desired work on Riabid,Contemporary Georgian artists"
+        />
+      </MetaTags>
       <h1 style={{ marginBottom: "10px", fontWeight: 300 }}>Artworks</h1>
       <div className="grid-container-auctions">
         {data.data.artworks.map((item) => (

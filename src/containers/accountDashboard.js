@@ -20,6 +20,7 @@ import Loading from "./loading";
 import { toast } from "react-toastify";
 import { getJwt } from "../services/authService";
 import jwt_decode from "jwt-decode";
+import { MetaTags } from "react-meta-tags";
 
 function AccountDashboard(props) {
   const [filter, setFilter] = useState(false);
@@ -77,6 +78,10 @@ function AccountDashboard(props) {
   if (error) return "An error has occurred: " + error.message;
   return (
     <section id="shop" className="container">
+      <MetaTags>
+        <title>Settings - RiaBid</title>
+        <meta name="description" content="User space on Riabid.ge" />
+      </MetaTags>
       <div className="dashboard-container">
         <div className="flex column sidebar">
           <h3>Pages</h3>

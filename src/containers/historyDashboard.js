@@ -13,6 +13,7 @@ import { useQuery } from "react-query";
 import Loading from "./loading";
 import { getJwt } from "../services/authService";
 import jwt_decode from "jwt-decode";
+import { MetaTags } from "react-meta-tags";
 function HistoryDashboard(props) {
   const [filter, setFilter] = React.useState(false);
   var { user_id } = jwt_decode(getJwt());
@@ -24,6 +25,10 @@ function HistoryDashboard(props) {
 
   return (
     <section id="shop" className="container">
+      <MetaTags>
+        <title>My Orders - RiaBid</title>
+        <meta name="description" content="User space on Riabid.ge" />
+      </MetaTags>
       <div className="dashboard-container">
         <div className="flex column sidebar">
           <h3>Pages</h3>
