@@ -14,6 +14,7 @@ import Loading from "./loading";
 import { getJwt } from "../services/authService";
 import jwt_decode from "jwt-decode";
 import { MetaTags } from "react-meta-tags";
+
 function HistoryDashboard(props) {
   const [filter, setFilter] = React.useState(false);
   var { user_id } = jwt_decode(getJwt());
