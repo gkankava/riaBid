@@ -15,6 +15,10 @@ export default function Buy(props) {
           name="description"
           content="Ria Bid features 24/7 online auctions and immediate purchases of paintings, prints, photographs, different mediums."
         />
+        <meta
+          name="keywords"
+          content="contemporary, art, georgian, georgian arts, design, contemporary, modern,fine art,auctions,artists,georgian artists,online auctions,prints,artworks,buy art,photographs,buy art,artwork for sale,decorative art,Artwork made by the contemporary artists in the GeorgiansGeorgia contemporary art,art from georgia,Georgia's Contemporary Artists,contemporary artists from Georgia,Georgian artist works prices,where i cen see georgian artists?,"
+        />
       </MetaTags>
       <div className="bread" style={{ gridArea: "beard" }}>
         {/* home / shop */}

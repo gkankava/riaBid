@@ -25,6 +25,10 @@ function Galleries(props) {
           name="description"
           content="Browse digital galleries.Travel digital art."
         />
+        <meta
+          name="keywords"
+          content="art gallery, art online, galleries, sell art, decorative art,Discover Contemporary Artists, contemporary artists from Georgia,georgian contemporary artists,"
+        />
       </MetaTags>
       <ul className="breadcrumb">
         <li>

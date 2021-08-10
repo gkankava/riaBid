@@ -10,6 +10,10 @@ export default function Terms() {
           name="description"
           content="The Terms & Conditions (hereinafter the “Agreement”) is a set of rules governing the legal relationship between the Foundation and the Users."
         />
+        <meta
+          name="keywords"
+          content="contemporary, art, georgian, georgian arts, design, contemporary, modern,fine art,auctions,artists,georgian artists,online auctions,prints,artworks,buy art,photographs,buy art,artwork for sale,decorative art,Artwork made by the contemporary artists in the GeorgiansGeorgia contemporary art,art from georgia,Georgia's Contemporary Artists,contemporary artists from Georgia,Georgian artist works prices,where i cen see georgian artists?,"
+        />
       </MetaTags>
       <div className="WordSection1">
         <b>

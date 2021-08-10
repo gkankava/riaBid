@@ -116,6 +116,10 @@ function Shop(props) {
           name="description"
           content="Find the work of the desired artist on Riabid."
         />
+        <meta
+          name="keywords"
+          content="artworks, buy art, designer, sell art, art price, fine art auctions,Artwork made by the contemporary artists in the Georgians,artists Georgian,Georgia's 10 Contemporary Artists,Georgian artist works prices,i wants see georgian contemporary artists,georgian contemporary artists,"
+        />
       </MetaTags>
       <div className="flex space-between">
         {" "}

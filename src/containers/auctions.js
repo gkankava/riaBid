@@ -28,6 +28,10 @@ function Auctions(props) {
           name="description"
           content="Find the art here. Purchase desired works. Browse and bid on paintings, prints, photos, and more by the Riabid. leading Georgian artists in curated online auctions."
         />
+        <meta
+          name="keywords"
+          content="Georgian painters,artwork for sale, art from georgia,  Tbilisi art, Landing Pages, artists from Tbilisi, contemporary artists from Georgia,Georgian artist works,i wants see georgian contemporary artists,"
+        />
       </MetaTags>
       <ul className="breadcrumb">
         <li>

@@ -45,6 +45,10 @@ function Artists(props) {
           name="description"
           content="Explore artists on riabid. Browse Modern and Contemporary Georgian artist pages that include artworks for sale, art auction results."
         />
+        <meta
+          name="keywords"
+          content="Georgian painters,Georgia contemporary art, designer,  decorative art,Discover Contemporary Artists, Georgia's Contemporary Artists, artists from Tbilisi,contemporary artists from Georgia,Georgian artist works,"
+        />
       </MetaTags>
       <div className="contact-container">
         <div className="bread" style={{ gridArea: "beard" }}>
