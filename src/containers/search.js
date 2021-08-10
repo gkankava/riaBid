@@ -32,6 +32,7 @@ function Search(props) {
               value={searchTerm}
               style={{
                 padding: "15px 22px",
+                borderRadius: "40px",
                 border: "1px solid #D8D8D8",
               }}
               placeholder="What are you looking for?"
@@ -44,6 +45,7 @@ function Search(props) {
                 border: "1px solid #D8D8D8",
                 background: "#000",
                 color: "#FFF",
+                borderRadius: "40px",
                 marginTop: "10px",
                 textAlign: "center",
               }}
