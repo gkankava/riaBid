@@ -9,6 +9,7 @@ import Loading from "./loading";
 import queryString from "query-string";
 import SharedSlider from "../components/shared/SharedSlider";
 import { MetaTags } from "react-meta-tags";
+import searchJSON from "../components/shared/searchJSON";
 
 function Search(props) {
   const [filter, setFilter] = useState(false);
@@ -22,6 +23,7 @@ function Search(props) {
   if (!params.search)
     return (
       <section id="shop" className="container">
+        <searchJSON></searchJSON>
         <div className="contact-container">
           <div
             className="artist-container"

@@ -3,12 +3,14 @@ import Filter from "../components/shop/Filter";
 import CardGrid from "../components/shop/CardGrid";
 import { GoSettings } from "react-icons/go";
 import { MetaTags } from "react-meta-tags";
+import otherJSON from "../components/shared/otherJSON";
 
 export default function Sell(props) {
   const [filter, setFilter] = React.useState(false);
 
   return (
     <section id="shop" className="container">
+      <otherJSON></otherJSON>
       <MetaTags>
         <title>Selling on Ria Bid</title>
         <meta

@@ -6,6 +6,7 @@ import { useMutation } from "react-query";
 import { contact } from "../services/dashboardService";
 import { toast } from "react-toastify";
 import { MetaTags } from "react-meta-tags";
+import otherJSON from "../components/shared/otherJSON";
 
 function Contact(props) {
   const [filter, setFilter] = useState(false);
@@ -42,6 +43,7 @@ function Contact(props) {
 
   return (
     <section id="shop" className="container">
+      <otherJSON></otherJSON>
       <MetaTags>
         <title>Ria Bid | Contact Us</title>
         <meta name="description" content="Do you have any questions?!" />
