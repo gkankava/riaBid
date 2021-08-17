@@ -55,7 +55,7 @@ function footer() {
                 <Link to="/terms">Terms & Conditions</Link>
               </li>
               <li>
-                <Link to="/contact">Contacts</Link>
+                <Link to="/contact">Contact</Link>
               </li>
             </ul>
           </div>

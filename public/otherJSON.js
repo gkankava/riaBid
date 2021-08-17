@@ -1,4 +1,5 @@
-const otherJSON = {
+<script>
+{
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
@@ -35,6 +36,6 @@ const otherJSON = {
       },
     },
   ],
-};
+}
 
-export default otherJSON;
+</script>

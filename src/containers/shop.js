@@ -9,7 +9,6 @@ import RangeSlider from "../components/shared/RangeSlider";
 import ScrollToTopOnMount from "../components/shared/ScrollToTop";
 import Pagination from "./Pagination";
 import MetaTags from "react-meta-tags";
-import JSON from "../components/shared/json";
 
 function Shop(props) {
   const categories = [
@@ -111,7 +110,6 @@ function Shop(props) {
 
   return (
     <section id="shop" className="container auctions shop">
-      <JSON></JSON>
       <MetaTags>
         <title>ARTWORKS: Ria Bid | Store</title>
         <meta

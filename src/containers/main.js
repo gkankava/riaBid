@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hero from "../components/main/Hero";
 import Banners from "../components/main/Banners";
 import SharedSlider from "../components/shared/SharedSlider";
@@ -9,10 +9,23 @@ import Loading from "./loading";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { Link } from "react-router-dom";
 import { MetaTags } from "react-meta-tags";
-import JSON from "../components/shared/json";
+
 const queryClient = new QueryClient();
 
 function Main() {
+  useEffect(() => {
+    const script = document.createElement("script");
+
+    script.src = "../json.js";
+    script.async = true;
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const { isLoading, error, data } = useQuery("dashboard", getDashboard);
 
   if (isLoading) return <Loading></Loading>;
@@ -23,7 +36,6 @@ function Main() {
 
   return (
     <section id="main">
-      <JSON></JSON>
       <MetaTags>
         <title>
           Buy, Sell, and Research Contemporary Georgian Art Online: RiaBid

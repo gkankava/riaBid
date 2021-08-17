@@ -296,9 +296,20 @@ function Modal({ type, setAuthModalActive }) {
                 placeholder="Password"
               />
               {userType == 2 ? (
-                <input type="text" placeholder="Location"></input>
+                <input
+                  type="text"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  placeholder="Location"
+                ></input>
               ) : null}
-              {userType == 2 ? <input type="file"></input> : null}
+              {userType == 2 ? (
+                <input
+                  name="legal_image"
+                  onChange={(e) => setLegalImage(e.target.files[0])}
+                  type="file"
+                ></input>
+              ) : null}
               {accountType == 1 || accountType == 3 ? (
                 <div className="wrapper">
                   <input
@@ -335,16 +346,29 @@ function Modal({ type, setAuthModalActive }) {
             <button
               className="btn-signup"
               onClick={() => {
-                const data = {
-                  account_type: accountType,
-                  user_type: userType,
-                  name,
-                  lastname,
-                  email,
-                  password,
-                };
+                if (userType == 2) {
+                  const data = new FormData();
+                  data.append("account_type", accountType);
+                  data.append("user_type", userType);
+                  data.append("name", name);
+                  data.append("lastname", lastname);
+                  data.append("email", email);
+                  data.append("location", location);
+                  data.append("password", password);
+                  data.append("legal_image", legal_image);
+                  registerMutation.mutate(data);
+                } else {
+                  const data = {
+                    account_type: accountType,
+                    user_type: userType,
+                    name,
+                    lastname,
+                    email,
+                    password,
+                  };
 
-                registerMutation.mutate(data);
+                  registerMutation.mutate(data);
+                }
               }}
             >
               Sign Up

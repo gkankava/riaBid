@@ -3,13 +3,11 @@ import Filter from "../components/shop/Filter";
 import CardGrid from "../components/shop/CardGrid";
 import { GoSettings } from "react-icons/go";
 import { MetaTags } from "react-meta-tags";
-import aboutJSON from "../components/shared/aboutjson";
 function Text(props) {
   const [filter, setFilter] = React.useState(false);
 
   return (
     <section id="shop" className="container">
-      <aboutJSON></aboutJSON>
       <MetaTags>
         <title>Ria Bid | About us</title>
         <meta
