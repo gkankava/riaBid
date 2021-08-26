@@ -18,10 +18,12 @@ import { toast } from "react-toastify";
 function AddArtwork(props) {
   const [artist_id, setArtist] = useState("");
   const [title, setTitle] = useState("");
+  const [disabled, setDisabled] = useState(false);
   const [product_type, setProductType] = useState("1");
   const [buy_it_now, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [year, setYear] = useState("");
+  const [request_price, setRequestPrice] = useState("");
   const [height, setHeight] = useState("");
   const [width, setWidth] = useState("");
   const [depth, setDepth] = useState("");
@@ -72,6 +74,7 @@ function AddArtwork(props) {
     formData.append("title", title);
     formData.append("artist_id", artist_id);
     formData.append("product_type", product_type);
+    formData.append("request_price", request_price);
     formData.append("buy_it_now", buy_it_now * 1.15);
     formData.append("description", description);
     formData.append("pride", pride);
@@ -208,8 +211,8 @@ function AddArtwork(props) {
               </select>{" "}
             </div>
             <div style={{ position: "relative" }}>
-              {" "}
               <input
+                disabled={disabled}
                 value={buy_it_now}
                 onChange={(e) => setPrice(e.target.value)}
                 type="text"
@@ -220,6 +223,34 @@ function AddArtwork(props) {
                 Final Price: {buy_it_now * 1.15} GEL
               </p>
               <p>+ Riabid commission 15%</p>
+            </div>
+            <div
+              className="flex"
+              style={{
+                justifyContent: "flex-start",
+                alignItems: "flex-start",
+              }}
+            >
+              <p style={{ alignSelf: "center" }}>Without Price</p>
+              <input
+                value={request_price}
+                onChange={(e) => {
+                  setRequestPrice(e.target.checked);
+                  if (e.target.checked) {
+                    setPrice(0);
+                    setDisabled(true);
+                  } else {
+                    setDisabled(false);
+                  }
+                }}
+                type="checkbox"
+                name="request_price"
+                placeholder="Request Price"
+                style={{
+                  WebkitAppearance: "button",
+                  width: "10%",
+                }}
+              ></input>
             </div>
             <input
               value={year}
@@ -244,6 +275,7 @@ function AddArtwork(props) {
               <option value="1">Private Collection</option>
               <option value="2">Gallery</option>
             </select>
+
             <input
               onChange={(e) => setSelectedFile(e.target.files)}
               type="file"
