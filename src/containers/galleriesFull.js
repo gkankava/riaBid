@@ -65,11 +65,32 @@ function GalleriesFull(props) {
                 </p>
                 <p className="title2">{item.display_name}</p>
               </Link>
-              <div className="flex space-between">
-                <div className="flex">
-                  <p className="price">₾{item.buy_it_now}</p>
+              {item.request_price ? (
+                <div className="flex space-between">
+                  <div className="flex">
+                    <p className="price">Contact for Price</p>
+                  </div>
+                  <p className="time gray"></p>
                 </div>
-              </div>
+              ) : item.current_bid ? (
+                <div className="flex space-between">
+                  <div className="flex">
+                    <p className="price">₾{item.current_bid}</p>
+                    <p className="price gray">₾{item.buy_it_now}</p>
+                  </div>
+                  <p className="time gray"></p>
+                </div>
+              ) : (
+                <div className="flex space-between">
+                  <div className="flex">
+                    <p className="price">
+                      {item.is_geo
+                        ? `₾${item.buy_it_now}`
+                        : `$${item.price_usd}`}
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>

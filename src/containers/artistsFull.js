@@ -49,17 +49,20 @@ function ArtistsFull(props) {
 
                 <p className="title">{item.title}</p>
               </Link>
-              {item.on_auction ? (
+              {item.request_price ? (
+                <div className="flex space-between">
+                  <div className="flex">
+                    <p className="price">Contact for Price</p>
+                  </div>
+                  <p className="time gray"></p>
+                </div>
+              ) : item.current_bid ? (
                 <div className="flex space-between">
                   <div className="flex">
                     <p className="price">₾{item.current_bid}</p>
-                    <p className="price gray">
-                      {item.is_geo
-                        ? `₾${item.buy_it_now}`
-                        : `$${item.price_usd}`}
-                    </p>
+                    <p className="price gray">₾{item.buy_it_now}</p>
                   </div>
-                  <p className="time gray">6d 9h</p>
+                  <p className="time gray"></p>
                 </div>
               ) : (
                 <div className="flex space-between">

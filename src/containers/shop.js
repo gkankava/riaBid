@@ -246,7 +246,14 @@ function Shop(props) {
                 <Link to={"/artists/" + item.artist_id} className="title2">
                   {item.display_name}
                 </Link>
-                {item.current_bid ? (
+                {item.request_price ? (
+                  <div className="flex space-between">
+                    <div className="flex">
+                      <p className="price">Contact for Price</p>
+                    </div>
+                    <p className="time gray"></p>
+                  </div>
+                ) : item.current_bid ? (
                   <div className="flex space-between">
                     <div className="flex">
                       <p className="price">₾{item.current_bid}</p>
@@ -294,7 +301,14 @@ function Shop(props) {
                 <Link to={"/artists/" + item.artist_id} className="title2">
                   {item.display_name}
                 </Link>
-                {item.current_bid ? (
+                {item.request_price ? (
+                  <div className="flex space-between">
+                    <div className="flex">
+                      <p className="price">Contact for Price</p>
+                    </div>
+                    <p className="time gray"></p>
+                  </div>
+                ) : item.current_bid ? (
                   <div className="flex space-between">
                     <div className="flex">
                       <p className="price">₾{item.current_bid}</p>
@@ -342,7 +356,14 @@ function Shop(props) {
                 <Link to={"/artists/" + item.artist_id} className="title2">
                   {item.display_name}
                 </Link>
-                {item.current_bid ? (
+                {item.request_price ? (
+                  <div className="flex space-between">
+                    <div className="flex">
+                      <p className="price">Contact for Price</p>
+                    </div>
+                    <p className="time gray"></p>
+                  </div>
+                ) : item.current_bid ? (
                   <div className="flex space-between">
                     <div className="flex">
                       <p className="price">₾{item.current_bid}</p>

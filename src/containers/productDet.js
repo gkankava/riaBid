@@ -10,7 +10,12 @@ import ReactFancyBox from "react-fancybox";
 import "react-fancybox/lib/fancybox.css";
 import { getArtwork } from "../services/artworksService";
 import Loading from "./loading";
-import { addBag, addComment, addFavorites } from "../services/bagService";
+import {
+  addBag,
+  addComment,
+  addFavorites,
+  requestPrice,
+} from "../services/bagService";
 import { toast } from "react-toastify";
 import { bidArtwork } from "../services/bidService";
 import { QueryClient, useMutation } from "react-query";
@@ -33,6 +38,24 @@ export default function ProductDet(props) {
     },
     onSuccess: (data, variables, context) => {
       toast.dark("Artwork added to bag", {
+        progress: undefined,
+        hideProgressBar: true,
+      });
+    },
+    onSettled: (data, error, variables, context) => {
+      // Error or success... doesn't matter!
+    },
+  });
+
+  const requestPriceMutation = useMutation(requestPrice, {
+    onMutate: (variables) => {
+      return { id: 1 };
+    },
+    onError: (error, variables, context) => {
+      toast.error("You need to login");
+    },
+    onSuccess: (data, variables, context) => {
+      toast.dark("Price requested. Gallery will contact you soon.", {
         progress: undefined,
         hideProgressBar: true,
       });
@@ -187,6 +210,15 @@ export default function ProductDet(props) {
             {artwork.is_sold ? (
               <div className="soldDetailed">
                 <img src={sold}></img>
+              </div>
+            ) : artwork.request_price ? (
+              <div className="buyitnow flex">
+                <button
+                  style={{ cursor: "pointer" }}
+                  onClick={() => requestPriceMutation.mutate(artwork.id)}
+                >
+                  Request Price
+                </button>
               </div>
             ) : (
               <div className="buyitnow flex">

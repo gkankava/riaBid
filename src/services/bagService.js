@@ -26,6 +26,10 @@ export function addBag(id) {
   return http.post(apiEndpoint + "/add/" + id);
 }
 
+export function requestPrice(id) {
+  return http.post(apiUrl + "/artworks/request-price/" + id);
+}
+
 export function deleteBag(id) {
   return http.post(apiEndpoint + "/delete/" + id);
 }

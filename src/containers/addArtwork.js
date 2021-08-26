@@ -23,7 +23,7 @@ function AddArtwork(props) {
   const [buy_it_now, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [year, setYear] = useState("");
-  const [request_price, setRequestPrice] = useState("");
+  const [request_price, setRequestPrice] = useState(false);
   const [height, setHeight] = useState("");
   const [width, setWidth] = useState("");
   const [depth, setDepth] = useState("");
@@ -235,11 +235,12 @@ function AddArtwork(props) {
               <input
                 value={request_price}
                 onChange={(e) => {
-                  setRequestPrice(e.target.checked);
                   if (e.target.checked) {
                     setPrice(0);
                     setDisabled(true);
+                    setRequestPrice(1);
                   } else {
+                    setRequestPrice(0);
                     setDisabled(false);
                   }
                 }}
