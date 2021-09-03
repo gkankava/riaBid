@@ -219,7 +219,7 @@ function Shop(props) {
           </div>
         </div>
         <div className="new-shop">
-          <div className="flex column">
+          <div className="flex column space-between">
             {newArr1.map((item) => (
               <div key={item.id} className="product flex column">
                 <Link to={"/store/" + item.id} style={{ position: "relative" }}>
@@ -275,7 +275,7 @@ function Shop(props) {
               </div>
             ))}
           </div>
-          <div className="flex column">
+          <div className="flex column space-between">
             {newArr2.map((item) => (
               <div key={item.id} className="product flex column">
                 <Link to={"/store/" + item.id} style={{ position: "relative" }}>
@@ -330,7 +330,7 @@ function Shop(props) {
               </div>
             ))}
           </div>
-          <div className="flex column">
+          <div className="flex column space-between">
             {newArr3.map((item) => (
               <div key={item.id} className="product flex column">
                 <Link to={"/store/" + item.id} style={{ position: "relative" }}>
