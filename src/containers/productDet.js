@@ -120,8 +120,9 @@ export default function ProductDet(props) {
     onSettled: (data, error, variables, context) => {},
   });
 
-  const { isFetching, isLoading, error, data } = useQuery("product", () =>
-    getArtwork(props.match.params.index)
+  const { isFetching, isLoading, error, data } = useQuery(
+    "product" + props.match.params.index,
+    () => getArtwork(props.match.params.index)
   );
   if (isLoading) return <Loading></Loading>;
 
