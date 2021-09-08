@@ -119,7 +119,7 @@ export default function Cart() {
               Please add address to your account
             </Link>
           )}
-
+          {data.data.is_geo ? null : <p>Shipping 35$</p>}
           <h3>
             Full Amount:{" "}
             {data.data.is_geo
