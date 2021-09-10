@@ -12,7 +12,9 @@ const queryClient = new QueryClient();
 
 function Auctions(props) {
   const [filter, setFilter] = React.useState(false);
-  const { isLoading, error, data } = useQuery("auctions", getAuctions);
+  const { isLoading, error, data } = useQuery("auctions", getAuctions, {
+    refetchOnWindowFocus: false,
+  });
 
   if (isLoading) return <Loading></Loading>;
 

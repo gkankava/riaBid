@@ -15,7 +15,9 @@ function GalleriesFull(props) {
   const { isLoading, error, data } = useQuery(
     "gallery",
     () => getGallery(props.match.params.index),
-    {}
+    {
+      refetchOnWindowFocus: false,
+    }
   );
 
   if (isLoading) return <Loading></Loading>;

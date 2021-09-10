@@ -12,7 +12,9 @@ import { MetaTags } from "react-meta-tags";
 function Artists(props) {
   const [filter, setFilter] = useState(false);
   const [letter, setLetter] = useState("");
-  const { isLoading, error, data } = useQuery("artists", getArtists);
+  const { isLoading, error, data } = useQuery("artists", getArtists, {
+    refetchOnWindowFocus: false,
+  });
 
   if (isLoading) return <Loading></Loading>;
 

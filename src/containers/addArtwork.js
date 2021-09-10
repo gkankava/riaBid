@@ -93,7 +93,9 @@ function AddArtwork(props) {
     addMutation.mutate(formData);
   };
 
-  const { isLoading, error, data } = useQuery("artists", getArtists);
+  const { isLoading, error, data } = useQuery("artists", getArtists, {
+    refetchOnWindowFocus: false,
+  });
 
   if (isLoading) return <Loading></Loading>;
 

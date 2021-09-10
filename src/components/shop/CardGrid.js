@@ -90,7 +90,9 @@ function CardGrid({ auction }) {
       secondParam: auction ? "0 Bids" : "$999.99",
     },
   ];
-  const { isLoading, error, data } = useQuery("artworks", getArtworks);
+  const { isLoading, error, data } = useQuery("artworks", getArtworks, {
+    refetchOnWindowFocus: false,
+  });
 
   if (isLoading) return "Loading...";
 

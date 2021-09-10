@@ -26,7 +26,9 @@ function Main() {
     };
   }, []);
 
-  const { isLoading, error, data } = useQuery("dashboard", getDashboard);
+  const { isLoading, error, data } = useQuery("dashboard", getDashboard, {
+    refetchOnWindowFocus: false,
+  });
 
   if (isLoading) return <Loading></Loading>;
 

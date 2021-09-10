@@ -18,7 +18,9 @@ function FavoritesDashboard(props) {
   const [filter, setFilter] = React.useState(false);
   const queryClient = useQueryClient();
   var { user_id } = jwt_decode(getJwt());
-  const { isLoading, error, data } = useQuery("favorites", getFavorites);
+  const { isLoading, error, data } = useQuery("favorites", getFavorites, {
+    refetchOnWindowFocus: false,
+  });
 
   if (isLoading) return <Loading></Loading>;
 

@@ -15,8 +15,12 @@ function Search(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [letter, setLetter] = useState("");
   let params = queryString.parse(props.location.search);
-  const { isLoading, error, data } = useQuery("search", () =>
-    getSearch(params.search)
+  const { isLoading, error, data } = useQuery(
+    "search",
+    () => getSearch(params.search),
+    {
+      refetchOnWindowFocus: false,
+    }
   );
 
   if (!params.search)

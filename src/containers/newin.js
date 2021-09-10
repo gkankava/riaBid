@@ -29,7 +29,9 @@ function New(props) {
   ];
   const [filter, setFilter] = useState(false);
   const [sort, setSort] = useState(false);
-  const { isLoading, error, data } = useQuery("new", getArtworksNew);
+  const { isLoading, error, data } = useQuery("new", getArtworksNew, {
+    refetchOnWindowFocus: false,
+  });
   const [filterType, setFilterType] = useState("");
   const [categoryType, setCategoryType] = useState([]);
   const [filterPrice, setFilterPrice] = React.useState([0, 1000000]);

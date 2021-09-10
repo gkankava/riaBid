@@ -60,7 +60,13 @@ function ArtworksDashboard(props) {
     },
   });
   var { user_id } = jwt_decode(getJwt());
-  const { isLoading, error, data } = useQuery("artworksDashboard", getArtworks);
+  const { isLoading, error, data } = useQuery(
+    "artworksDashboard",
+    getArtworks,
+    {
+      refetchOnWindowFocus: false,
+    }
+  );
 
   if (isLoading) return <Loading></Loading>;
 

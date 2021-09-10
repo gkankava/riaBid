@@ -18,7 +18,9 @@ import { MetaTags } from "react-meta-tags";
 function HistoryDashboard(props) {
   const [filter, setFilter] = React.useState(false);
   var { user_id } = jwt_decode(getJwt());
-  const { isLoading, error, data } = useQuery("historyDashboard", getHistory);
+  const { isLoading, error, data } = useQuery("historyDashboard", getHistory, {
+    refetchOnWindowFocus: false,
+  });
 
   if (isLoading) return <Loading></Loading>;
 

@@ -11,7 +11,9 @@ import { MetaTags } from "react-meta-tags";
 
 function Galleries(props) {
   const [filter, setFilter] = React.useState(false);
-  const { isLoading, error, data } = useQuery("galleries", getGalleries);
+  const { isLoading, error, data } = useQuery("galleries", getGalleries, {
+    refetchOnWindowFocus: false,
+  });
 
   if (isLoading) return <Loading></Loading>;
 

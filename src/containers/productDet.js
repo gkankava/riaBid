@@ -122,7 +122,10 @@ export default function ProductDet(props) {
 
   const { isFetching, isLoading, error, data } = useQuery(
     "product" + props.match.params.index,
-    () => getArtwork(props.match.params.index)
+    () => getArtwork(props.match.params.index),
+    {
+      refetchOnWindowFocus: false,
+    }
   );
   if (isLoading) return <Loading></Loading>;
 

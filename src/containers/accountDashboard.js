@@ -71,7 +71,9 @@ function AccountDashboard(props) {
   };
   var { user_id } = jwt_decode(getJwt());
 
-  const { isLoading, error, data } = useQuery("addresses", getAddress);
+  const { isLoading, error, data } = useQuery("addresses", getAddress, {
+    refetchOnWindowFocus: false,
+  });
 
   if (isLoading) return <Loading></Loading>;
 

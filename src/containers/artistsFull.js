@@ -15,7 +15,9 @@ function ArtistsFull(props) {
   const { isLoading, error, data } = useQuery(
     "artist",
     () => getArtworks(props.match.params.index),
-    {}
+    {
+      refetchOnWindowFocus: false,
+    }
   );
 
   if (isLoading) return <Loading></Loading>;

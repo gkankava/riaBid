@@ -16,7 +16,9 @@ import jwt_decode from "jwt-decode";
 function AllDashboard(props) {
   const [filter, setFilter] = React.useState(false);
   var { user_id } = jwt_decode(getJwt());
-  const { isLoading, error, data } = useQuery("allDashboard", getAll);
+  const { isLoading, error, data } = useQuery("allDashboard", getAll, {
+    refetchOnWindowFocus: false,
+  });
 
   if (isLoading) return <Loading></Loading>;
 

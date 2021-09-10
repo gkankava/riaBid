@@ -18,7 +18,9 @@ function Dashboard(props) {
   const [filter, setFilter] = React.useState(false);
   const queryClient = useQueryClient();
   var { user_id } = jwt_decode(getJwt());
-  const { isLoading, error, data } = useQuery("bidshistory", getBidHistory);
+  const { isLoading, error, data } = useQuery("bidshistory", getBidHistory, {
+    refetchOnWindowFocus: false,
+  });
 
   if (isLoading) return <Loading></Loading>;
 

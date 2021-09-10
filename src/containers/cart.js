@@ -44,7 +44,9 @@ export default function Cart() {
       // Error or success... doesn't matter!
     },
   });
-  const { isLoading, error, data } = useQuery("bag", getBag);
+  const { isLoading, error, data } = useQuery("bag", getBag, {
+    refetchOnWindowFocus: false,
+  });
 
   if (isLoading) return <Loading></Loading>;
 

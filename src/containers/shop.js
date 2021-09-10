@@ -30,7 +30,9 @@ function Shop(props) {
   ];
   const [filter, setFilter] = useState(false);
   const [sort, setSort] = useState(false);
-  const { isLoading, error, data } = useQuery("artworks", getArtworks);
+  const { isLoading, error, data } = useQuery("artworks", getArtworks, {
+    refetchOnWindowFocus: false,
+  });
   const [filterType, setFilterType] = useState("");
   const [categoryType, setCategoryType] = useState([]);
   const [filterPrice, setFilterPrice] = React.useState([0, 1000000]);

@@ -92,7 +92,10 @@ function EditArtwork(props) {
 
   const { isLoading, error, data } = useQuery(
     "artists",
-    async () => await getArtWith(id)
+    async () => await getArtWith(id),
+    {
+      refetchOnWindowFocus: false,
+    }
   );
 
   if (isLoading) return <Loading></Loading>;
