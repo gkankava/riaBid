@@ -45,7 +45,10 @@ function Galleries(props) {
           .filter((item) => item.is_hidden === 0)
           .map((item) => (
             <div key={item.id} className="product flex column">
-              <Link to={"/galleries/" + item.id}>
+              <Link
+                to={"/galleries/" + item.id}
+                style={{ display: "flex", flexDirection: "column" }}
+              >
                 <div className="img">
                   <img src={item.legal_image}></img>
                 </div>
