@@ -8,6 +8,17 @@
   -webkit-appearance: none;
 }
 
+:root,
+*,
+body,
+html {
+  -webkit-transition: all 200ms linear;
+  -khtml-transition: all 200ms linear;
+  -moz-transition: all 200ms linear;
+  -o-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
 * {
   &:active,
   :focus {
