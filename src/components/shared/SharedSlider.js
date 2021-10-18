@@ -5,7 +5,14 @@ import cardImg from "../../assets/dummy/cardImage.jpg";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-function SharedSlider({ auction, title, data, slidesToShow, special }) {
+function SharedSlider({
+  auction,
+  title,
+  data,
+  slidesToShow,
+  special,
+  speciaal,
+}) {
   const sliderRef = useRef();
   const [activeItem, setActiveItem] = useState(0);
   const [prevItem, setPrevItem] = useState(0);
@@ -66,7 +73,17 @@ function SharedSlider({ auction, title, data, slidesToShow, special }) {
   return (
     <div className="selectedFor container">
       <div className="head-wrapper">
-        <Link to={special ? "/special/1" : "/store"}>
+        <Link
+          to={
+            special
+              ? speciaal
+                ? "/special/2"
+                : "/special/1"
+              : speciaal
+              ? "/special/2"
+              : "/store"
+          }
+        >
           <h3>{title}</h3>
         </Link>
         <div className="action-wrapper">
@@ -88,9 +105,31 @@ function SharedSlider({ auction, title, data, slidesToShow, special }) {
               <BsArrowRightShort />
             </div>
           </div>
-          <Link to={special ? "/special/1" : "/store"}>
+          <Link
+            to={
+              special
+                ? speciaal
+                  ? "/special/2"
+                  : "/special/1"
+                : speciaal
+                ? "/special/2"
+                : "/store"
+            }
+          >
             <button className="btn-placebid">
-              <Link to={special ? "/special/1" : "/store"}>SHOW MORE</Link>
+              <Link
+                to={
+                  special
+                    ? speciaal
+                      ? "/special/2"
+                      : "/special/1"
+                    : speciaal
+                    ? "/special/2"
+                    : "/store"
+                }
+              >
+                SHOW MORE
+              </Link>
             </button>
           </Link>
         </div>

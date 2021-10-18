@@ -63,8 +63,13 @@ function Main() {
         />
       ) : null}
 
-      {selected_just_for_you.length ? (
-        <SharedSlider slidesToShow={4} data={special} title="PHOTOGRAPHY" />
+      {special.length ? (
+        <SharedSlider
+          speciaal={true}
+          slidesToShow={4}
+          data={special}
+          title="PHOTOGRAPHY"
+        />
       ) : null}
       {auctions.length ? (
         <SharedSlider data={auctions} title="AUCTIONS" auction />
