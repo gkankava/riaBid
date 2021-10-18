@@ -33,6 +33,8 @@ import { userProvider } from "./store/store";
 import AddArtist from "./containers/addArtist";
 import AddArtwork from "./containers/addArtwork";
 import AddArtworkPride from "./containers/addArtworkPride";
+import { persistQueryClient } from "react-query/persistQueryClient-experimental";
+import { createWebStoragePersistor } from "react-query/createWebStoragePersistor-experimental";
 
 import { getAddress } from "./services/dashboardService";
 import Loading from "./containers/loading";
@@ -45,7 +47,22 @@ import EditArtwork from "./containers/editArtwork";
 import AllDashboard from "./containers/allDashboard";
 import Terms from "./containers/terms";
 import Pride from "./containers/pride";
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      cacheTime: 1000 * 60 * 60 * 24, // 24 hours
+    },
+  },
+});
+
+const localStoragePersistor = createWebStoragePersistor({
+  storage: window.localStorage,
+});
+
+persistQueryClient({
+  queryClient,
+  persistor: localStoragePersistor,
+});
 
 function App() {
   const { currentUser, setCurrentUser } = userProvider();
@@ -60,7 +77,7 @@ function App() {
         <Switch>
           <Route exact path="/" render={(props) => <Main {...props} />} />
           <Route exact path="/store" render={(props) => <Shop {...props} />} />
-          <Route exact path="/pride" render={(props) => <Pride {...props} />} />
+          <Route path="/special/:id" render={(props) => <Pride {...props} />} />
           <Route exact path="/new" render={(props) => <New {...props} />} />
           <Route
             exact
@@ -192,7 +209,7 @@ function App() {
         <Switch>
           <Route exact path="/" render={(props) => <Main {...props} />} />
           <Route exact path="/store" render={(props) => <Shop {...props} />} />
-          <Route exact path="/pride" render={(props) => <Pride {...props} />} />
+          <Route path="/special/:id" render={(props) => <Pride {...props} />} />
           <Route exact path="/new" render={(props) => <New {...props} />} />
           <Route
             exact

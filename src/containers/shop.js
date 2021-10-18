@@ -54,6 +54,12 @@ function Shop(props) {
   if (isLoading) return <Loading></Loading>;
 
   if (error) return "An error has occurred: " + error.message;
+  if (!data.data.length)
+    return (
+      <section id="shop" className="container auctions shop">
+        There are not artworks yet in this category.
+      </section>
+    );
 
   var keys = Object.keys(data.data);
   var min = data.data[keys[0]].buy_it_now; // ignoring case of empty list for conciseness

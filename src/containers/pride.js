@@ -5,7 +5,7 @@ import {
   getArtworksNew,
   getArtworksPride,
 } from "../services/artworksService";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useQuery } from "react-query";
 import Loading from "./loading";
 import sold from "../assets/sold.png";
@@ -33,9 +33,14 @@ function Pride(props) {
   ];
   const [filter, setFilter] = useState(false);
   const [sort, setSort] = useState(false);
-  const { isLoading, error, data } = useQuery("pride", getArtworksPride, {
-    refetchOnWindowFocus: false,
-  });
+
+  const { isLoading, error, data } = useQuery(
+    "pride" + props.match.params.id,
+    () => getArtworksPride(props.match.params.id),
+    {
+      refetchOnWindowFocus: false,
+    }
+  );
   const [filterType, setFilterType] = useState("");
   const [categoryType, setCategoryType] = useState([]);
   const [filterPrice, setFilterPrice] = React.useState([0, 1000000]);

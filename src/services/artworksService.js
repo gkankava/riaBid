@@ -7,8 +7,8 @@ export function getArtworks() {
   return http.get(apiEndpoint);
 }
 
-export function getArtworksPride() {
-  return http.get(apiUrl + "/pride-artworks");
+export function getArtworksPride(id = 1) {
+  return http.get(apiEndpoint + "?pride=" + id);
 }
 
 export function getArtworksNew() {

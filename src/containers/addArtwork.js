@@ -139,6 +139,7 @@ function AddArtwork(props) {
               <option value="0">Normal</option>
 
               <option value="1">Pride</option>
+              <option value="2">Photography</option>
             </select>
 
             <select

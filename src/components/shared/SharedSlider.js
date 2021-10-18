@@ -66,8 +66,7 @@ function SharedSlider({ auction, title, data, slidesToShow, special }) {
   return (
     <div className="selectedFor container">
       <div className="head-wrapper">
-        <Link to={special ? "/pride" : "/store"}>
-          {" "}
+        <Link to={special ? "/special/1" : "/store"}>
           <h3>{title}</h3>
         </Link>
         <div className="action-wrapper">
@@ -89,9 +88,9 @@ function SharedSlider({ auction, title, data, slidesToShow, special }) {
               <BsArrowRightShort />
             </div>
           </div>
-          <Link to={special ? "/pride" : "/store"}>
+          <Link to={special ? "/special/1" : "/store"}>
             <button className="btn-placebid">
-              <Link to={special ? "/pride" : "/store"}>SHOW MORE</Link>
+              <Link to={special ? "/special/1" : "/store"}>SHOW MORE</Link>
             </button>
           </Link>
         </div>
