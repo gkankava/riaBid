@@ -223,9 +223,9 @@ function AddArtwork(props) {
                 placeholder="Price GEL"
               ></input>
               <p style={{ position: "absolute", right: 0 }}>
-                Final Price: {buy_it_now * 1.15} GEL
+                Final Price: {buy_it_now * 1.25} GEL
               </p>
-              <p>+ Riabid commission 15%</p>
+              <p>+ Riabid commission 25%</p>
             </div>
             <div
               className="flex"
